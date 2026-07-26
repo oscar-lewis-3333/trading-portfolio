@@ -18,63 +18,14 @@ Project takes tickers and uses their real-world market data to indicate buy/sell
 - Chose to weight different signals differently when constructing the composite signal, specifically if the ticker was in a strong trend (up or down) we weighted the trend signal significantly more than other signals. This was to avoid false sell signals and a lack of buy signals when a ticker was in a strong upturn (and vice versa)
 
 ## BACKTEST RESULTS
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+| Ticker  | Strategy_Return_% | BuyHold_Return_% | Outperformance_% |
+|---------|-------------------|------------------|-------------------|
+| SPY     | 20.36              | 40.35             | -19.99            |
+| JNJ     | 73.65              | 71.89             | 1.76              |
+| SOL-USD | -26.95             | -59.06            | 32.11             |
+| TSLA    | 5.74               | 45.15             | -39.41            |
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Strategy_Return_%</th>
-      <th>BuyHold_Return_%</th>
-      <th>Outperformance_%</th>
-    </tr>
-    <tr>
-      <th>Ticker</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>SPY</th>
-      <td>20.36</td>
-      <td>40.35</td>
-      <td>-19.99</td>
-    </tr>
-    <tr>
-      <th>JNJ</th>
-      <td>73.65</td>
-      <td>71.89</td>
-      <td>1.76</td>
-    </tr>
-    <tr>
-      <th>SOL-USD</th>
-      <td>-26.95</td>
-      <td>-59.06</td>
-      <td>32.11</td>
-    </tr>
-    <tr>
-      <th>TSLA</th>
-      <td>5.74</td>
-      <td>45.15</td>
-      <td>-39.41</td>
-    </tr>
-  </tbody>
-</table>
-</div>
 
 ## KEY FINDINGS
 - On the tickers tested, our strategy generally seems to predict the buy/sell moments to a pretty good degree. Whilst there are some incorrect signals, a visual estimate of 80-90%, of signals are accurate after taking lag into account, which will be addressed below. The system is designed to detect large shifts in the market as they happen and often after a signal, there is a noticeable change in that direction (i.e the signal is near a turning point).
