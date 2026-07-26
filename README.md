@@ -10,8 +10,8 @@ Historical price analysis, return important statistics, and multi-asset Sharpe r
 ranking across stocks, ETFs, and cryptocurrencies.
 → [View project](./past_market_analysis/)
 
-### 2. Technical Analysis & Signal Generation
-Moving averages, RSI, Bollinger Bands, and buy/sell signal generation.
+### 2. Technical Analysis, Signal Generation & Backtesting
+Adaptive RSI, Bollinger thresholds, ADX-weighted composite trading signals and backtesting across various tickers
 → [View project](./technical_analysis/)
 
 ### 3. Options Pricing & Stochastic Modelling
