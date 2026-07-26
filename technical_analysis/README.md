@@ -1,4 +1,4 @@
-# TECHNICAL ANALYSIS AND SIGNAL GENERATION
+# TECHNICAL ANALYSIS AND SIGNAL GENERATION AND BACKTESTING
 
 ## OVERVIEW
 Project takes tickers and uses their real-world market data to indicate buy/sell signals. Comes with a backtest signal, where we compare buying and selling according to our signals, with just buying and holding.
