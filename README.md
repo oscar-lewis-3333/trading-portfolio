@@ -14,8 +14,8 @@ ranking across stocks, ETFs, and cryptocurrencies.
 Adaptive RSI, Bollinger thresholds, ADX-weighted composite trading signals and backtesting across various tickers
 → [View project](./technical_analysis/)
 
-### 3. Options Pricing & Stochastic Modelling
-Black-Scholes analytical pricing with SymPy, Monte Carlo simulation with SciPy.
+### 3. Options Pricing, Stochastic Modelling and Implied Volatility Analysis
+Black-Scholes analytical pricing with SymPy, Monte Carlo simulation with SciPy, implied volatility calculations
 → [View project](./options_pricing/)
 
 ### 4. Portfolio Optimisation & Forecasting *(coming soon)*
