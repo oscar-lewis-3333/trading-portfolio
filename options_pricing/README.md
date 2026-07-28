@@ -34,7 +34,7 @@ A project dedicated to symbolic analytic solutions to Black-Scholes and Monte Ca
 ## PROJECT STRUCTURE
     src/
         black_scholes.py — symbolic pricing, Greeks, implied volatility, live option chain fetching
-        monte_carlo.py   — Monte Carlo
+        monte_carlo.py   — use of monte carlo methods to approximate black-scholes call prices
         plotting.py      — Greeks plots, convergence plots, implied volatility comparison plots
     notebooks/
         options.ipynb    — main showcasing/analysis
