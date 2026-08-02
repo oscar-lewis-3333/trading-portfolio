@@ -18,8 +18,10 @@ Adaptive RSI, Bollinger thresholds, ADX-weighted composite trading signals and b
 Black-Scholes analytical pricing with SymPy, Monte Carlo simulation with SciPy, implied volatility calculations
 → [View project](./options_pricing/)
 
-### 4. Portfolio Optimisation & Forecasting *(coming soon)*
-Markowitz portfolio optimisation, Monte Carlo forecasting, ML price prediction.
+### 4. Time Series Forecasting
+ARIMA return modelling and GARCH/GJR volatility forecasting, with walk-forward
+backtesting and comparison against market implied volatility.
+→ [View project](./time_series_forecasting/)
 
 ## Libraries used
 Python · NumPy · Pandas · Matplotlib · SciPy · SymPy · yfinance
