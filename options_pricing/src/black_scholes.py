@@ -183,7 +183,7 @@ def full_iv_analysis(ticker, period="1y", expiry_index=5, r_val=0.05, min_strike
     print(f"Current price:       ${current_price:.2f}")
     print(f"Strike used:         ${K_val:.2f}")
     print(f"Expiry:              {expiry} (T={T_val:.4f} years)")
-    print(f"Option lastPrice:    ${last_price:.2f}  (not a live quote, see above markdown comment)")
+    print(f"Option lastPrice:    ${last_price:.2f}  (not a live quote, see options_pricing README)")
     print(f"Implied volatility:  {iv:.4f} ({iv*100:.2f}%)")
     print(f"Realised volatility: {realised_vol:.4f} ({realised_vol*100:.2f}%)")
     print(f"Difference:          {(iv-realised_vol)*100:.2f} percentage points")
