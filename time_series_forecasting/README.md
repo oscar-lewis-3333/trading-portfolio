@@ -1,32 +1,65 @@
 # TIME SERIES FORECASTING
 
 ## OVERVIEW
-[ARIMA for returns, GARCH for volatility, with forecast validation]
+There are two main models used here, ARIMA (AutoRegression Integrated Moving Averaege) to model future returns
 
 ## FEATURES
-[ADF stationarity testing, automated ARIMA order selection via AIC grid search,
-GARCH and GJR-GARCH fitting, volatility forecasting, walk-forward backtesting,
-GARCH vs market implied volatility comparison, cross-ticker validation]
+- ADF stationary testing to determine time dependence
+- ARIMA model order selection using AIC grid search
+- GARCH, EGARCH, GJR-GARCH volatility modelling and forecasting
+- Walk forward backtesting of volatility model
+- GARCH vs implied volatility comparison
+- Cross ticker comparison/validation
 
 ## KEY DESIGN DECISIONS
-[Why the manual AIC grid search instead of pmdarima — NumPy 2.x incompatibility,
-and the value of understanding the selection process. Why returns rather than
-prices — stationarity. Why refit_every rather than daily refitting.]
+- AIC grid chosen of pmdarima due to a lack of combatability with Numpy 2.x
+- Returns are chosen to be modelled instead of close prices due to returns being stationary by the ADF test and close prices being non-stationary by the same test
+- The choice of refit_every is because fitting a GARCH model is a very slow process, so if done every day over a 5 day period, processing time would be extremely slow
 
 ## RESULTS
-[ARIMA orders by ticker, GARCH persistence values, GJR gamma significance,
-backtest error metrics, the live GARCH vs implied volatility example]
+
+### Cross-ticker comparisons
+| Ticker | ARIMA_order | GARCH_alpha_beta | GJR_gamma | GJR_gamma_pval | AIC_improvement |
+|--------|-------------|------------------|-----------|----------------|-----------------|
+| AAPL   | (1, 0, 3)   | 0.9463           | 0.1279    | 0.0150         | 19.14           |
+| NVDA   | (1, 0, 0)   | 0.9597           | 0.2668    | 0.0732         | 20.81           |
+| SPY    | (0, 0, 3)   | 0.9244           | 0.1807    | 0.6388         | 48.33           |
+| JNJ    | (3, 0, 2)   | 0.7623           | -0.0164   | 0.8772         | -1.93           |
+| TSLA   | (0, 0, 0)   | 0.9895           | 0.0282    | 0.1582         | 2.83            |
+
+### GARCH Walk-forward backtesting
+
+| Metric | Value |
+|---|---|
+| Backtest observations | 231 |
+| Mean absolute error | 0.0612 |
+| RMSE | 0.0727 |
+| Correlation | 0.0621 |
+
+### Different measures of volatility
+
+| Measure | Value |
+|---|---|
+| 5-year realised volatility | 25.85% |
+| 5-day rolling volatility | 55.12% |
+| GARCH day-1 forecast | 40.64% |
+| Market implied volatility | 28.92% |
 
 ## KEY FINDINGS
-[The honest story: models describe volatility persistence robustly, but
-return predictability and leverage asymmetry are asset-specific and
-sample-sensitive. Near-zero forecast correlation. AAPL's gamma significance
-disappearing on a larger sample.]
+- Looking at the Cross-ticker comparison, we see no correlation between the ARIMA orders chosen per ticker, confirming the fact that it is not a general measure, but a model that applies differently to different tickers. Also we have $\alpha + \beta$ is very close to one for most tickers, implying that periods with more shock take longer to return to standard volatility. We also see that across these tickers the GJR-Model was generally the more effective method at forecasting volatility when measured by AIC improvement.
 
+- We see that our backtesting walk-forward method was not particularly effective, as it had limited correlation with the actual volatility path. This could be for a few reasons. The refit_every option cannot be too small otherwise computation takes a significant amount of time due to the slow nature of fitting a GARCH model, so we're stuck with relatively large refit_every's, which potentially reduce accurary. It is also true that the GARCH volatility forecasting accurately is a difficult process with limited overall accuracy.
+
+- When compared with the implied volatility measure from options pricing, we see immediately that investors are (implicitly) predicting a much lower volatility compared to the GARCH forecast. At the time of this model running (31/07/2026) AAPL had a sharp shock and the GARCH prediction seems to reflect this alongside the 5-day rolling volatility, however a significant call option bought after the drop is predicting a drop back towards AAPL's steady volatility level.
+
+- Observing plots in the notebook, it is clear that the GARCH forecast often sits inbetween the 10 and 30 day rolling volatility averages, with the first acting as true recency bias, the latter 'smoothing' out the volatility and GARCH being somewhere in between these, valuing recent volatility more, but not too much.
+ 
 ## LIMITATIONS
-[Noisy realised volatility proxy in backtesting. Modest sample sizes. Single
-market period. alpha+beta at/above 1.0 for JNJ and SPY suggesting model strain.
-GARCH forecast validation is genuinely hard to do well.]
+- Walk forward back-testing was not successful when measured by correlation to the actual volatilty, the reasons for this have already been discussed in key findings.
+
+- In key results, we see that often $\alpha + \beta$ are close to 1. When this occurs, the GARCH model starts to strain and predict nonsense volatility projection (specifically for $\alpha + \beta \geq 1$), possibly a reason for such a lack of correlation when backtesting our model on various tickers, as in these time periods almost all tickers have had periods of massive volatility spikes.
+
+- Often these statistics change significantly based upon what time period we look over, meaning that the GARCH model's 'performance' depends significantly on the time period it was tested over, some models are better at predicting large spikes, others with a more steady market. In our case, these correspond to different time periods, as some contain large volatility spikes depending on many years one chooses to investigate.
 
 ## LIBRARIES USED
 - statsmodels — ADF stationarity test and ARIMA model fitting
