@@ -24,7 +24,7 @@ This project discusses the most efficient ways to optimise a portfolio of ticker
 ### Correlation matrix
 
 |      | AAPL  | NVDA   | SPY   | JNJ    | GLD   | TSLA   |
-|------|-------|--------|-------|--------|-------|--------|
+|------|------|------|------|------|------|------|
 | AAPL | 1.000 | 0.479  | 0.725 | 0.137  | 0.056 | 0.466  |
 | NVDA | 0.479 | 1.000  | 0.708 | -0.113 | 0.081 | 0.463  |
 | SPY  | 0.725 | 0.708  | 1.000 | 0.161  | 0.148 | 0.582  |
@@ -35,7 +35,7 @@ This project discusses the most efficient ways to optimise a portfolio of ticker
 ### Portfolio comparison (in-sample, full period)
 
 | Strategy | Return (%) | Volatility (%) | Sharpe |
-|-----|-----|------|-----|-----|-----|-----|
+|-----|-----|-----|-----|-----|-----|-----|
 | Equal weight | 24.37 | 21.95 | 1.110 |
 | Min variance | 14.35 | 11.36 | 1.263 |
 | Risk parity | 18.88 | 13.98 | 1.351 |
@@ -44,7 +44,7 @@ This project discusses the most efficient ways to optimise a portfolio of ticker
 ### Weight instability across sub-periods (long-only max Sharpe)
 
 | Period | AAPL | NVDA | SPY | JNJ | GLD | TSLA |
-|------|-------|--------|-------|--------|-------|--------|
+|-----|-----|-----|-----|-----|-----|-----|
 | 2021-08 to 2022-10 | 27.6 | 0.0 | 0.0 | 63.1 | 0.0 | 9.4 |
 | 2022-10 to 2024-01 | 0.0 | 40.0 | 0.0 | 0.0 | 60.0 | 0.0 |
 | 2024-02 - 2025-05 | 0.0 | 8.0 | 0.0 | 10.3 | 78.2 | 3.4 |
@@ -54,7 +54,7 @@ This project discusses the most efficient ways to optimise a portfolio of ticker
 ### Estimated annual mean returns by sub-period (%)
 
 | Period | AAPL | NVDA | SPY | JNJ | GLD | TSLA |
-|------|-------|--------|-------|--------|-------|--------|
+|------|------|------|------|------|------|------|
 | 1 | 10.9 | -11.2 | -5.7 | 5.2 | -7.2 | 15.8 |
 | 2 | 17.0 | 132.1 | 20.0 | -3.5 | 17.6 | 0.3 |
 | 3 | 16.8 | 65.6 | 14.7 | 2.5 | 38.1 | 56.3 |
@@ -74,7 +74,7 @@ This project discusses the most efficient ways to optimise a portfolio of ticker
 ### Turnover when re-optimised each period
 
 | Strategy | Avg turnover (%) | Max turnover (%) | Cost per rebalance (%) |
-|------|-------|--------|-------|--------|-------|--------|
+|------|------|------|------|------|------|------|
 | Max Sharpe | 68.9 | 100.0 | 0.069 |
 | Min variance | 19.5 | 34.3 | 0.020 |
 | Risk parity | 10.6 | 17.0 | 0.011 |
@@ -83,7 +83,7 @@ This project discusses the most efficient ways to optimise a portfolio of ticker
 ### Effect of a maximum weight cap (max Sharpe)
 
 | Cap | Sharpe | Return (%) | Vol (%) | AAPL | NVDA | SPY | JNJ | GLD | TSLA |
-|------|-------|--------|-------|--------|-------|--------|
+|------|------|------|------|------|------|------|
 | None | 1.635 | 24.11 | 14.75 | 0.0 | 20.7 | 0.0 | 39.9 | 39.4 | 0.0 |
 | 50% | 1.635 | 24.11 | 14.75 | 0.0 | 20.7 | 0.0 | 39.9 | 39.4 | 0.0 |
 | 35% | 1.604 | 25.55 | 15.92 | 6.9 | 23.1 | 0.0 | 35.0 | 35.0 | 0.0 |
@@ -92,7 +92,7 @@ This project discusses the most efficient ways to optimise a portfolio of ticker
 ### Long-only vs shorting allowed (max Sharpe)
 
 | | Return (%) | Vol (%) | Sharpe | Gross exposure (%) | Largest short (%) |
-|------|-------|--------|-------|--------|-------|--------|
+|-------|-------|-------|-------|-------|-------|-------|
 | Long only | 23.99 | 14.60 | 1.643 | 100.0 | 0.0 |
 | Shorting allowed | 32.36 | 18.71 | 1.730 | 227.5 | -63.2 |
 | | AAPL | NVDA | SPY | JNJ | GLD | TSLA |
