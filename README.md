@@ -23,6 +23,10 @@ ARIMA return modelling and GARCH/GJR volatility forecasting, with walk-forward
 backtesting and comparison against market implied volatility.
 → [View project](./time_series_forecasting/)
 
+### 5. Portfolio Optimisation
+Markowitz portfolio optimisation, efficent frontier plotting, risk parity portfolio, shorting calculations
+→ [View project](./portfiolio_construction/)
+
 ## Libraries used
 Python · NumPy · Pandas · Matplotlib · SciPy · SymPy · yfinance
 
