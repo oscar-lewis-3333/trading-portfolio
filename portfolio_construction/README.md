@@ -35,7 +35,7 @@ This project discusses the most efficient ways to optimise a portfolio of ticker
 ### Portfolio comparison (in-sample, full period)
 
 | Strategy | Return (%) | Volatility (%) | Sharpe |
-|-----|-----|-----|-----|-----|-----|-----|
+|---|---|---|---|
 | Equal weight | 24.37 | 21.95 | 1.110 |
 | Min variance | 14.35 | 11.36 | 1.263 |
 | Risk parity | 18.88 | 13.98 | 1.351 |
@@ -74,7 +74,7 @@ This project discusses the most efficient ways to optimise a portfolio of ticker
 ### Turnover when re-optimised each period
 
 | Strategy | Avg turnover (%) | Max turnover (%) | Cost per rebalance (%) |
-|------|------|------|------|------|------|------|
+|---|---|---|---|
 | Max Sharpe | 68.9 | 100.0 | 0.069 |
 | Min variance | 19.5 | 34.3 | 0.020 |
 | Risk parity | 10.6 | 17.0 | 0.011 |
@@ -83,7 +83,7 @@ This project discusses the most efficient ways to optimise a portfolio of ticker
 ### Effect of a maximum weight cap (max Sharpe)
 
 | Cap | Sharpe | Return (%) | Vol (%) | AAPL | NVDA | SPY | JNJ | GLD | TSLA |
-|------|------|------|------|------|------|------|
+|---|---|---|---|---|---|---|---|---|---|
 | None | 1.635 | 24.11 | 14.75 | 0.0 | 20.7 | 0.0 | 39.9 | 39.4 | 0.0 |
 | 50% | 1.635 | 24.11 | 14.75 | 0.0 | 20.7 | 0.0 | 39.9 | 39.4 | 0.0 |
 | 35% | 1.604 | 25.55 | 15.92 | 6.9 | 23.1 | 0.0 | 35.0 | 35.0 | 0.0 |
@@ -91,13 +91,16 @@ This project discusses the most efficient ways to optimise a portfolio of ticker
 
 ### Long-only vs shorting allowed (max Sharpe)
 
-| | Return (%) | Vol (%) | Sharpe | Gross exposure (%) | Largest short (%) |
-|-------|-------|-------|-------|-------|-------|-------|
+| Strategy | Return (%) | Vol (%) | Sharpe | Gross exposure (%) | Largest short (%) |
+|---|---|---|---|---|---|
 | Long only | 23.99 | 14.60 | 1.643 | 100.0 | 0.0 |
 | Shorting allowed | 32.36 | 18.71 | 1.730 | 227.5 | -63.2 |
-| | AAPL | NVDA | SPY | JNJ | GLD | TSLA |
+
+| Strategy | AAPL | NVDA | SPY | JNJ | GLD | TSLA |
+|---|---|---|---|---|---|---|
 | Long only | 0.0 | 20.2 | 0.0 | 40.8 | 39.0 | 0.0 |
 | Shorting allowed | 17.0 | 35.6 | -63.2 | 59.3 | 51.8 | -0.5 |
+
 
 ## KEY FINDINGS
 - The process of markowitz optimisation (finding an optimal portfolio) is unstable as shown by the stability test, with the issue not being the covariance matrix (as shown by Ledoit-Wolf optimisation changing minimal) but the historical means, not the method. This makes it difficult to choose the best weights as they are changing significantly over different periods of time for max-sharpe portfolio causing ~0.07% per restructuring per our estimation. This is due to the max-sharpe portfolio eliminating the assets that do not perform well, and puts all its eggs in 1/2 baskets. This is what causes the instabilty as there is no portfolio diversification

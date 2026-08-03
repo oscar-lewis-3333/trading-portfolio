@@ -25,10 +25,10 @@ backtesting and comparison against market implied volatility.
 
 ### 5. Portfolio Optimisation
 Markowitz portfolio optimisation, efficent frontier plotting, risk parity portfolio, shorting calculations
-→ [View project](./portfiolio_construction/)
+→ [View project](./portfolio_construction/)
 
 ## Libraries used
 Python · NumPy · Pandas · Matplotlib · SciPy · SymPy · yfinance
 
 ## Author
-Oscar Lewis · [GitHub](https://github.com/oscar-lewis-3333)
+Oscar Lewis · [GitHub](https://github.com/oscar-lewis-3333) [LinkedIn](www.linkedin.com/in/oscar-lewis-aba333230)
