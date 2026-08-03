@@ -1,8 +1,7 @@
 # PORTFOLIO CONSTRUCTION
 
 ## OVERVIEW
-[Markowitz mean-variance optimisation, the efficient frontier, and the
-practical problems with it — instability, turnover, concentration]
+This project discusses the most efficient ways to optimise a portfolio of tickers, a process called Markowitz optimisation. We plot the efficient frontier, discuss the tangency portfolio, the limitations it has (instability, turnover), and the methods of overcoming this (risk parity). We end with a discussion on the benefits and risks of shorting.
 
 ## FEATURES
 - Correlation matrix estimator across tickers
@@ -36,6 +35,7 @@ practical problems with it — instability, turnover, concentration]
 ### Portfolio comparison (in-sample, full period)
 
 | Strategy | Return (%) | Volatility (%) | Sharpe |
+|-----|-----|------|-----|-----|-----|-----|
 | Equal weight | 24.37 | 21.95 | 1.110 |
 | Min variance | 14.35 | 11.36 | 1.263 |
 | Risk parity | 18.88 | 13.98 | 1.351 |
@@ -44,15 +44,17 @@ practical problems with it — instability, turnover, concentration]
 ### Weight instability across sub-periods (long-only max Sharpe)
 
 | Period | AAPL | NVDA | SPY | JNJ | GLD | TSLA |
+|------|-------|--------|-------|--------|-------|--------|
 | 2021-08 to 2022-10 | 27.6 | 0.0 | 0.0 | 63.1 | 0.0 | 9.4 |
 | 2022-10 to 2024-01 | 0.0 | 40.0 | 0.0 | 0.0 | 60.0 | 0.0 |
-| 2024-02 to 2025-05 | 0.0 | 8.0 | 0.0 | 10.3 | 78.2 | 3.4 |
+| 2024-02 - 2025-05 | 0.0 | 8.0 | 0.0 | 10.3 | 78.2 | 3.4 |
 | 2025-05 to 2026-07 | 7.5 | 12.3 | 28.2 | 49.0 | 3.0 | 0.0 |
 | **Std dev (pp)** | **13.0** | **17.4** | **14.1** | **30.2** | **39.8** | **4.4** |
 
 ### Estimated annual mean returns by sub-period (%)
 
 | Period | AAPL | NVDA | SPY | JNJ | GLD | TSLA |
+|------|-------|--------|-------|--------|-------|--------|
 | 1 | 10.9 | -11.2 | -5.7 | 5.2 | -7.2 | 15.8 |
 | 2 | 17.0 | 132.1 | 20.0 | -3.5 | 17.6 | 0.3 |
 | 3 | 16.8 | 65.6 | 14.7 | 2.5 | 38.1 | 56.3 |
@@ -72,6 +74,7 @@ practical problems with it — instability, turnover, concentration]
 ### Turnover when re-optimised each period
 
 | Strategy | Avg turnover (%) | Max turnover (%) | Cost per rebalance (%) |
+|------|-------|--------|-------|--------|-------|--------|
 | Max Sharpe | 68.9 | 100.0 | 0.069 |
 | Min variance | 19.5 | 34.3 | 0.020 |
 | Risk parity | 10.6 | 17.0 | 0.011 |
@@ -80,6 +83,7 @@ practical problems with it — instability, turnover, concentration]
 ### Effect of a maximum weight cap (max Sharpe)
 
 | Cap | Sharpe | Return (%) | Vol (%) | AAPL | NVDA | SPY | JNJ | GLD | TSLA |
+|------|-------|--------|-------|--------|-------|--------|
 | None | 1.635 | 24.11 | 14.75 | 0.0 | 20.7 | 0.0 | 39.9 | 39.4 | 0.0 |
 | 50% | 1.635 | 24.11 | 14.75 | 0.0 | 20.7 | 0.0 | 39.9 | 39.4 | 0.0 |
 | 35% | 1.604 | 25.55 | 15.92 | 6.9 | 23.1 | 0.0 | 35.0 | 35.0 | 0.0 |
@@ -88,10 +92,9 @@ practical problems with it — instability, turnover, concentration]
 ### Long-only vs shorting allowed (max Sharpe)
 
 | | Return (%) | Vol (%) | Sharpe | Gross exposure (%) | Largest short (%) |
-
+|------|-------|--------|-------|--------|-------|--------|
 | Long only | 23.99 | 14.60 | 1.643 | 100.0 | 0.0 |
 | Shorting allowed | 32.36 | 18.71 | 1.730 | 227.5 | -63.2 |
-
 | | AAPL | NVDA | SPY | JNJ | GLD | TSLA |
 | Long only | 0.0 | 20.2 | 0.0 | 40.8 | 39.0 | 0.0 |
 | Shorting allowed | 17.0 | 35.6 | -63.2 | 59.3 | 51.8 | -0.5 |
