@@ -30,5 +30,7 @@ Markowitz portfolio optimisation, efficent frontier plotting, risk parity portfo
 ## Libraries used
 Python · NumPy · Pandas · Matplotlib · SciPy · SymPy · yfinance
 
-## Author
-Oscar Lewis · [GitHub](https://github.com/oscar-lewis-3333) [LinkedIn](www.linkedin.com/in/oscar-lewis-aba333230)
+## About
+Trading Portfolio built by Oscar Lewis, 4th year masters student at the University of Warwick to showcase skills in python and quantative finance. For key details on individual projects see README's.
+
+[LinkedIn](www.linkedin.com/in/oscar-lewis-aba333230) · [GitHub](https://github.com/oscar-lewis-3333)
