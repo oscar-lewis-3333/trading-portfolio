@@ -29,7 +29,7 @@ Markowitz portfolio optimisation, efficent frontier plotting, risk parity portfo
 
 ### 6. Machine Learning Fundamentals
 Foundational Machine Learning techniques - overfitting, feature importance, calibration, cross validation - established on well-behaved data before applications to quantitative finance.
-
+→ [View project](./ml_fundamentals/)
 
 ## Libraries used
 Python · NumPy · Pandas · Matplotlib · SciPy · SymPy · yfinance · sklearn
