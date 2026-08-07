@@ -27,10 +27,14 @@ backtesting and comparison against market implied volatility.
 Markowitz portfolio optimisation, efficent frontier plotting, risk parity portfolio, shorting calculations
 → [View project](./portfolio_construction/)
 
+### 6. Machine Learning Fundamentals
+Foundational Machine Learning techniques - overfitting, feature importance, calibration, cross validation - established on well-behaved data before applications to quantitative finance.
+
+
 ## Libraries used
-Python · NumPy · Pandas · Matplotlib · SciPy · SymPy · yfinance
+Python · NumPy · Pandas · Matplotlib · SciPy · SymPy · yfinance · sklearn
 
 ## About
-Trading Portfolio built by Oscar Lewis, 4th year masters student at the University of Warwick to showcase skills in python and quantative finance. For key details on individual projects see README's.
+Trading Portfolio built by Oscar Lewis, 4th year MMath student at the University of Warwick, to showcase skills in python, quantative finance and machine learning. For key details on individual projects see README's.
 
 [LinkedIn](https://www.linkedin.com/in/oscar-lewis-aba333230) · [GitHub](https://github.com/oscar-lewis-3333)
