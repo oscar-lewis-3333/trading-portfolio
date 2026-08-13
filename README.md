@@ -31,6 +31,10 @@ Markowitz portfolio optimisation, efficent frontier plotting, risk parity portfo
 Foundational Machine Learning techniques - overfitting, feature importance, calibration, cross validation - established on well-behaved data before applications to quantitative finance.
 → [View project](./ml_fundamentals/)
 
+### 7. Machine Learning Trading Signals, Momentum Baseline Validation
+Rigorous ML validation on technical indicators of trading signals - initial approach found no significance after which a real significance in momentum was found which ML could not improve on. End with forward-looking ongoing test of value/quality fundamentals.
+→ [View project](./ml_trading_signals/)
+
 ## Libraries used
 Python · NumPy · Pandas · Matplotlib · SciPy · SymPy · yfinance · sklearn
 

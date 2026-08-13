@@ -147,9 +147,7 @@ ret, vol, sharpe = portfolio_stats(w_sharpe, mu_arr, cov_arr)
 
 #plotting and visualising the efficient frontier
 vols, rets, _ = efficient_frontier(mu_arr, cov_arr, n_points=50)
-plot_efficient_frontier(mu_arr, cov_arr, tickers, vols, rets,
-                        portfolios={'Max Sharpe': (w_sharpe, 'red', '*'),
-                                    'Risk parity': (w_rp, 'blue', 'P')})
+plot_efficient_frontier(mu_arr, cov_arr, tickers, vols, rets, portfolios={'Max Sharpe': (w_sharpe, 'red', '*'), 'Risk parity': (w_rp, 'blue', 'P')})
 
 # Diagnostics
 stability_test(returns_df, n_periods=4, allow_shorting=False)
