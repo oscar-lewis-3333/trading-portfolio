@@ -32,8 +32,17 @@ Foundational Machine Learning techniques - overfitting, feature importance, cali
 → [View project](./ml_fundamentals/)
 
 ### 7. Machine Learning Trading Signals, Momentum Baseline Validation
-Rigorous ML validation on technical indicators of trading signals - initial approach found no significance after which a real significance in momentum was found which ML could not improve on. End with forward-looking ongoing test of value/quality fundamentals.
+Rigorous ML validation on technical indicators of trading signals - initial approach found no significance after which a real significance in momentum was found that ML could not improve on. End with forward-looking ongoing test of value/quality fundamentals.
 → [View project](./ml_trading_signals/)
+
+### 8. Risk Management and Position Sizing
+Kelly optimised, volatility scaled, CVaR-constrained postion sizing applied to momentum signal. Analysis of four risk mechanisms on momentum equity curve, with maximum drawdown circuit breaker being the clear victor even after transaction costs included.
+
+→ [View project](./risk_management/)
+
+### 9. Autonomous Trading System (Coming Soon)
+
+
 
 ## Libraries used
 Python · NumPy · Pandas · Matplotlib · SciPy · SymPy · yfinance · sklearn

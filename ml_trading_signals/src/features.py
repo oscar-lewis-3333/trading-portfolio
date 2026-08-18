@@ -185,3 +185,41 @@ def forward_evaluation_tracking(log_path='../data/forward_test_log.csv'):
     print(log.groupby('group')['current_return'].agg(['mean', 'count']))
     return log
 
+#we build a momentum equity curve that is used for risk_management project. added after this project completed, but suitable place to have it.
+
+def build_momentum_equity_curve(pooled_df, lookback_col='return_21d', top_frac=0.25, rebalance_days=63, min_universe=5):
+
+    #rank, select top fraction each day using that days single-day return compounded continuously 
+
+    clean = pooled_df.dropna(subset=[lookback_col, 'return_1d'])
+    all_dates = sorted(clean.index.unique())
+    
+    daily_returns = []
+    current_selection = None
+     
+    for i, date in enumerate(all_dates):
+        day = clean.loc[clean.index == date]
+        if len(day) < min_universe:
+            continue
+
+        if i % rebalance_days == 0:
+            days = day.sort_values(lookback_col, ascending=False)
+            n = max(1, int(len(day) * top_frac))
+            current_selection = set(days.head(n)['ticker'])
+
+        if current_selection is None:
+            continue    
+
+        held = day[day['ticker'].isin(current_selection)]
+        if len(held) == 0:
+            continue
+
+        daily_returns.append({
+            'date': date,
+            'portfolio_return': held['return_1d'].mean()
+        })
+
+    daily_df = pd.DataFrame(daily_returns).set_index('date').sort_index()
+    daily_df['equity'] = (1 + daily_df['portfolio_return']).cumprod()
+
+    return daily_df
