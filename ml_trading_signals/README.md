@@ -124,6 +124,7 @@ return_5d was not significant at any top_frac tested.
 - The only indicator that could potentially hold (would need more rigourous and diverse statistical testing) is an anti-correlation of our sell signals, which did produce results of statistical significance. In layman's terms, our machine was predicting 'sell' signals when it should've been predicting 'buy' signals. 
 - A momentum signal succeeded where the process above failed, producing a statistically significant difference between top-performing tickers and the universe baseline (and bottom performing tickers). When we tried to combine this with any other technical indicator, the strength of the signal reduced to being statistical insignificant from the universe average
 - The book referenced heavily favoured simplicity of features, which is what has somewhat been shown here. ML was trying to train to noise, which is why it ended up failing. ML succeeds when combining and filtering known signals, instead of creating them.
+- (UPDATE) Ran momentum system with universe as S&P 500. Found no significance across any returns window or any top fraction selection. When momentum walk forward tested, excess returns were insignificant from 0. This implies that there was potentially something special about the properties of the universe we selected, whether that be liquidity, volume, market-cap or any other property.
 
 ## FORWARD TEST STATUS
 
@@ -131,7 +132,7 @@ Test was begun on 13/08/2026, on 19 tickers which are ranked by a composite sign
 
 ## LIMITATIONS
 
-- Our universe to measure market drift was only 20 stocks in size, and largely consisted of large-cap US stocks and equities. In reality, market has a lot more stocks/equities and many in other regions which could hold statistical significance
+- Our universe to measure market drift was only 20 stocks in size, and largely consisted of large-cap US stocks and equities. In reality, market has a lot more stocks/equities and many in other regions which could hold statistical significance (UPDATED FINDINGS IN KEY FINDINGS)
 - Part 3 cannot be backtested due to a limited amount of historical data on each stocks P/E ratio and RoE, so the only statistically viable way to draw conclusions is to wait and see what occurs in the future. Ideally would back-test, but not possible with given data.
 
 ## LIBRARIES USED

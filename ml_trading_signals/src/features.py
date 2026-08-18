@@ -3,6 +3,7 @@ import pandas as pd
 import yfinance as yf
 from labels import triple_barrier_labels
 from datetime import datetime
+import time
 
 def build_features(df, spy_df=None):
     #we attach features for our dataframe for analysis reasons (most if not all features seen in technical_analysis, with changes being to make them ratios, as general close prices are not stationary as shown in ARIMA/GARCH project, whilst ratios are)
@@ -61,20 +62,23 @@ def build_features(df, spy_df=None):
 
     return out
 
-def build_multi_ticker_dataset(tickers, period="10y", horizon=10, profit_mult=2.0, stop_mult=1.0):
+def build_multi_ticker_dataset(tickers, period="10y", horizon=10, profit_mult=2.0, stop_mult=1.0, delay=0.2):
 
     #build pooled feature dataset across multiple tickers
     import sys
     sys.path.append('../../past_market_analysis/src')
     from data_loader import fetch_price_data
 
+
     spy = fetch_price_data("SPY", period=period) 
     all_data = []
+    failed = []
 
     for ticker in tickers:
         try:
             df = fetch_price_data(ticker, period=period)
             if len(df) < 300:
+                failed.append(ticker)
                 continue
             feats = build_features(df, spy_df=spy)
             labels, hold_days, fwd_return = triple_barrier_labels(df, horizon=horizon, profit_mult=profit_mult, stop_mult=stop_mult)
@@ -85,14 +89,18 @@ def build_multi_ticker_dataset(tickers, period="10y", horizon=10, profit_mult=2.
             combined['ticker'] = ticker
 
             all_data.append(combined)
+            time.sleep(delay)
 
-            print(f"{ticker}:{len(combined.dropna())} usable rows")
         except Exception as e:
-            print(f"{ticker}: failed — {e}")
+            failed.append(ticker)
 
             
     pooled = pd.concat(all_data)
     pooled = pooled.sort_index() #sort by date, not ticker
+
+    print(f"Successfully loaded: {len(all_data)} / {len(tickers)} tickers")
+    if failed:
+        print(f"Failed or insufficient data: {len(failed)} " f"({failed[:10]}{'...' if len(failed) > 10 else ''})")
 
     return pooled
 
