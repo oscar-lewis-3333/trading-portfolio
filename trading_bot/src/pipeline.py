@@ -38,7 +38,7 @@ def generate_trading_decisions(tickers, top_frac=0.25, rebalance_days=63, soft_l
 
     rebalance_needed = (state is None or trading_days_since >= rebalance_days)
 
-    if rebalance_days:
+    if rebalance_needed:
 
         momentum = prices.pct_change(21).iloc[-1].dropna()
         if len(momentum) < 5:
