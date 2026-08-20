@@ -44,10 +44,10 @@ To come given enough time to see meaningful results
         plotting_trading_bot.py  — visualising trading history
         run_bot_scheduled.py     — file that is ran by cron every week to perform trading actions
     notebooks/
-        trading_bot.ipynb — main 
+        trading_bot.ipynb — main showcasing/analysis of bot
     data/
         bot_log.jsonl — persistent run history (JSONL, one entry per run)
-        cron.log       — raw output/error log from scheduled runs
+        basket_state.json       — tracks last selection date (allows a rebalance every 63 days)
 
 ## USAGE
 ```python
