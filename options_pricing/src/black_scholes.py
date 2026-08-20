@@ -135,7 +135,6 @@ def compare_implied_vs_realised(ticker, realised_vol, r_val=0.05, min_strike_dis
 def full_iv_analysis(ticker, period="1y", expiry_index=5, r_val=0.05, min_strike_distance=15):
     #we need to import things from past_market_analysis for 3,4
     import sys
-    sys.path.append('../../past_market_analysis/src')
     from data_loader import fetch_price_data
     from analysis import compute_returns, summary_statistics
     from datetime import datetime
@@ -196,4 +195,3 @@ def full_iv_analysis(ticker, period="1y", expiry_index=5, r_val=0.05, min_strike
 
 
     
-

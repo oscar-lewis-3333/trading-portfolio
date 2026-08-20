@@ -64,8 +64,6 @@ def backtest_garch(returns, train_size=500, horizon=1, refit_every=20, actual_wi
 #these two methods are independent in principle, despite both being ways of looking the volatility of a ticker in the future
 def compare_garch_vs_implied(ticker, period="5y", expiry_index=5, r_val=0.05):
     import sys
-    sys.path.append('../../past_market_analysis/src')
-    sys.path.append('../../options_pricing/src')
 
     from data_loader import fetch_price_data
     from analysis import compute_returns
@@ -122,7 +120,6 @@ def fit_asymmetric_garch(returns, model_type='GJR', p=1, q=1):
 def cross_ticker_validation(tickers, period="5y"):
 
     import sys
-    sys.path.append('../../past_market_analysis')
     from data_loader import fetch_price_data
     from analysis import compute_returns
     from arima_model import find_best_arima_model
@@ -150,4 +147,3 @@ def cross_ticker_validation(tickers, period="5y"):
         except Exception as e:
             print(f"Failed for {ticker}: {e}")
     return pd.DataFrame(results).set_index('Ticker')
-

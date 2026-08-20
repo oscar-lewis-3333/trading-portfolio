@@ -67,7 +67,6 @@ def excess_return_target(pooled_df, horizon=21, epsilon=0.0):
     #epsilon: optional deadband. excess returns within +- epsilon from 0 can be treated as noise in a classification system. Kept small as large epsilon turns this into an outlier detection problem.
 
     import sys
-    sys.path.append('../../past_market_analysis/src')
     from data_loader import fetch_price_data
 
     tickers = pooled_df['ticker'].unique()
@@ -89,4 +88,3 @@ def excess_return_target(pooled_df, horizon=21, epsilon=0.0):
     merged = pooled_df.reset_index().merge(excess_long, on=[pooled_df.index.name, 'ticker'], how='left').set_index(pooled_df.index.name)
 
     return merged
-

@@ -154,7 +154,6 @@ def apply_position_stops(tickers, lookback_col='return_21d', period="10y", top_f
     #simulating momentum strategy with above 'labels' applied. if profit/stop free capital to sit until next quarter
 
     import sys
-    sys.path.append('../../past_market_analysis/src')
     from data_loader import fetch_price_data
 
     price_data = {}
@@ -220,4 +219,3 @@ def final_risk_policy(base_size, drawdown_exposure):
     #after analysis in the notebook, we give our final risk policy - size positions by kelly/cvar/vol-scaling, then scale with circuit breaker
 
     return base_size * drawdown_exposure
-

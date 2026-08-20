@@ -7,7 +7,6 @@ def build_returns_matrix(tickers, period="5y", interval="1d"):
     #fetch price data for multiple tickers and reutrn a dataframe of aligned daily returns, it is important that these are aligned for the covariance matrix
 
     import sys
-    sys.path.append('../../past_market_analysis/src')
     from data_loader import fetch_price_data
 
     returns = {}
@@ -43,4 +42,3 @@ def risk_contributions(weights, cov):
     marginal = cov @ weights / port_vol
     contributions = weights * marginal
     return contributions, contributions / port_vol #absolute and percentage contributions
-

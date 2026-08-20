@@ -66,7 +66,6 @@ def build_multi_ticker_dataset(tickers, period="10y", horizon=10, profit_mult=2.
 
     #build pooled feature dataset across multiple tickers
     import sys
-    sys.path.append('../../past_market_analysis/src')
     from data_loader import fetch_price_data
 
 
@@ -133,7 +132,6 @@ def start_forward_tracking(tickers, fund_df, output_path='../data/forward_test_l
     #rank things today by value/quality and record starting prices. 
 
     import sys
-    sys.path.append('../../past_market_analysis/src')
     from data_loader import fetch_price_data
 
     fund = fund_df.dropna(subset=['pe_ratio', 'roe']).copy()
@@ -173,7 +171,6 @@ def forward_evaluation_tracking(log_path='../data/forward_test_log.csv'):
     #update the data previously defined above
 
     import sys
-    sys.path.append('../../past_market_analysis/src')
     from data_loader import fetch_price_data
 
     log = pd.read_csv(log_path)
