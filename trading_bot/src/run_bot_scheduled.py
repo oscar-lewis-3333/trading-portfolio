@@ -71,7 +71,7 @@ if __name__ == "__main__":
             if not inside_execution_window:
                 raise SystemExit(0)
 
-        result = run_bot(tickers=tickers, submit_orders=False, env_path=env_path, state_path=state_path, lookback_days=63, top_frac=0.20, rebalance_days=21)
+        result = run_bot(tickers=tickers, submit_orders=True, env_path=env_path, state_path=state_path, lookback_days=63, top_frac=0.20, rebalance_days=21)
         send_run_alert(result=result, env_path=env_path)
 
     except Exception:
