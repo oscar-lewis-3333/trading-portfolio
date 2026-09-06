@@ -62,10 +62,12 @@ def build_features(df, spy_df=None):
 
     return out
 
-def build_multi_ticker_dataset(tickers, period="10y", horizon=10, profit_mult=2.0, stop_mult=1.0, delay=0.2):
+def build_multi_ticker_dataset(tickers, period="10y", horizon=10, ranking_horizon=21, vol_window=21, profit_mult=2.0, stop_mult=1.0, delay=0.2):
+
+    if horizon < 1 or ranking_horizon < 1:
+        raise ValueError("Horizon and ranking horizon must be at least one")
 
     #build pooled feature dataset across multiple tickers
-    import sys
     from data_loader import fetch_price_data
 
 
@@ -82,18 +84,37 @@ def build_multi_ticker_dataset(tickers, period="10y", horizon=10, profit_mult=2.
             feats = build_features(df, spy_df=spy)
             labels, hold_days, fwd_return = triple_barrier_labels(df, horizon=horizon, profit_mult=profit_mult, stop_mult=stop_mult)
 
+            ranking_entry = df['Open'].shift(-1)
+            ranking_exit = df['Close'].shift(-ranking_horizon)
+
             combined = feats.copy()
+            combined['ranking_return'] = (ranking_exit / ranking_entry) - 1
+            combined['mom_return_1d'] = df['Open'].shift(-2) / df['Open'].shift(-1) - 1  #to see the daily returns, the momentum ranking happens at close on day 1, can then execute at open on day 2, and can track daily returns from day 3 onwards
+
+            trade_dates = pd.Series(df.index, index=df.index)
+            combined['mom_entry_date'] = trade_dates.shift(-1)
+            combined['mom_exit_date'] = trade_dates.shift(-2)
+
             combined['label'] = labels
             combined['fwd_return'] = fwd_return
             combined['ticker'] = ticker
+
+            daily_return = df['Close'].pct_change()
+            combined['stop_vol'] = daily_return.rolling(vol_window).std()
+            combined['mom_entry_open'] = df['Open'].shift(-1)
+            combined['mom_high_1d'] = df['High'].shift(-1)
+            combined['mom_low_1d'] = df['Low'].shift(-1)
+            combined['mom_exit_open'] = df['Open'].shift(-2)
 
             all_data.append(combined)
             time.sleep(delay)
 
         except Exception as e:
-            failed.append(ticker)
-
-            
+            failed.append(f"{ticker} failed: {e}")
+                          
+    if not all_data:
+        raise ValueError("No ticker datasets were constructed successfully")
+    
     pooled = pd.concat(all_data)
     pooled = pooled.sort_index() #sort by date, not ticker
 
@@ -192,39 +213,203 @@ def forward_evaluation_tracking(log_path='../data/forward_test_log.csv'):
 
 #we build a momentum equity curve that is used for risk_management project. added after this project completed, but suitable place to have it.
 
-def build_momentum_equity_curve(pooled_df, lookback_col='return_21d', top_frac=0.25, rebalance_days=63, min_universe=5):
+def build_momentum_equity_curve(pooled_df, lookback_col, top_frac, rebalance_days, min_universe=5, initial_capital=1.0):
 
-    #rank, select top fraction each day using that days single-day return compounded continuously 
+    required = {
+        'ticker',
+        lookback_col,
+        'mom_return_1d',
+        'mom_entry_date',
+        'mom_exit_date'
+    }
+    missing = required.difference(pooled_df.columns)
+    if missing:
+        raise ValueError(f"Missing columns from pooled dataframe: {sorted(missing)}")
 
-    clean = pooled_df.dropna(subset=[lookback_col, 'return_1d'])
-    all_dates = sorted(clean.index.unique())
+    if pooled_df.empty:
+        raise ValueError("Pooled data cannot be empty")
+
+    if not 0 < top_frac <= 1:
+        raise ValueError("Top fraction must be greater than 0, and at most 1")
     
-    daily_returns = []
-    current_selection = None
-     
-    for i, date in enumerate(all_dates):
-        day = clean.loc[clean.index == date]
-        if len(day) < min_universe:
-            continue
+    if not isinstance(rebalance_days, (int, np.integer)) or isinstance(rebalance_days, bool) or rebalance_days < 1:
+        raise ValueError("Rebalance days must be a positive integer")
 
-        if i % rebalance_days == 0:
-            days = day.sort_values(lookback_col, ascending=False)
-            n = max(1, int(len(day) * top_frac))
-            current_selection = set(days.head(n)['ticker'])
+    if not isinstance(min_universe, (int, np.integer)) or isinstance(min_universe, bool) or min_universe < 2:
+        raise ValueError("Minimum universe must be an integer of at least 2")
 
-        if current_selection is None:
-            continue    
+    if not np.isfinite(initial_capital) or initial_capital <= 0:
+        raise ValueError("Initial capital must be positive and finite")
 
-        held = day[day['ticker'].isin(current_selection)]
-        if len(held) == 0:
-            continue
+    data = pooled_df.copy()
+    data.index = pd.to_datetime(data.index)
+    data['mom_entry_date'] = pd.to_datetime(data['mom_entry_date'])
+    data['mom_exit_date'] = pd.to_datetime(data['mom_exit_date'])
+    data['mom_return_1d'] = pd.to_numeric(data['mom_return_1d'], errors='raise')
+    data[lookback_col] = pd.to_numeric(data[lookback_col], errors='raise')
 
-        daily_returns.append({
-            'date': date,
-            'portfolio_return': held['return_1d'].mean()
+
+    if data['ticker'].isna().any():
+        raise ValueError("Ticker values cannot be missing")
+
+    date_ticker = pd.MultiIndex.from_arrays([data.index, data['ticker']]) #two index dataframe, one for dates, one for ticker
+    
+    if date_ticker.has_duplicates:
+        raise ValueError("Duplicate date-ticker observation found")
+
+    signal_dates = sorted(data.index.unique())
+
+    if len(signal_dates) < 3:
+        raise ValueError("At least 3 trading dates required")
+
+    positions = {}
+    cash = float(initial_capital)
+    rows = []
+    since_rebalance = 0
+
+    for date_i in range(len(signal_dates) - 2): #from the signal, we need 2 extra days to see the 1d day return (signal at close day 1, can buy at open day 2, then see the return by day 3 open)
+        signal_date = signal_dates[date_i]
+        entry_date = signal_dates[date_i + 1]
+        exit_date = signal_dates[date_i + 2]
+
+        day = data.loc[data.index == signal_date]
+        first_choice = not positions
+
+        rebalance_due = first_choice or since_rebalance >= rebalance_days
+
+        rebalanced = False
+        turnover = 0.0
+
+        if rebalance_due:
+            eligible = day.loc[np.isfinite(day[lookback_col]), ['ticker', lookback_col]]
+
+            if len(eligible) < min_universe:
+                if first_choice:
+                    continue
+                raise ValueError(f"Only {len(eligible)} eligible stocks on " f"{signal_date.date()}")
+
+            ranked = eligible.sort_values([lookback_col, 'ticker'], ascending=[False, True])
+            n = max(1, int(len(ranked) * top_frac))
+            selected = tuple(ranked.head(n)['ticker'])
+
+            total_value = cash + sum(positions.values())
+            if total_value <= 0:
+                raise ValueError("Equity has been depleted")
+
+            cash_weight = cash / total_value
+            all_tickers = set(positions).union(selected)
+
+            weight_changes = sum(abs(positions.get(ticker, 0.0) / total_value - (1.0 / n if ticker in selected else 0.0)) for ticker in all_tickers)
+            turnover = 0.5 * (abs(cash_weight) + weight_changes)
+            sleeve_value = total_value/n
+            positions = {ticker: sleeve_value for ticker in selected}
+            cash = 0.0
+            since_rebalance = 0
+            rebalanced = True
+
+        before_return = cash + sum(positions.values())
+        if not np.isfinite(before_return) or before_return <= 0:
+            raise ValueError("Portfolio value must stay positive and finite")
+
+        if not rows: 
+            initial_weights = {ticker: value / before_return for ticker, value in positions.items()}
+            rows.append({
+                'date': entry_date,
+                'signal_date': signal_date,
+                'entry_date': entry_date,
+                'exit_date': entry_date,
+                'portfolio_return': 0.0,
+                'equity': before_return,
+                'rebalanced': False,
+                'turnover': 0.0,
+                'turnover_date': pd.NaT,
+                'n_holdings': len(positions),
+                'weights': initial_weights,
+                'is_initial': True,
+            })
+
+        for ticker in positions:
+            ticker_rows = day.loc[day['ticker'] == ticker]
+
+            if len(ticker_rows) != 1:
+                raise ValueError(
+                    f"Expected one row for {ticker} on "
+                    f"{signal_date.date()}"
+                )
+
+            ticker_row = ticker_rows.iloc[0]
+            ticker_return = ticker_row['mom_return_1d']
+
+            dates_aligned = (
+                ticker_row['mom_entry_date'] == entry_date
+                and ticker_row['mom_exit_date'] == exit_date
+            )
+
+            if not np.isfinite(ticker_return) or not dates_aligned:
+                raise ValueError(
+                    f"Missing or misaligned return for {ticker} "
+                    f"after signal date {signal_date.date()}"
+                )
+
+            if ticker_return < -1:
+                raise ValueError(
+                    f"Return below -100% for {ticker} after "
+                    f"{signal_date.date()}"
+                )
+
+            positions[ticker] *= 1 + float(ticker_return)
+
+        after_return = cash + sum(positions.values())
+
+        if not np.isfinite(after_return) or after_return < 0:
+            raise ValueError("Portfolio value became invalid")
+
+        portfolio_return = after_return / before_return - 1
+
+        current_weights = (
+            {
+                ticker: value / after_return
+                for ticker, value in positions.items()
+            }
+            if after_return > 0
+            else {}
+        )
+
+        rows.append({
+            'date': exit_date,
+            'signal_date': signal_date,
+            'entry_date': entry_date,
+            'exit_date': exit_date,
+            'portfolio_return': portfolio_return,
+            'equity': after_return,
+            'rebalanced': rebalanced,
+            'turnover': turnover,
+            'turnover_date': (
+                entry_date if rebalanced else pd.NaT
+            ),
+            'n_holdings': len(positions),
+            'weights': current_weights,
+            'is_initial': False,
         })
 
-    daily_df = pd.DataFrame(daily_returns).set_index('date').sort_index()
-    daily_df['equity'] = (1 + daily_df['portfolio_return']).cumprod()
+        since_rebalance += 1
 
-    return daily_df
+    if not rows:
+        raise ValueError("No valid portfolio intervals were constructed")
+
+    result = pd.DataFrame(rows)
+    result = result.set_index('date').sort_index()
+
+    if result.index.has_duplicates:
+        raise ValueError("Duplicate equity-curve dates were produced")
+
+    return result
+        
+
+
+
+
+            
+
+
+    

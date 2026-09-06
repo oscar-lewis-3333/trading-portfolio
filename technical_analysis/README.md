@@ -17,15 +17,18 @@ Project takes tickers and uses their real-world market data to indicate buy/sell
 - Chose to do similar with the RSI. Classically, RSI > 70 implies overbought, and <30 implies oversold. We changed this to a percentile model based on the RSI rolling value, choosing the 20%,80% quantiles.
 - Chose to weight different signals differently when constructing the composite signal, specifically if the ticker was in a strong trend (up or down) we weighted the trend signal significantly more than other signals. This was to avoid false sell signals and a lack of buy signals when a ticker was in a strong upturn (and vice versa)
 
+### UPDATE
+
+- Fixed an issue where the system had lookahead bias. System was trading at close using close prices, which isn't possible as you cannot trade at close knowing the price. This was changed to any trade signal being acted upon at open on the following day, removing all possible lookahead bias. This seemed to improve performance for more stable tickers, but worsen performance for more volatile tickers.
+
 ## BACKTEST RESULTS
 
-| Ticker  | Strategy_Return_% | BuyHold_Return_% | Outperformance_% |
-|---------|-------------------|------------------|-------------------|
-| SPY     | 20.36              | 40.35             | -19.99            |
-| JNJ     | 73.65              | 71.89             | 1.76              |
-| SOL-USD | -26.95             | -59.06            | 32.11             |
-| TSLA    | 5.74               | 45.15             | -39.41            |
-
+| Ticker   | Strategy_Return_% | BuyHold_Return_% | Outperformance_% |
+|----------|-------------------|------------------|------------------|
+| SPY      | 27.66             | 39.34            | -11.68           |
+| JNJ      | 80.76             | 76.55            | 4.20             |
+| SOL-USD  | -26.94            | -34.57           | 7.62             |
+| TSLA     | 2.34              | 62.12            | -59.78           |
 
 ## KEY FINDINGS
 - On the tickers tested, our strategy generally seems to predict the buy/sell moments to a pretty good degree. Whilst there are some incorrect signals, a visual estimate of 80-90%, of signals are accurate after taking lag into account, which will be addressed below. The system is designed to detect large shifts in the market as they happen and often after a signal, there is a noticeable change in that direction (i.e the signal is near a turning point).
@@ -50,7 +53,7 @@ Project takes tickers and uses their real-world market data to indicate buy/sell
     src/ 
         indicators.py - compute various indicators to be used in signals
         signals.py - designs individual signals, filters to be combined robust_composite_signal
-        plotting.py - visualising both strategies for comparisons in technical.ipynb
+        plotting_technical_analysis.py - visualising both strategies for comparisons in technical.ipynb
     notebooks/
         technical.ipynb - main analysis, use of all previous python files
    
@@ -61,7 +64,7 @@ from data_loader import fetch_price_data  #from past_market_analysis project
 
 from indicators import add_all_indicators
 from signals import backtest_signals, robust_composite_signal
-from plotting import plot_backtest, plot_signals
+from plotting_technical_analysis import plot_backtest, plot_signals
 
 ticker = "SPY" 
 df = fetch_price_data(ticker, period="2y", interval="1d")

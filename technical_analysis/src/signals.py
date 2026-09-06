@@ -192,25 +192,29 @@ def backtest_signals(df, initial_capital=10000):
     #plan is, buy on 1, sell on -1, hold otherwise
 
     df = df.copy()
+    df = df.dropna(subset=['Open', 'Close'])
+
+    df['Use_Signal'] = df['Signal'].shift(1).fillna(0).astype(int) # (UPDATE) execute the signal the day after it is made (prevent lookahead bias)
+
     position = 0 #position will describe our position, 0 = no position (cash), 1 = holding asset
     cash = initial_capital
     shares=0
     portfolio = []
 
     for i, row in df.iterrows():
-        if row['Signal'] == 1 and position == 0: #if buy signal, and haven't bought, then spend all cash on shares
-            shares = cash / row['Close']
+        if row['Use_Signal'] == 1 and position == 0: #if buy signal, and haven't bought, then spend all cash on shares
+            shares = cash / row['Open'] #(UPDATE) buy at open next day instead of close previous day
             cash = 0
             position = 1
-        elif row['Signal'] == -1 and position == 1: #if sell signal and holding shares, then sell all shares
-            cash = shares * row['Close']
+        elif row['Use_Signal'] == -1 and position == 1: #if sell signal and holding shares, then sell all shares
+            cash = shares * row['Open']
             shares = 0
             position = 0
 
         portfolio.append(cash + shares * row['Close'])
 
     df['Portfolio_Value'] = portfolio
-    df['Buy_Hold_Value'] = initial_capital * (df['Close'] / df['Close'].iloc[0])
+    df['Buy_Hold_Value'] = initial_capital * (df['Close'] / df['Open'].iloc[0])
 
     return df
 

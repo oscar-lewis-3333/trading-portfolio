@@ -41,12 +41,11 @@ Rigorous ML validation on technical indicators of trading signals - initial appr
 → [View project](./ml_trading_signals/)
 
 ### 8. Risk Management and Position Sizing
-Kelly optimised, volatility scaled, CVaR-constrained postion sizing applied to momentum signal. Analysis of four risk mechanisms on momentum equity curve, with maximum drawdown circuit breaker being the clear victor even after transaction costs included.
-
+Kelly optimised, volatility scaled, CVaR-constrained postion sizing applied to momentum signal. Analysis of four risk mechanisms on momentum equity curve, with all approaches coming up short of the original strategy.
 → [View project](./risk_management/)
 
 ### 9. Autonomous Trading System 
-Automated trading system using the momentum signal from 7 and risk management techniques from 8. Uses Alpaca paper trading, runs weekly automatically using cron, giving a weekly summary after each simulation.
+Automated trading system using universe and corresponding momentum signal from 7. Uses Alpaca paper trading, runs daily automatically using cron, giving a weekly summary after each simulation.
 
 → [View project](./trading_bot/)
 

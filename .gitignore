@@ -1,2 +1,9 @@
 .DS_Store
 .env
+__pycache__/
+*.py[cod]
+*.log
+trading_bot/data/basket_state.json
+trading_bot/data/pending_rebalance.json
+trading_bot/data/rebalance_history/
+trading_bot/data/bot_run.lock
