@@ -42,6 +42,7 @@ Rigorous ML validation on technical indicators of trading signals - initial appr
 
 ### 8. Risk Management and Position Sizing
 Kelly optimised, volatility scaled, CVaR-constrained postion sizing applied to momentum signal. Analysis of four risk mechanisms on momentum equity curve, with all approaches coming up short of the original strategy.
+
 → [View project](./risk_management/)
 
 ### 9. Autonomous Trading System 
