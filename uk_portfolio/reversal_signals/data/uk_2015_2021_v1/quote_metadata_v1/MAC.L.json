@@ -1,0 +1,13 @@
+{
+  "symbol": "MAC.L",
+  "shortName": "MARECHALE CAPITAL PLC ORD 0.8P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "MAC.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:40:43.026088+00:00",
+  "yfinance_version": "1.2.0"
+}

@@ -1,0 +1,13 @@
+{
+  "symbol": "HUD.L",
+  "shortName": "HUDDLED GROUP PLC ORD GBP0.0004",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "HUD.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:40:02.700330+00:00",
+  "yfinance_version": "1.2.0"
+}

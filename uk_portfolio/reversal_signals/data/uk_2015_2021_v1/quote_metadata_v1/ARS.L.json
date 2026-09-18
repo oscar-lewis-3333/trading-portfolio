@@ -1,0 +1,13 @@
+{
+  "symbol": "ARS.L",
+  "shortName": "ASIAMET RESOURCES LIMITED COM S",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "ARS.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:38:08.416761+00:00",
+  "yfinance_version": "1.2.0"
+}

@@ -1,0 +1,13 @@
+{
+  "symbol": "IBAI.L",
+  "shortName": "IMAGING BIOMETRICS LIMITED ORD ",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "IBAI.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:40:05.042994+00:00",
+  "yfinance_version": "1.2.0"
+}

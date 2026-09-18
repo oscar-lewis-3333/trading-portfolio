@@ -1,0 +1,13 @@
+{
+  "symbol": "GTLY.L",
+  "shortName": "GATELEY (HOLDINGS) PLC ORD 10P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "GTLY.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:39:54.950154+00:00",
+  "yfinance_version": "1.2.0"
+}

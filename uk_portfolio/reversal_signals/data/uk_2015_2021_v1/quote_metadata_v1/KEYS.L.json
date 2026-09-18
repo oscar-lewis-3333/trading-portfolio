@@ -1,0 +1,13 @@
+{
+  "symbol": "KEYS.L",
+  "shortName": "KEYSTONE LAW GROUP PLC ORD 0.2P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "KEYS.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:40:24.869557+00:00",
+  "yfinance_version": "1.2.0"
+}

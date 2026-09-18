@@ -1,0 +1,13 @@
+{
+  "symbol": "SPSC.L",
+  "shortName": "SPECTRA SYSTEMS CORPORATION COM",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "SPSC.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:42:18.950633+00:00",
+  "yfinance_version": "1.2.0"
+}

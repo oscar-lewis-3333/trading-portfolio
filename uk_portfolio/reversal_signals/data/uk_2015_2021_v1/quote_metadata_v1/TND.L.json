@@ -1,0 +1,13 @@
+{
+  "symbol": "TND.L",
+  "shortName": "TANDEM GROUP PLC ORD 25P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "TND.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:42:47.626808+00:00",
+  "yfinance_version": "1.2.0"
+}

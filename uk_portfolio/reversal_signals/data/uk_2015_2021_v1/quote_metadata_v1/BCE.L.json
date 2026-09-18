@@ -1,0 +1,13 @@
+{
+  "symbol": "BCE.L",
+  "shortName": "BEACON ENERGY PLC ORD NPV",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "BCE.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:38:18.613517+00:00",
+  "yfinance_version": "1.2.0"
+}

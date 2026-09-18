@@ -1,0 +1,13 @@
+{
+  "symbol": "THRU.L",
+  "shortName": "THRUVISION GROUP PLC ORD 1P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "THRU.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:42:40.541671+00:00",
+  "yfinance_version": "1.2.0"
+}

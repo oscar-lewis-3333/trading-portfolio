@@ -1,0 +1,140 @@
+[
+  {
+    "ticker": "BMTO.L",
+    "status": "ok",
+    "rows": 2779,
+    "currency": "GBP"
+  },
+  {
+    "ticker": "CMX.L",
+    "status": "ok",
+    "rows": 2779,
+    "currency": "GBP"
+  },
+  {
+    "ticker": "CRTX.L",
+    "status": "ok",
+    "rows": 2779,
+    "currency": "GBP"
+  },
+  {
+    "ticker": "HVTA.L",
+    "status": "ok",
+    "rows": 2779,
+    "currency": "GBp"
+  },
+  {
+    "ticker": "LSC.L",
+    "status": "ok",
+    "rows": 2779,
+    "currency": "GBp"
+  },
+  {
+    "ticker": "NAR.L",
+    "status": "ok",
+    "rows": 2779,
+    "currency": "GBp"
+  },
+  {
+    "ticker": "PNS.L",
+    "status": "ok",
+    "rows": 2779,
+    "currency": "GBP"
+  },
+  {
+    "ticker": "PPHC.L",
+    "status": "ok",
+    "rows": 1018,
+    "currency": "GBP"
+  },
+  {
+    "ticker": "SOLI.L",
+    "status": "ok",
+    "rows": 2779,
+    "currency": "GBP"
+  },
+  {
+    "ticker": "SPSC.L",
+    "status": "ok",
+    "rows": 2779,
+    "currency": "GBp"
+  },
+  {
+    "ticker": "HSM.L",
+    "status": "ok",
+    "rows": 2779,
+    "currency": "GBP"
+  },
+  {
+    "ticker": "CHL.L",
+    "status": "ok",
+    "rows": 2779,
+    "currency": "GBP"
+  },
+  {
+    "ticker": "DISH.L",
+    "status": "ok",
+    "rows": 1873,
+    "currency": "GBP"
+  },
+  {
+    "ticker": "ELEG.L",
+    "status": "ok",
+    "rows": 1003,
+    "currency": "GBP"
+  },
+  {
+    "ticker": "GCG.L",
+    "status": "ok",
+    "rows": 2316,
+    "currency": "GBP"
+  },
+  {
+    "ticker": "PCH.L",
+    "status": "ok",
+    "rows": 2779,
+    "currency": "GBP"
+  },
+  {
+    "ticker": "SAVE.L",
+    "status": "ok",
+    "rows": 2779,
+    "currency": "GBp"
+  },
+  {
+    "ticker": "TIN.L",
+    "status": "ok",
+    "rows": 1230,
+    "currency": "GBP"
+  },
+  {
+    "ticker": "TRB.L",
+    "status": "ok",
+    "rows": 2779,
+    "currency": "GBP"
+  },
+  {
+    "ticker": "IES.L",
+    "status": "ok",
+    "rows": 2779,
+    "currency": "GBP"
+  },
+  {
+    "ticker": "AURA.L",
+    "status": "ok",
+    "rows": 2351,
+    "currency": "GBP"
+  },
+  {
+    "ticker": "RFG.L",
+    "status": "ok",
+    "rows": 2779,
+    "currency": "GBp"
+  },
+  {
+    "ticker": "AST.L",
+    "status": "ok",
+    "rows": 2779,
+    "currency": "GBP"
+  }
+]

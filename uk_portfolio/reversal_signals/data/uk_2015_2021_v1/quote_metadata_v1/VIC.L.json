@@ -1,0 +1,13 @@
+{
+  "symbol": "VIC.L",
+  "shortName": "VICTORIAN PLUMBING GROUP PLC OR",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "VIC.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:43:07.965310+00:00",
+  "yfinance_version": "1.2.0"
+}

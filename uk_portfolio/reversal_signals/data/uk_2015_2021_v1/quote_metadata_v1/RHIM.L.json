@@ -1,0 +1,13 @@
+{
+  "symbol": "RHIM.L",
+  "shortName": "RHI MAGNESITA N.V. ORD EUR1.00 ",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "RHIM.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:41:52.740438+00:00",
+  "yfinance_version": "1.2.0"
+}

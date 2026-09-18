@@ -1,0 +1,13 @@
+{
+  "symbol": "AIEA.L",
+  "shortName": "AIREA PLC ORD 25P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "AIEA.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:37:58.213033+00:00",
+  "yfinance_version": "1.2.0"
+}

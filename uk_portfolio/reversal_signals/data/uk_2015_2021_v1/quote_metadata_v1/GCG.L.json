@@ -1,0 +1,13 @@
+{
+  "symbol": "GCG.L",
+  "shortName": "GOLDEN ROCK GLOBAL PLC ORD 1P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "GCG.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:39:42.436263+00:00",
+  "yfinance_version": "1.2.0"
+}

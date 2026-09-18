@@ -1,0 +1,13 @@
+{
+  "symbol": "PEN.L",
+  "shortName": "PENNANT INTERNATIONAL GROUP PLC",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "PEN.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:41:29.492631+00:00",
+  "yfinance_version": "1.2.0"
+}

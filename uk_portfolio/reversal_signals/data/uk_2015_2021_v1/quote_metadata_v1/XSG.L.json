@@ -1,0 +1,13 @@
+{
+  "symbol": "XSG.L",
+  "shortName": "XEROS TECHNOLOGY GROUP PLC ORD ",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "XSG.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:43:22.519104+00:00",
+  "yfinance_version": "1.2.0"
+}

@@ -1,0 +1,13 @@
+{
+  "symbol": "PCIP.L",
+  "shortName": "PCI-PAL PLC ORD 1P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "PCIP.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:41:25.505950+00:00",
+  "yfinance_version": "1.2.0"
+}

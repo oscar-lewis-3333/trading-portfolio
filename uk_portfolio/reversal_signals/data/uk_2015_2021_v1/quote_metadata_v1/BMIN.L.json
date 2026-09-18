@@ -1,0 +1,13 @@
+{
+  "symbol": "BMIN.L",
+  "shortName": "BOTSWANA MINERALS PLC ORD 0.25P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "BMIN.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:38:24.130254+00:00",
+  "yfinance_version": "1.2.0"
+}

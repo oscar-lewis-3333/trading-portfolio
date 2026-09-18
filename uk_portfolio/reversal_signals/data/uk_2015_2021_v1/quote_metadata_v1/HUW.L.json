@@ -1,0 +1,13 @@
+{
+  "symbol": "HUW.L",
+  "shortName": "HELIOS UNDERWRITING PLC ORD 10P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "HUW.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:40:03.280275+00:00",
+  "yfinance_version": "1.2.0"
+}

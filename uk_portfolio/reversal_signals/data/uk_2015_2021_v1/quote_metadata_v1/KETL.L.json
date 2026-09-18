@@ -1,0 +1,13 @@
+{
+  "symbol": "KETL.L",
+  "shortName": "STRIX GROUP PLC ORD 1P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "KETL.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:40:24.283178+00:00",
+  "yfinance_version": "1.2.0"
+}

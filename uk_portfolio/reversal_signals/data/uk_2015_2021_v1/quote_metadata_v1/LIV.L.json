@@ -1,0 +1,13 @@
+{
+  "symbol": "LIV.L",
+  "shortName": "LIVERMORE INVESTMENTS GROUP LIM",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "LIV.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:40:37.421558+00:00",
+  "yfinance_version": "1.2.0"
+}

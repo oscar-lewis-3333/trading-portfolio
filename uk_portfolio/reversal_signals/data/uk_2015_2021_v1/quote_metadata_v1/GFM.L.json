@@ -1,0 +1,13 @@
+{
+  "symbol": "GFM.L",
+  "shortName": "GRIFFIN MINING LIMITED ORD $0.0",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "GFM.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:39:49.067753+00:00",
+  "yfinance_version": "1.2.0"
+}

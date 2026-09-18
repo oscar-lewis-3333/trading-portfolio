@@ -1,0 +1,13 @@
+{
+  "symbol": "TON.L",
+  "shortName": "TITON HOLDINGS PLC ORD 10P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "TON.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:42:48.904736+00:00",
+  "yfinance_version": "1.2.0"
+}

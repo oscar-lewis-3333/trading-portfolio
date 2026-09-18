@@ -1,0 +1,13 @@
+{
+  "symbol": "HDD.L",
+  "shortName": "HARDIDE PLC ORD 4P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "HDD.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:39:57.816785+00:00",
+  "yfinance_version": "1.2.0"
+}

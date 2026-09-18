@@ -1,0 +1,13 @@
+{
+  "symbol": "KZG.L",
+  "shortName": "KAZERA GLOBAL PLC ORD 0.1P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "KZG.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:40:31.487403+00:00",
+  "yfinance_version": "1.2.0"
+}

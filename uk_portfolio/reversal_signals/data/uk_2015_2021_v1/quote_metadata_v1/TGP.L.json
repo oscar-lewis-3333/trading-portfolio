@@ -1,0 +1,13 @@
+{
+  "symbol": "TGP.L",
+  "shortName": "TEKMAR GROUP PLC ORD 1P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "TGP.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:42:38.617545+00:00",
+  "yfinance_version": "1.2.0"
+}

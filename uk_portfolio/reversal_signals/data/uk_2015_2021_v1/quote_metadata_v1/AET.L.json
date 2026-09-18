@@ -1,0 +1,13 @@
+{
+  "symbol": "AET.L",
+  "shortName": "AFENTRA PLC ORD 10P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "AET.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:37:55.898475+00:00",
+  "yfinance_version": "1.2.0"
+}

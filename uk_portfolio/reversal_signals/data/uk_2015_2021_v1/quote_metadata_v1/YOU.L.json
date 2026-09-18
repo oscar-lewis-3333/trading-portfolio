@@ -1,0 +1,13 @@
+{
+  "symbol": "YOU.L",
+  "shortName": "YOUGOV PLC ORD 0.2P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "YOU.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:43:24.332594+00:00",
+  "yfinance_version": "1.2.0"
+}

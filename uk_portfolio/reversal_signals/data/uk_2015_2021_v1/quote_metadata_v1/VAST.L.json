@@ -1,0 +1,13 @@
+{
+  "symbol": "VAST.L",
+  "shortName": "VAST RESOURCES PLC ORD 2.5P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "VAST.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:43:05.937312+00:00",
+  "yfinance_version": "1.2.0"
+}

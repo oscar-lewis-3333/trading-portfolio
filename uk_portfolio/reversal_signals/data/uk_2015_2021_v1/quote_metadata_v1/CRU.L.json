@@ -1,0 +1,13 @@
+{
+  "symbol": "CRU.L",
+  "shortName": "CORAL PRODUCTS PLC ORD 1P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "CRU.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:38:56.689704+00:00",
+  "yfinance_version": "1.2.0"
+}

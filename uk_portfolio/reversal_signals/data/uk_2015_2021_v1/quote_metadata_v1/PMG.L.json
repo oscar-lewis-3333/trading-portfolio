@@ -1,0 +1,13 @@
+{
+  "symbol": "PMG.L",
+  "shortName": "PARKMEAD GROUP (THE) PLC ORD 1.",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "PMG.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:41:32.362475+00:00",
+  "yfinance_version": "1.2.0"
+}

@@ -1,0 +1,13 @@
+{
+  "symbol": "BKS.L",
+  "shortName": "BEEKS FINANCIAL CLOUD GROUP PLC",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "BKS.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:38:22.209668+00:00",
+  "yfinance_version": "1.2.0"
+}

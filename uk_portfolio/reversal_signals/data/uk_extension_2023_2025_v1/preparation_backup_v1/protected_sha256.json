@@ -1,0 +1,12 @@
+{
+  "src/reversal_data.py": "e5c0e1f7608fd2e35887c4f53c13422f490f51a7f360d01df163fce520bda009",
+  "src/reversal_walk_forward.py": "14465fc7dd49af1e5143e3421f148c14d9cb1334a47cb96d9a65bdc4649d4e17",
+  "src/reversal_features.py": "c8db2a6395a284dc53a2a6ecc1b1236c3aadf7225c59f1c4dbdb0a79890704ff",
+  "src/reversal_validation.py": "4efcb0836e99e9a768fea471d57eaee2241aeeb7379ab5ef540fb4e0df7ffdd6",
+  "src/plotting_reversal_signals.py": "5bb9eb7e38024df2aa2ae8935f70c5b1b0d6a68e2ddcd8585d67afff11f2f258",
+  "src/reversal_backtest.py": "0cb6b726eeaaaa30f7afd7324dc58b8d6fb9f2d1b76f408f992f3625c3b2a7d5",
+  "data/uk_holdout_2021_2023_v1/original_holdout_choices.pkl": "6328ccbd78facc7718e32829970118bbaa2dec1cc06dc28d3c06ba022940021a",
+  "data/uk_holdout_2021_2023_v1/original_holdout_inference.pkl": "44a2df743d0bf961b277278926eb17ad440daedf481a281011c1851f2ac4bd78",
+  "data/uk_holdout_2021_2023_v1/original_holdout_equity.pkl": "033a8d3f80ddc396a0bee22ea35a06d73a968a64b1cf4c4dd26ce3af5fb2e837",
+  "data/uk_holdout_2021_2023_v1/frozen_spec.json": "e7f5482b00eafc5d165c59c133da26ecebe6719a82bfc1d86214ca1f034bb2a6"
+}

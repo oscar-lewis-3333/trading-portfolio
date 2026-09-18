@@ -1,0 +1,7 @@
+ticker,Date,expected_original_close,price_multiplier,status
+AOM.L,2021-03-29,18650.0,0.01,proposed_unit_correction
+FIN.L,2021-04-06,6150.0,0.01,proposed_unit_correction
+COIL.L,2021-03-23,8250.0,0.01,proposed_unit_correction
+SUP.L,2021-02-03,15500.0,0.01,proposed_unit_correction
+SUP.L,2021-02-05,17800.0,0.01,proposed_unit_correction
+SUP.L,2021-02-08,18400.0,0.01,proposed_unit_correction

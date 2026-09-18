@@ -1,0 +1,13 @@
+{
+  "symbol": "VLG.L",
+  "shortName": "VENTURE LIFE GROUP PLC ORD 0.3P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "VLG.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:43:09.675307+00:00",
+  "yfinance_version": "1.2.0"
+}

@@ -1,0 +1,13 @@
+{
+  "symbol": "AVCT.L",
+  "shortName": "AVACTA GROUP PLC ORD 10P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "AVCT.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:38:13.772449+00:00",
+  "yfinance_version": "1.2.0"
+}

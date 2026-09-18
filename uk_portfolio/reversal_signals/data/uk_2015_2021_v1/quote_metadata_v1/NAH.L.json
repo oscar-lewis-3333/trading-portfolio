@@ -1,0 +1,13 @@
+{
+  "symbol": "NAH.L",
+  "shortName": "NAHL GROUP PLC ORD GBP0.0025",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "NAH.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:41:02.843656+00:00",
+  "yfinance_version": "1.2.0"
+}

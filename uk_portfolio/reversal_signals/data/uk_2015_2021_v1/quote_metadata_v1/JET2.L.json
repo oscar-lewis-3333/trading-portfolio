@@ -1,0 +1,13 @@
+{
+  "symbol": "JET2.L",
+  "shortName": "JET2 PLC ORD 1.25P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "JET2.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:40:18.746630+00:00",
+  "yfinance_version": "1.2.0"
+}

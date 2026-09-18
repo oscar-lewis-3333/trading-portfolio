@@ -1,0 +1,11 @@
+{
+  "received_at_utc": "2026-09-15T17:51:27.658346+00:00",
+  "request_url": "https://revx.revolut.com/api/1.0/public/candles/BTC-GBP?interval=5&since=1735862400000&until=1735948800000&region=UK",
+  "payload": {
+    "data": [],
+    "metadata": {
+      "timestamp": 1789494687659,
+      "region": "UK"
+    }
+  }
+}

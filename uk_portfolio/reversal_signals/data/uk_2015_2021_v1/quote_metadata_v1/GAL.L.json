@@ -1,0 +1,13 @@
+{
+  "symbol": "GAL.L",
+  "shortName": "GALANTAS GOLD CORPORATION COM S",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "GAL.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:39:41.259310+00:00",
+  "yfinance_version": "1.2.0"
+}

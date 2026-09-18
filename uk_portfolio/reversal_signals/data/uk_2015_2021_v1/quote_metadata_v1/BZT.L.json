@@ -1,0 +1,13 @@
+{
+  "symbol": "BZT.L",
+  "shortName": "BEZANT RESOURCES PLC ORD 0.002P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "BZT.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:38:31.696632+00:00",
+  "yfinance_version": "1.2.0"
+}

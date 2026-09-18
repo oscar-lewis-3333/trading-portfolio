@@ -1,0 +1,13 @@
+{
+  "symbol": "TERN.L",
+  "shortName": "TERN PLC ORD 0.02P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "TERN.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:42:37.464767+00:00",
+  "yfinance_version": "1.2.0"
+}

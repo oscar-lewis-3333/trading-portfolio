@@ -1,0 +1,13 @@
+{
+  "symbol": "MATD.L",
+  "shortName": "PETRO MATAD LIMITED ORD USD0.01",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "MATD.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:40:45.836996+00:00",
+  "yfinance_version": "1.2.0"
+}

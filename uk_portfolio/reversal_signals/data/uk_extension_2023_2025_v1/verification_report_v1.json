@@ -1,0 +1,13 @@
+{
+  "original_source_and_result_hashes": "unchanged",
+  "earlier_notebook_cells_changed": [
+    74,
+    75,
+    76
+  ],
+  "extension_preparation_tests": 11,
+  "original_preparation_tests": 9,
+  "notebook_data_checkpoint": "passed",
+  "next_stage": "features",
+  "extension_performance_run": false
+}

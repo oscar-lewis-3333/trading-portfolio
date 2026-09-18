@@ -1,0 +1,13 @@
+{
+  "symbol": "BAY.L",
+  "shortName": "BAY CAPITAL PLC ORD GBP0.01",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "BAY.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:38:17.426123+00:00",
+  "yfinance_version": "1.2.0"
+}

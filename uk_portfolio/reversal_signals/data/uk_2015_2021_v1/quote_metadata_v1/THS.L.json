@@ -1,0 +1,13 @@
+{
+  "symbol": "THS.L",
+  "shortName": "THARISA PLC ORD USD0.001 (DI)",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "THS.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:42:41.118920+00:00",
+  "yfinance_version": "1.2.0"
+}

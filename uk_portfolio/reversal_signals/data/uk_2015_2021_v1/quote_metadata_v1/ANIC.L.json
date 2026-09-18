@@ -1,0 +1,13 @@
+{
+  "symbol": "ANIC.L",
+  "shortName": "AGRONOMICS LIMITED  ORD 0.0001P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "ANIC.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:38:03.623804+00:00",
+  "yfinance_version": "1.2.0"
+}

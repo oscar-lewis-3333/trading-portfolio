@@ -1,0 +1,13 @@
+{
+  "symbol": "JOG.L",
+  "shortName": "JERSEY OIL AND GAS PLC ORD 1P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "JOG.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:40:21.763100+00:00",
+  "yfinance_version": "1.2.0"
+}

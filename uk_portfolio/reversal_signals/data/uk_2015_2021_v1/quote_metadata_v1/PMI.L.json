@@ -1,0 +1,13 @@
+{
+  "symbol": "PMI.L",
+  "shortName": "PREMIER MITON GROUP PLC ORD 0.0",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "PMI.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:41:32.961918+00:00",
+  "yfinance_version": "1.2.0"
+}

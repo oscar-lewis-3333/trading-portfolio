@@ -1,0 +1,13 @@
+{
+  "symbol": "RBW.L",
+  "shortName": "RAINBOW RARE EARTHS LIMITED ORD",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "RBW.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:41:48.029132+00:00",
+  "yfinance_version": "1.2.0"
+}

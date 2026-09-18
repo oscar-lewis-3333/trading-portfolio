@@ -1,0 +1,13 @@
+{
+  "symbol": "AGY.L",
+  "shortName": "ALLERGY THERAPEUTICS PLC ORD 0.",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "AGY.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:37:57.640301+00:00",
+  "yfinance_version": "1.2.0"
+}

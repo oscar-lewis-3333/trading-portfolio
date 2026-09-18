@@ -1,0 +1,13 @@
+{
+  "symbol": "CRW.L",
+  "shortName": "CRANEWARE PLC ORD 1P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "CRW.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:38:57.280389+00:00",
+  "yfinance_version": "1.2.0"
+}

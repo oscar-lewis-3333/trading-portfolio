@@ -1,0 +1,13 @@
+{
+  "symbol": "PPHC.L",
+  "shortName": "PUBLIC POLICY HOLDING COMPANY, ",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "PPHC.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:41:37.789224+00:00",
+  "yfinance_version": "1.2.0"
+}

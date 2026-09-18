@@ -1,0 +1,13 @@
+{
+  "symbol": "REAT.L",
+  "shortName": "REACT GROUP PLC ORD 12.5P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "REAT.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:41:49.752729+00:00",
+  "yfinance_version": "1.2.0"
+}

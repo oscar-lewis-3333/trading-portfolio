@@ -1,0 +1,13 @@
+{
+  "symbol": "TMG.L",
+  "shortName": "THE MISSION GROUP PLC ORD 10P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "TMG.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:42:45.831470+00:00",
+  "yfinance_version": "1.2.0"
+}

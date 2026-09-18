@@ -1,0 +1,13 @@
+{
+  "symbol": "UPL.L",
+  "shortName": "UPLAND RESOURCES LIMITED ORD NP",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "UPL.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:43:02.794091+00:00",
+  "yfinance_version": "1.2.0"
+}

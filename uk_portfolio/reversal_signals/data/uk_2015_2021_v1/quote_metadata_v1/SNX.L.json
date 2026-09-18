@@ -1,0 +1,13 @@
+{
+  "symbol": "SNX.L",
+  "shortName": "SYNECTICS PLC ORD 20P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "SNX.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:42:12.772362+00:00",
+  "yfinance_version": "1.2.0"
+}

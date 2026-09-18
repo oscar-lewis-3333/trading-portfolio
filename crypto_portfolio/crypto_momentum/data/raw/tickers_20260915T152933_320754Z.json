@@ -1,0 +1,37 @@
+{
+  "received_at_utc": "2026-09-15T15:29:33.320754+00:00",
+  "request_url": "https://revx.revolut.com/api/1.0/public/tickers?symbols=BTC-GBP%2CETH-GBP&region=UK",
+  "payload": {
+    "data": [
+      {
+        "symbol": "BTC/GBP",
+        "bid": "56629.94",
+        "ask": "56634.89",
+        "mid": "56632.41",
+        "last_price": "56657.09",
+        "low_24h": "56031.32",
+        "high_24h": "58930",
+        "price_change_24h": "-1491.53",
+        "volume_24h": "48.02",
+        "quote_volume_24h": "2764642.94",
+        "region": "UK"
+      },
+      {
+        "symbol": "ETH/GBP",
+        "bid": "1799.09",
+        "ask": "1799.70",
+        "mid": "1799.39",
+        "last_price": "1799.41",
+        "low_24h": "1770.26",
+        "high_24h": "1936.17",
+        "price_change_24h": "-55.77",
+        "volume_24h": "2907.73",
+        "quote_volume_24h": "5344142.67",
+        "region": "UK"
+      }
+    ],
+    "metadata": {
+      "timestamp": 1789486173327
+    }
+  }
+}

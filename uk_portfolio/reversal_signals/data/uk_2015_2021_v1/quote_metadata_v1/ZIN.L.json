@@ -1,0 +1,13 @@
+{
+  "symbol": "ZIN.L",
+  "shortName": "ZINC MEDIA GROUP PLC ORD 0.125P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "ZIN.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:43:26.706098+00:00",
+  "yfinance_version": "1.2.0"
+}

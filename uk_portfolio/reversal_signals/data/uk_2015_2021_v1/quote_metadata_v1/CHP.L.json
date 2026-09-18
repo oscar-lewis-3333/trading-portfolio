@@ -1,0 +1,13 @@
+{
+  "symbol": "CHP.L",
+  "shortName": "CALEDONIAN HOLDINGS PLC ORD 1P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "CHP.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:38:40.152398+00:00",
+  "yfinance_version": "1.2.0"
+}

@@ -1,0 +1,13 @@
+{
+  "symbol": "FIPP.L",
+  "shortName": "FRONTIER IP GROUP PLC ORD 10P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "FIPP.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:39:31.183172+00:00",
+  "yfinance_version": "1.2.0"
+}

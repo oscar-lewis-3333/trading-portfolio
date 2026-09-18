@@ -1,0 +1,13 @@
+{
+  "symbol": "POLR.L",
+  "shortName": "POLAR CAPITAL HOLDINGS PLC ORD ",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "POLR.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:41:35.457739+00:00",
+  "yfinance_version": "1.2.0"
+}

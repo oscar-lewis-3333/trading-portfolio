@@ -1,0 +1,13 @@
+{
+  "symbol": "FNX.L",
+  "shortName": "FONIX PLC ORD 0.1P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "FNX.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:39:34.103095+00:00",
+  "yfinance_version": "1.2.0"
+}

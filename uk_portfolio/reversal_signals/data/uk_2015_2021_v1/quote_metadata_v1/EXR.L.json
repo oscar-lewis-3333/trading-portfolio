@@ -1,0 +1,13 @@
+{
+  "symbol": "EXR.L",
+  "shortName": "ENGAGE XR HOLDINGS PLC ORD EUR0",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "EXR.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:39:25.184664+00:00",
+  "yfinance_version": "1.2.0"
+}

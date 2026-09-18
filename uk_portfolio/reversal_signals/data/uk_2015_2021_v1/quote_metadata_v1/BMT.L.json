@@ -1,0 +1,13 @@
+{
+  "symbol": "BMT.L",
+  "shortName": "BRAIME GROUP PLC 'A'NON.V ORD 2",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "BMT.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:38:24.709073+00:00",
+  "yfinance_version": "1.2.0"
+}

@@ -1,0 +1,13 @@
+{
+  "symbol": "B90.L",
+  "shortName": "B90 HOLDINGS PLC ORD NPV",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "B90.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:38:16.851394+00:00",
+  "yfinance_version": "1.2.0"
+}

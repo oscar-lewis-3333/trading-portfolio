@@ -1,0 +1,13 @@
+{
+  "symbol": "IGR.L",
+  "shortName": "IG DESIGN GROUP PLC ORD 5P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "IGR.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:40:07.424772+00:00",
+  "yfinance_version": "1.2.0"
+}

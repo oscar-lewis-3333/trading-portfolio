@@ -1,0 +1,13 @@
+{
+  "symbol": "TIDE.L",
+  "shortName": "CRIMSON TIDE PLC ORD 10P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "TIDE.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:42:42.835483+00:00",
+  "yfinance_version": "1.2.0"
+}

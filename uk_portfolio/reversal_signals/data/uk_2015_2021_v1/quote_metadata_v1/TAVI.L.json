@@ -1,0 +1,13 @@
+{
+  "symbol": "TAVI.L",
+  "shortName": "TAVISTOCK INVESTMENTS PLC ORD 1",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "TAVI.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:42:33.160441+00:00",
+  "yfinance_version": "1.2.0"
+}

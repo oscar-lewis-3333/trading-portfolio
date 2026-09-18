@@ -1,0 +1,13 @@
+{
+  "symbol": "80M.L",
+  "shortName": "80 MILE PLC ORD 0.01P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "80M.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:37:49.461665+00:00",
+  "yfinance_version": "1.2.0"
+}

@@ -1,0 +1,4 @@
+ticker,Date,factor,scope,status
+BCE.L,2018-08-10,50,event_row,proposed_split_correction
+PXEN.L,2020-07-01,25,earlier_history,proposed_split_correction
+ROAD.L,2018-06-26,33,earlier_history,proposed_split_correction

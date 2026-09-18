@@ -1,0 +1,13 @@
+{
+  "symbol": "VINO.L",
+  "shortName": "VIRGIN WINES UK PLC ORD GBP0.01",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "VINO.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:43:08.533885+00:00",
+  "yfinance_version": "1.2.0"
+}

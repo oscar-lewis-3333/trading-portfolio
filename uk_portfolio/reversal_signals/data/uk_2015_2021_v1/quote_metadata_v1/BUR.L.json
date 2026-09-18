@@ -1,0 +1,13 @@
+{
+  "symbol": "BUR.L",
+  "shortName": "BURFORD CAPITAL LIMITED ORD NPV",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "BUR.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:38:30.538365+00:00",
+  "yfinance_version": "1.2.0"
+}

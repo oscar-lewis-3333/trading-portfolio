@@ -1,0 +1,13 @@
+{
+  "symbol": "ENW.L",
+  "shortName": "ENWELL ENERGY PLC ORD 5P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "ENW.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:39:22.857400+00:00",
+  "yfinance_version": "1.2.0"
+}

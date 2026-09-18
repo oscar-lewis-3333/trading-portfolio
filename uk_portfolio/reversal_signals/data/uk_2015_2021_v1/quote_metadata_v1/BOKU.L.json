@@ -1,0 +1,13 @@
+{
+  "symbol": "BOKU.L",
+  "shortName": "BOKU, INC. CMN SHS USD0.0001 (D",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "BOKU.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:38:25.833983+00:00",
+  "yfinance_version": "1.2.0"
+}

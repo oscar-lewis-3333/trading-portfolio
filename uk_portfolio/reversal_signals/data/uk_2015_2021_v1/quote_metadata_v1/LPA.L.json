@@ -1,0 +1,13 @@
+{
+  "symbol": "LPA.L",
+  "shortName": "LPA GROUP PLC ORD 10P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "LPA.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:40:39.380909+00:00",
+  "yfinance_version": "1.2.0"
+}

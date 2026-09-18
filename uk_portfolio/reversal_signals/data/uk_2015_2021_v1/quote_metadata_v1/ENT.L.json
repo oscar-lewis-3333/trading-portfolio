@@ -1,0 +1,13 @@
+{
+  "symbol": "ENT.L",
+  "shortName": "ENTAIN PLC ORD EUR0.01",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "ENT.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:39:22.274091+00:00",
+  "yfinance_version": "1.2.0"
+}

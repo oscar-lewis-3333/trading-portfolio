@@ -1,0 +1,13 @@
+{
+  "symbol": "JAN.L",
+  "shortName": "JANGADA MINES PLC ORD GBP0.0004",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "JAN.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:40:17.022328+00:00",
+  "yfinance_version": "1.2.0"
+}

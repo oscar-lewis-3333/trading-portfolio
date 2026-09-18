@@ -1,0 +1,13 @@
+{
+  "symbol": "SORT.L",
+  "shortName": "SORTED GROUP HOLDINGS PLC ORD 0",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "SORT.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:42:14.590136+00:00",
+  "yfinance_version": "1.2.0"
+}

@@ -1,0 +1,13 @@
+{
+  "symbol": "GTC.L",
+  "shortName": "GETECH GROUP PLC ORD 0.25P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "GTC.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:39:54.358388+00:00",
+  "yfinance_version": "1.2.0"
+}

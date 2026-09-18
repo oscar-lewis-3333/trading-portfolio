@@ -1,0 +1,13 @@
+{
+  "symbol": "VTU.L",
+  "shortName": "VERTU MOTORS PLC ORD 10P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "VTU.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:43:11.531635+00:00",
+  "yfinance_version": "1.2.0"
+}

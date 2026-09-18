@@ -1,0 +1,13 @@
+{
+  "symbol": "SWT.L",
+  "shortName": "SWITCH METALS PLC ORD GBP0.0085",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "SWT.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:42:29.070376+00:00",
+  "yfinance_version": "1.2.0"
+}

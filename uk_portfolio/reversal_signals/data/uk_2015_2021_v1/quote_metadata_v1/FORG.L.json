@@ -1,0 +1,13 @@
+{
+  "symbol": "FORG.L",
+  "shortName": "FORGENT PLC ORD EUR0.0001 (CDI)",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "FORG.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:39:35.270029+00:00",
+  "yfinance_version": "1.2.0"
+}

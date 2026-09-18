@@ -1,0 +1,13 @@
+{
+  "symbol": "CSSG.L",
+  "shortName": "CROMA SECURITY SOLUTIONS GROUP ",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "CSSG.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:38:58.464977+00:00",
+  "yfinance_version": "1.2.0"
+}

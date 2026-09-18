@@ -1,0 +1,19 @@
+{
+  "symbols": [
+    "BTC-GBP",
+    "ETH-GBP"
+  ],
+  "data_start": "2019-01-01",
+  "development_end_exclusive": "2024-01-01",
+  "holdout_end_exclusive": "2026-01-01",
+  "signal_lookback_days": 90,
+  "decision_frequency": "weekly",
+  "taker_fee_bps_per_side": 9.0,
+  "provisional_round_trip_cost_bps": 25.0,
+  "decision_weekday_utc": "Monday",
+  "decision_time_utc": "00:00",
+  "execution_delay_days": 1,
+  "execution_reference": "next_daily_open",
+  "target_weight_per_positive_asset": 0.5,
+  "rebalance_rule": "weekly_to_target_weights"
+}

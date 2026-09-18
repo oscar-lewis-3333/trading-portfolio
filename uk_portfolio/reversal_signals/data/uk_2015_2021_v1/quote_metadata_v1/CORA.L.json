@@ -1,0 +1,13 @@
+{
+  "symbol": "CORA.L",
+  "shortName": "CORA GOLD LIMITED ORD NPV (DI)",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "CORA.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:38:51.183637+00:00",
+  "yfinance_version": "1.2.0"
+}

@@ -1,0 +1,13 @@
+{
+  "symbol": "VNET.L",
+  "shortName": "VIANET GROUP PLC ORD 10P",
+  "currency": "GBp",
+  "exchangeName": "LSE",
+  "instrumentType": "EQUITY",
+  "exchangeTimezoneName": "Europe/London",
+  "ticker": "VNET.L",
+  "status": "ok",
+  "error": "",
+  "fetched_at_utc": "2026-09-11T20:43:10.252379+00:00",
+  "yfinance_version": "1.2.0"
+}

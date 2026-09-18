@@ -1,0 +1,82 @@
+{
+  "frozen_at_utc": "2026-09-15T23:28:09.268356+00:00",
+  "protocol_sha256": "cfea9a20fa884f93151d4877d27881f5080948b880755f859b726278bc171dea",
+  "protocol": {
+    "version": 1,
+    "data_snapshot": "/Users/oscarlewis/Desktop/python/trading_portfolio/crypto_momentum/data/raw/coinbase_history_20260915T201604_090041Z",
+    "data_source": "coinbase_exchange",
+    "symbols": [
+      "BTC-GBP",
+      "ETH-GBP"
+    ],
+    "holdout_start": "2024-01-01",
+    "holdout_end_exclusive": "2026-01-01",
+    "primary_strategy": {
+      "name": "fixed_30d",
+      "lookback_days": 30,
+      "signal": "trailing_close_return_strictly_positive",
+      "weight_per_positive_asset": 0.5,
+      "inactive_allocation": "GBP_cash"
+    },
+    "primary_benchmark": {
+      "name": "half_crypto_half_cash",
+      "BTC_weight": 0.25,
+      "ETH_weight": 0.25,
+      "cash_weight": 0.5
+    },
+    "decision_weekday_utc": "Monday",
+    "decision_time_utc": "00:00",
+    "execution_delay_days": 1,
+    "execution_reference": "next_daily_open",
+    "rebalance_rule": "weekly_to_target_weights",
+    "carry_pre_holdout_holdings": true,
+    "cash_interest_rate": 0.0,
+    "forced_terminal_liquidation": false,
+    "fee_bps_per_side": 9.0,
+    "primary_round_trip_cost_bps": 25.0,
+    "secondary_round_trip_costs_bps": [
+      40.0,
+      60.0
+    ],
+    "primary_statistic": "strategy_sharpe_minus_benchmark_sharpe",
+    "sharpe_annualisation_days": 365.25,
+    "bootstrap": {
+      "method": "paired_circular_block",
+      "block_days": 28,
+      "sensitivity_block_days": [
+        14,
+        56
+      ],
+      "repetitions": 10000,
+      "seed": 20260916,
+      "confidence_level": 0.95,
+      "interval_method": "percentile"
+    },
+    "primary_evidence_criterion": "Primary CI lower bound > 0 and strategy net total return > 0",
+    "secondary_comparisons": [
+      "annual_past_sharpe_selection",
+      "weekly_equal_weight"
+    ],
+    "annual_selection": {
+      "lookbacks": [
+        1,
+        3,
+        7,
+        14,
+        21,
+        30,
+        60,
+        90,
+        120,
+        180
+      ],
+      "training_start": "2019-07-03",
+      "training_end": "start_of_each_evaluation_year",
+      "training_window": "expanding",
+      "selection_metric": "net_sharpe_at_25bp_round_trip",
+      "tie_break": "longer_lookback"
+    },
+    "development_status": "2019-2023 inspected; candidate grid expanded after viewing results",
+    "secondary_results_cannot_replace_primary_test": true
+  }
+}
