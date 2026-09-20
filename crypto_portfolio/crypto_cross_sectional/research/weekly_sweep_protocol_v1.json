@@ -1,0 +1,97 @@
+{
+  "annualisation_days": 365,
+  "benchmark": "equal weight in the same eligible universe; identical decision/execution schedule",
+  "cash": "GBP; zero interest; cash-only decisions retained",
+  "cost_stress_round_trip_bps": [
+    40,
+    60
+  ],
+  "cost_stress_selection": "retain selections made under base costs",
+  "costs": {
+    "fee_bps": 9.0,
+    "other_cost_bps": 3.5
+  },
+  "decision_frequency": "Monday 00:00 UTC",
+  "eligibility": {
+    "history_days": 180,
+    "liquidity_days": 30,
+    "min_median_dollar_volume": 1000000.0
+  },
+  "execution": "first common fresh-reference minute from 00:05 through 01:00; fixed midnight targets",
+  "execution_max_reference_age_minutes": 5,
+  "folds": [
+    {
+      "fold": 1,
+      "test_end": "2025-01-01",
+      "test_start": "2024-01-01",
+      "training_end": "2024-01-01",
+      "training_start": "2022-01-01"
+    },
+    {
+      "fold": 2,
+      "test_end": "2026-01-01",
+      "test_start": "2025-01-01",
+      "training_end": "2025-01-01",
+      "training_start": "2022-01-01"
+    },
+    {
+      "fold": 3,
+      "test_end": "2026-09-01",
+      "test_start": "2026-01-01",
+      "training_end": "2026-01-01",
+      "training_start": "2022-01-01"
+    }
+  ],
+  "inference": {
+    "confidence_level": 0.95,
+    "method": "paired circular moving-block bootstrap, percentile interval",
+    "positive_result": "primary confidence interval lower endpoint above zero",
+    "primary_block_days": 28,
+    "repetitions": 10000,
+    "seed": 20260919,
+    "sensitivity_block_days": [
+      14,
+      56
+    ],
+    "statistic": "Sharpe difference"
+  },
+  "initial_cash_gbp": 1000.0,
+  "initialisation_note": "December 2021 trades establish holdings; their costs affect wealth but are outside the training return window",
+  "limitations": "current-catalogue survivorship; execution convention informed by availability audits across the sample; Coinbase last-trade prices and ECB FX are proxies for GBP venue execution",
+  "lookback_days": [
+    7,
+    14,
+    30,
+    60,
+    90,
+    180
+  ],
+  "oos_construction": "select at each test_start; apply at first scheduled Monday; carry units and cash continuously; rerun one ledger, never splice candidate returns",
+  "oos_end": "2026-09-01",
+  "oos_initialisation": "strategy and benchmark each start from GBP 1000 cash on 2024-01-01; include entry costs",
+  "oos_start": "2024-01-01",
+  "primary_comparison": "stitched walk-forward strategy versus matched benchmark after costs",
+  "scope": "current Revolut UK GBP candidate catalogue; meme_exclusions_v1",
+  "selection": "highest after-cost strategy-minus-benchmark Sharpe, rounded to 12 decimals",
+  "signal": "calendar-day close momentum within uninterrupted history segments",
+  "simulation_start": "2021-12-20",
+  "tie_breaks": [
+    "lower annualised one-way turnover",
+    "shorter lookback",
+    "smaller top fraction"
+  ],
+  "top_fractions": [
+    0.1,
+    0.2,
+    0.3
+  ],
+  "training_score_start": "2022-01-01",
+  "undefined_sharpe": "ineligible; stop if no configuration is eligible",
+  "universe": {
+    "max_assets": 30,
+    "min_assets": 20
+  },
+  "version": "weekly_cross_sectional_v1",
+  "weights": "ceil(fraction * universe_size), equal weights; negative winners permitted",
+  "window_convention": "candle_start >= start and < end; final close is available at end"
+}

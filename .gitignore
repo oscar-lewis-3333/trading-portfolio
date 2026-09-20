@@ -4,25 +4,13 @@ __pycache__/
 *.py[cod]
 *.log
 
-# live bot state
+#live bot state
 original_portfolio/trading_bot/data/basket_state.json
 original_portfolio/trading_bot/data/pending_rebalance.json
 original_portfolio/trading_bot/data/rebalance_history/
 original_portfolio/trading_bot/data/bot_run.lock
 
-# Research data kept locally, not shipped. Studies run from these caches on the
-# machine that built them; the repository carries the code, notebooks, frozen
-# specifications and hash records instead. See each project's README.
+#research data kept locally, not shipped. studies run from these caches on the machine that built them (my laptop).
 *.pkl
 uk_portfolio/reversal_signals/data/uk_2015_2021_v1/prices/
 crypto_portfolio/crypto_cross_sectional/data/raw/
-
-# The retired-code cleanup record stays local. The source archive in that folder
-# does ship, because verify_frozen_source reads it.
-uk_portfolio/reversal_signals/data/source_cleanup_2026_09_15/README.md
-uk_portfolio/reversal_signals/data/source_cleanup_2026_09_15/cleanup_manifest.json
-
-# TEMPORARY: crypto_cross_sectional is unfinished and is held back from the
-# repository. Delete this line, and this comment, to publish it. The data/raw
-# rule above stays and keeps its raw snapshots local.
-crypto_portfolio/crypto_cross_sectional/
