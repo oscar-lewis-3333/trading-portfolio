@@ -33,7 +33,7 @@ Began the project with 90d momentum, but after sweeping across 1, 3, 7, 14, 21, 
 - Frozen snapshot: `data/raw/coinbase_history_20260915T201604_090041Z/`, comprising 22 saved requests. Request boundaries are filtered before auditing the complete daily grid, duplicates, prices and volume.
 - Transaction Costs: 9 bp commission (per Revolut X rates) plus 3.5 bp other execution costs (spreading/slipping) per side, giving ~25 bp round trip. Sensitivities use 40 and 60 bp. Costs apply to net bought/sold crypto.
 - Portfolio: fractional units allowed, leverage/shorting not allowed, no interest on cash, and no forced final liquidation. Holdings carry through evaluation boundaries.
-- Venue limitation: Coinbase candles proxy prices are used for (intended) Revolut X execution. All transaction fees are study estimates and not guaranteed. Assume all our orders are filled out at the daily open, despite available liqudity, speading/slipping, daily openings are not all guarenteed fills.
+- Venue limitation: Coinbase candles proxy prices are used for (intended) Revolut X execution. All transaction fees are modelling assumptions and not guaranteed. Assume all our orders are filled out at the daily open, despite available liqudity, speading/slipping, daily openings are not all guarenteed fills.
 
 ## Research design
 

@@ -14,3 +14,7 @@ original_portfolio/trading_bot/data/bot_run.lock
 *.pkl
 uk_portfolio/reversal_signals/data/uk_2015_2021_v1/prices/
 crypto_portfolio/crypto_cross_sectional/data/raw/
+crypto_portfolio/crypto_reversal/data/raw/
+
+#quality_value is unfinished, and will be for a while, hence is held back from the repository.
+uk_portfolio/quality_value/

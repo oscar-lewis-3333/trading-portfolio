@@ -1,0 +1,14 @@
+[
+  {
+    "file": "sharecompare_wise_history.html",
+    "url": "https://www.sharecompare.co.uk/shares/WISE.L/history/",
+    "retrieved_at_utc": "2026-09-22T00:06:16.416606+00:00",
+    "sha256": "c869e2d37ca5180556554a05fd4f6e5f55c64f4ce29d0deeffe7cb1be08d8c82"
+  },
+  {
+    "file": "chartexchange_wise.html",
+    "url": "https://chartexchange.com/symbol/lse-wise/",
+    "retrieved_at_utc": "2026-09-22T00:06:17.487583+00:00",
+    "sha256": "792b2f5f28c604a408566b10ba48965622c043ba2b983a5fd41e9d54f0d683cd"
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "checked_utc": "2026-09-20T23:34:49.394599+00:00",
+  "dataset_sha256": "9909fa8e333de474a303005ed3cf2c459a8635f3046f580f89b4be9177213f57",
+  "unit_tests_passed": 11,
+  "fresh_kernel_nonempty_cells": 8,
+  "checks": [
+    "669 catalogue candidates retained; 593 histories available; 76 download reasons retained",
+    "All 573 inherited price histories and corporate-action values preserved exactly",
+    "Original and additional raw input fingerprints unchanged",
+    "No remaining 100-fold adjacent adjusted-price ratios in available data",
+    "Confirmed suspensions unavailable; reopening quotes retained",
+    "GBP/GBX conversion, action preservation, gaps and dated review checks passed",
+    "Unit quarantine prefix invariance tested; future issues do not change earlier observations",
+    "Offline snapshot replay and tamper detection verified",
+    "Notebook setup, baseline settings, user data module and markdown preserved",
+    "Cache guard tolerates comments, docstrings and formatting; executable syntax and data changes still fail",
+    "Rebuilt snapshot matches the previous snapshot byte for byte after user documentation edits",
+    "Full notebook including research periods and liquidity features passed in a fresh kernel"
+  ],
+  "limitations": [
+    "Present-day candidate catalogue; historical broker membership and delisted-stock coverage are incomplete.",
+    "593 price histories do not mean 593 eligible stocks at any date; history and trailing liquidity rules are still to be built.",
+    "Recorded suspensions are not an exhaustive exchange register. False means no registered suspension, not verified trading access.",
+    "Zero volume may reflect illiquidity or vendor omissions. OHLC inconsistencies remain diagnostic; do not simulate stops from high/low.",
+    "No historical bid/ask, executable auction prices, or verified all-in transaction costs.",
+    "Dated unit quarantines contain unresolved prices, not verified corrections. Held positions crossing gaps require explicit valuation/execution treatment.",
+    "Source adjustments are retrospective vendor vintages, not a complete point-in-time corporate-action feed.",
+    "SPDI's non-cash distribution is not valued; its affected period is blocked.",
+    "No momentum features, strategy results, eligibility thresholds, or development/holdout split have been calculated here."
+  ]
+}

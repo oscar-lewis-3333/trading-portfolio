@@ -1,0 +1,51 @@
+{
+  "verified_utc": "2026-09-21T12:44:25.025055+00:00",
+  "status": "passed",
+  "test_count": 48,
+  "test_command": "python -m unittest discover -s uk_portfolio/equity_momentum/tests -v",
+  "fresh_kernel_notebook_execution": true,
+  "checks": [
+    "cash ledger reconciliation",
+    "costs match signed trade log",
+    "compounded returns match equity",
+    "stock weights plus cash sum to one",
+    "no trades during registered suspensions",
+    "PREM stale values retained through suspension",
+    "one WPP missing valuation session",
+    "exactly 20 PREM data rows changed; all other rows unchanged"
+  ],
+  "dataset_sha256": "427a73199ece533894aedd06c259249c4028d21a152d987698e0cfc179c735f2",
+  "notebook_sha256": "72891979b2e68dd0c0131d681532ad98d50ec970168d36af9abf4b52f9658d8b",
+  "source_sha256": {
+    "src/momentum_backtest.py": "3f756e91e594b6dcaec07a1b47c01338b20db6f80dd7ad798f53d541c69f44c0",
+    "src/momentum_data.py": "a9b700b883e27379d6bcc5d255ebed14c2630072a8e47c784249ac800ec97c32",
+    "src/momentum_features.py": "d7b37a80e742358f2c217c138750454ffa262b97a9c143edb398fa8028947b16",
+    "src/momentum_preparation.py": "631588c62b7fd58dc469319468a906927bce4ca2af94d837259b7e3108664241",
+    "data/data_review_v1.json": "e490afe0a7cd0f450e1aa06ca884564b474875cad2ef3cf8b6a217d54ea47855"
+  },
+  "results": {
+    "momentum": {
+      "sessions": 1518,
+      "scheduled_rebalances": 72,
+      "final_equity_gbp": 22799.61879190039,
+      "total_costs_gbp": 685.0531187464319,
+      "total_dividends_gbp": 1152.7867431792915,
+      "stale_valuation_sessions": 0,
+      "max_stale_weight": 0.0,
+      "missing_valuation_sessions": 0,
+      "trade_records": 1776
+    },
+    "benchmark": {
+      "sessions": 1518,
+      "scheduled_rebalances": 72,
+      "final_equity_gbp": 22717.48707883978,
+      "total_costs_gbp": 315.3684966670189,
+      "total_dividends_gbp": 1386.573441395057,
+      "stale_valuation_sessions": 38,
+      "max_stale_weight": 0.013938487605078981,
+      "missing_valuation_sessions": 1,
+      "trade_records": 7365
+    }
+  },
+  "backup_path": "/Users/oscarlewis/Desktop/python/trading_portfolio/uk_portfolio/equity_momentum/data/preparation_backups/20260921T124210Z_apply_suspension_fix"
+}

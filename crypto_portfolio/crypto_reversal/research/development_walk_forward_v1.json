@@ -1,0 +1,22 @@
+{
+  "application": "Use the new configuration at its first anchored decision on or after selection_at",
+  "benchmark_switching": "Carry the matched benchmark continuously and adopt the selected frequency",
+  "calendar_anchor": "2022-01-01",
+  "candidate_grid": "All 60 fixed development configurations",
+  "cash": "Empty eligible universe or awaiting initial scheduled entry; otherwise carry holdings between rebalances",
+  "evaluation": "Development diagnostic; reviewed development outcomes informed this research process",
+  "fee_bps": 9.0,
+  "holdout": "Not accessed; freeze final strategy and inference separately before release",
+  "initial_test_capital_gbp": 1000.0,
+  "initial_training": "First complete calendar year of development",
+  "negative_training_score": "Still select the highest score; no additional entry filter",
+  "other_cost_bps": 3.5,
+  "portfolio_switching": "Carry units/cash continuously; charge per-asset absolute net trades; never splice candidate returns",
+  "research_protocol_sha256": "3068cbf3844056d9a27af52ddf3fc851db1a743fa8006703687ad54e37470402",
+  "review_frequency": "Calendar quarters at 00:00 UTC",
+  "selection_metric": "Highest mean daily strategy-minus-matched-benchmark return after costs",
+  "tie_break": "Lexicographically lowest config_id on an exact score tie",
+  "training_availability": "A candle-start return is available at the following midnight; include only availability <= selection_at",
+  "training_window": "Expanding from development_start",
+  "version": "development_walk_forward_v1"
+}

@@ -1,0 +1,126 @@
+{
+  "checked_utc": "2026-09-22T00:14:45.739168+00:00",
+  "dataset_sha256": "b0ba5b01f17142f55a0cf6a130545d172b3b262fe592a6a02fd17687cedec181",
+  "source_sha256": {
+    "momentum_preparation.py": "2d4b634da026e4c7cf2678b26018520224ceed44d88ab3dd96fff68e4f4fd774",
+    "momentum_features.py": "708d1b2c9600563dc6d1581316ec331c7c3180596e4fb2cbd4d4c189a07858d9",
+    "momentum_backtest.py": "3f756e91e594b6dcaec07a1b47c01338b20db6f80dd7ad798f53d541c69f44c0",
+    "momentum_sweep.py": "4c46c196e01671d5b4e47e8c0f5f83d85568b934b311f10da590777ced6efb46"
+  },
+  "protocol_sha256": "58e318dc7a4552ef7b7a47368eb9892a5ae3a6608f9b4532cb17ddd90de308ac",
+  "unchanged_pre_2024_features": true,
+  "unchanged_pre_2024_targets": true,
+  "all_prices_outside_repaired_row_unchanged": true,
+  "backtests": [
+    {
+      "portfolio": "benchmark",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_0",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_1",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_2",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_3",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_4",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_5",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_6",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_7",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_8",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_9",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_10",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_11",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_12",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_13",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_14",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_15",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_16",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    },
+    {
+      "portfolio": "configuration_17",
+      "sessions": 2526,
+      "accounting_checks_passed": true
+    }
+  ],
+  "status": "passed",
+  "test_count": 54,
+  "test_command": "python -m unittest discover -s uk_portfolio/equity_momentum/tests -q",
+  "fresh_kernel_notebook_execution": false,
+  "updated_holdout_feature_cell_executed": true,
+  "notebook_sha256": "343fc2eb9d418769b6aed6104434bbb8e8adbeb471164ae7471939ff587ae619",
+  "backup_path": "/Users/oscarlewis/Desktop/python/trading_portfolio/uk_portfolio/equity_momentum/data/preparation_backups/20260922T000733Z_wise_missing_quote",
+  "checks": [
+    "Archived reference quote used only for the missing WISE.L row on 2024-08-01",
+    "All other existing price values unchanged",
+    "Pre-2024 features and all 18 candidate target histories exactly unchanged",
+    "Original source archives, suspension review and frozen strategy protocol unchanged",
+    "Benchmark and 18 configurations each completed all 2526 sessions",
+    "Compounded returns match equity; weights plus cash sum to one; costs match trade logs"
+  ]
+}

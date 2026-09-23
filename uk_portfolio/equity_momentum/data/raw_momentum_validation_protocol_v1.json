@@ -1,0 +1,154 @@
+{
+  "benchmark": "monthly equal weight across common eligible stocks",
+  "carry_holdings_across_years": true,
+  "cash_interest_annual": 0.0,
+  "eligibility": "common across all momentum configurations",
+  "execution": {
+    "cost_per_side_bps": 10.0,
+    "max_missing_valuation_sessions": 1
+  },
+  "inference": {
+    "alpha": 0.05,
+    "n_bootstrap": 10000,
+    "primary_block_length": 63,
+    "seed": 42,
+    "sensitivity_block_lengths": [
+      21,
+      126
+    ]
+  },
+  "initial_capital_gbp": 10000.0,
+  "initial_state": "cash",
+  "liquidity": {
+    "lookback_sessions": 60,
+    "min_median_traded_value_gbp": 100000.0,
+    "min_positive_volume_fraction": 0.95
+  },
+  "parameter_grid": [
+    {
+      "configuration_id": 0,
+      "formation_sessions": 126,
+      "skip_sessions": 0,
+      "top_frac": 0.1
+    },
+    {
+      "configuration_id": 1,
+      "formation_sessions": 126,
+      "skip_sessions": 0,
+      "top_frac": 0.2
+    },
+    {
+      "configuration_id": 2,
+      "formation_sessions": 126,
+      "skip_sessions": 0,
+      "top_frac": 0.3
+    },
+    {
+      "configuration_id": 3,
+      "formation_sessions": 126,
+      "skip_sessions": 21,
+      "top_frac": 0.1
+    },
+    {
+      "configuration_id": 4,
+      "formation_sessions": 126,
+      "skip_sessions": 21,
+      "top_frac": 0.2
+    },
+    {
+      "configuration_id": 5,
+      "formation_sessions": 126,
+      "skip_sessions": 21,
+      "top_frac": 0.3
+    },
+    {
+      "configuration_id": 6,
+      "formation_sessions": 189,
+      "skip_sessions": 0,
+      "top_frac": 0.1
+    },
+    {
+      "configuration_id": 7,
+      "formation_sessions": 189,
+      "skip_sessions": 0,
+      "top_frac": 0.2
+    },
+    {
+      "configuration_id": 8,
+      "formation_sessions": 189,
+      "skip_sessions": 0,
+      "top_frac": 0.3
+    },
+    {
+      "configuration_id": 9,
+      "formation_sessions": 189,
+      "skip_sessions": 21,
+      "top_frac": 0.1
+    },
+    {
+      "configuration_id": 10,
+      "formation_sessions": 189,
+      "skip_sessions": 21,
+      "top_frac": 0.2
+    },
+    {
+      "configuration_id": 11,
+      "formation_sessions": 189,
+      "skip_sessions": 21,
+      "top_frac": 0.3
+    },
+    {
+      "configuration_id": 12,
+      "formation_sessions": 252,
+      "skip_sessions": 0,
+      "top_frac": 0.1
+    },
+    {
+      "configuration_id": 13,
+      "formation_sessions": 252,
+      "skip_sessions": 0,
+      "top_frac": 0.2
+    },
+    {
+      "configuration_id": 14,
+      "formation_sessions": 252,
+      "skip_sessions": 0,
+      "top_frac": 0.3
+    },
+    {
+      "configuration_id": 15,
+      "formation_sessions": 252,
+      "skip_sessions": 21,
+      "top_frac": 0.1
+    },
+    {
+      "configuration_id": 16,
+      "formation_sessions": 252,
+      "skip_sessions": 21,
+      "top_frac": 0.2
+    },
+    {
+      "configuration_id": 17,
+      "formation_sessions": 252,
+      "skip_sessions": 21,
+      "top_frac": 0.3
+    }
+  ],
+  "primary_test": "mean daily net excess over benchmark > 0",
+  "rebalance_frequency": "monthly",
+  "reserved_holdout": {
+    "end_exclusive": "2026-01-01",
+    "start": "2024-01-01"
+  },
+  "signal": "raw_momentum_score",
+  "validation": {
+    "end_exclusive": "2024-01-01",
+    "start": "2022-01-01"
+  },
+  "walk_forward": {
+    "refit_frequency": "annual",
+    "selection_metric": "sharpe_zero_rf",
+    "tie_break": "lowest_configuration_id",
+    "training_years": 3
+  }
+}

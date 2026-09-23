@@ -1,6 +1,6 @@
 # Crypto cross-sectional momentum
 
-**Strategy not chosen for implementation**
+**Bitcoin filter chosen for implementation, standard is not**
 
 The annually selected 90d momentum rule, holding the top 10% of eligible assets and rebalancing weekly, returned -10.11% after modelling transaction costs (25bp round trip) over 01/2024-08/2026. The equal-weight benchmark (rebalanced to equal weight weekly) returned -48.68%. However, the strategy had greater volatility, a worse maximum drawdown, and a 95% Sharpe-difference interval that included zero. Hence no statistically significant edge over the benchmark has been shown. This does not prove that no advantage exists, but that the test is inconclusive.
 
@@ -102,3 +102,95 @@ See that momentum still outperforms the benchmark at every cost level, but losse
 
 The strategy produced much better cumulative returns than the matched benchmark, with the advantage maintaining across high transaction costs. However, both portfolios lost money over the holdout, the strategy was more volatile and had worse drawdown. The primary bootstrap significance test did not establish an edge. The result does not justify implementing this version as a proven edge, nor even a promising strategy.
 
+## Bitcoin filter extension
+
+**Strategy chosen for implementation**
+
+The findings above concern the original unfiltered strategy. Now consider whether a Bitcoin filter can reduce exposure during unfavourable market conditions while retaining the same rule as above.
+
+The economic hypothesis is that Bitcoin's trend can indicate wider cryptocurrency market conditions. Weakness in Bitcoin may accompany losses elsewhere, so holding cash during these periods could reduce drawdowns. This is a motivation for testing, rather than a guarantee that Bitcoin leads other cryptocurrencies or that a positive Bitcoin return means the market is safe.
+
+### Filter rule
+
+Keep 90d coin momentum, the top 10% of eligible assets, the universe rules and weekly rebalancing fixed. At Monday midnight (UTC), calculate Bitcoin's trailing return using completed daily BTC-USD closes. Hold the usual momentum portfolio only when this return is strictly positive. If it is zero or negative, hold all cash. The original cash rule when fewer than 20 assets qualify still applies.
+
+Check the filter only at the Monday decision, with trade execution identical to before. A change in Bitcoin during the week does not trigger a trade.
+
+### Development sweep and annual selection
+
+Sweep Bitcoin lookbacks of 7, 14, 30, 60, 90, 120 and 180 calendar days. Select the highest net strategy Sharpe, rather than its Sharpe difference against equal weight.
+
+| Bitcoin lookback | 2022-2023 return | Sharpe | Maximum drawdown |
+| --- | ---: | ---: | ---: |
+| 120d | 318.45% | 1.494 | -37.56% |
+| 90d | 121.23% | 0.954 | -37.56% |
+| 180d | 118.57% | 0.940 | -44.43% |
+| 30d | 109.98% | 0.883 | -45.82% |
+| 60d | 74.98% | 0.743 | -58.94% |
+| 7d | 43.48% | 0.602 | -61.79% |
+| Unfiltered | 19.50% | 0.550 | -79.86% |
+| 14d | 9.92% | 0.406 | -65.09% |
+
+See that 120d performs best in the first training period. Expanding training windows of 2022-2023, 2022-2024 and 2022-2025 all select 120d for their following evaluation periods. The large development return is a selection result.
+
+### Evaluation: 2024-August 2026
+
+Start each portfolio with £1,000 on 01/01/2024, testing through to 31/08/2026, giving 974 daily returns. Cash and units carry across year boundaries, with annual choices applied at the first scheduled Monday. Costs remain identical to before when trades are executed.
+
+Apply the same selected Bitcoin filter to the equal-weight benchmark. This gives two different comparisons, filtered momentum vs unfiltered momentum, and filtered momentum vs filtered equal-weight
+
+| Portfolio | Total return | CAGR | Sharpe | Maximum drawdown | Cash days |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Filtered momentum | 36.29% | 12.30% | 0.510 | -64.17% | 44.7% |
+| Unfiltered momentum | -10.11% | -3.92% | 0.387 | -86.79% | 0.0% |
+| Filtered equal weight | -55.20% | -25.99% | -0.199 | -75.60% | 44.7% |
+| Unfiltered equal weight | -48.67% | -22.12% | 0.040 | -81.87% | 0.0% |
+
+| Period | Filtered momentum | Unfiltered momentum |
+| --- | ---: | ---: |
+| 2024 | 117.51% | 216.70% |
+| 2025 | -30.85% | -65.99% |
+| January-August 2026 | -9.38% | -16.54% |
+
+The filter sacrifices substantial gains in 2024, but avoids enough subsequent losses to finish ahead. Filtered momentum still loses money in 2025 and 01-08/2026, and its maximum drawdown remains ~64%. The worst drawdown had not recovered by the end of the evaluation.
+
+Filtering equal weight reduces its total return, despite improving its maximum drawdown. Hence the filter does not improve every portfolio in this sample. Bitcoin being positive over the previous 120 days can also coincide with a market which has already started deteriorating.
+
+### Transaction cost sensitivity
+
+Now test transaction cost sensitivity across a variety of transaction costs per side. The portfolio execution remains identical, with only the transaction costs changing
+
+| Total cost per side | Filtered momentum return | Unfiltered momentum return | Filtered Sharpe |
+| --- | ---: | ---: | ---: |
+| 0bp | 44.49% | -1.07% | 0.542 |
+| 12.5bp, original assumption | 36.29% | -10.11% | 0.510 |
+| 25bp | 28.55% | -18.33% | 0.479 |
+| 50bp | 14.37% | -32.59% | 0.417 |
+| 100bp | -9.49% | -54.09% | 0.292 |
+
+See that filtered momentum remains positive at four times the original cost assumption, but loses money at 100bp per side, although this is unlikely to be the case in reality.
+
+### Bootstrap comparisons
+
+Use a standard bootstrap block comparison. 28 day blocks are the primary test, with others used as sensitivities. The primary comparison asks whether the Bitcoin filter improves momentum's Sharpe. A secondary comparison asks whether momentum selection improves Sharpe over equal weight when both use the same Bitcoin filter.
+
+| Comparison | Block length | Sharpe difference | 95% interval |
+| --- | --- | ---: | ---: |
+| Filtered vs unfiltered momentum | 28 days (primary length) | +0.123 | [-0.840, +1.027] |
+| Filtered vs unfiltered momentum | 14 days | +0.123 | [-0.749, +0.960] |
+| Filtered vs unfiltered momentum | 56 days | +0.123 | [-0.900, +1.036] |
+| Filtered momentum vs filtered equal weight | 28 days (primary length) | +0.710 | [+0.158, +1.176] |
+| Filtered momentum vs filtered equal weight | 14 days | +0.710 | [+0.140, +1.222] |
+| Filtered momentum vs filtered equal weight | 56 days | +0.710 | [+0.138, +1.151] |
+
+All intervals for the filter effect contain zero. Hence the bootstrap does not statistically establish a Sharpe advantage from adding the filter, despite the better realised return and drawdown. This does not prove that the filter has no benefit, rather that the test is inconclusive.
+
+All intervals for momentum selection under the same filter are above zero. This supports relative coin selection under the bootstrap assumptions. It is a secondary result and does not establish that the Bitcoin filter itself improves Sharpe, although the statistical significance is promising alongside the improvement in other areas.
+
+### Assessment
+
+The filtered version is more defensive than unfiltered momentum in this sample, with better cumulative returns, lower turnover and a smaller drawdown. A ~64% drawdown still represents substantial risk. 
+
+These dates had already been examined, so this is retrospective walk-forward research, not a fresh holdout. The universe selection bias and proxy execution limitations remain. Diversification against the other momentum strategy has not yet been tested.
+
+Key details remain in [research notebook](notebooks/archive/crypto_cross_sectional_research_2026-09-19.ipynb).

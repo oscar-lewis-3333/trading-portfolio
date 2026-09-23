@@ -1,0 +1,18 @@
+{
+  "warmup": {
+    "start": "2015-01-01",
+    "end_exclusive": "2016-01-01"
+  },
+  "development": {
+    "start": "2016-01-01",
+    "end_exclusive": "2022-01-01"
+  },
+  "validation": {
+    "start": "2022-01-01",
+    "end_exclusive": "2024-01-01"
+  },
+  "holdout": {
+    "start": "2024-01-01",
+    "end_exclusive": "2026-01-01"
+  }
+}

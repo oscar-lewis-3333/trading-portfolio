@@ -1,0 +1,114 @@
+{
+  "reviewed_utc": "2026-09-21",
+  "unit_quarantines": [
+    {
+      "ticker": "VOX.L",
+      "start": "2024-02-05",
+      "end_exclusive": null,
+      "reason": "Repeated approximately 100-fold quote-scale changes without recorded splits; first suspect quote has zero volume. No independently verified replacement daily series. Quarantine from first detected discontinuity, not the entire ticker history."
+    },
+    {
+      "ticker": "SPDI.L",
+      "start": "2025-07-31",
+      "end_exclusive": null,
+      "reason": "Repeated approximately 100-fold quote-scale changes without recorded splits; first suspect quote has zero volume. Quarantine remains in place pending verification of an entire consistent price series."
+    },
+    {
+      "ticker": "BAY.L",
+      "start": "2025-08-20",
+      "end_exclusive": null,
+      "reason": "Repeated approximately 100-fold quote-scale changes without recorded splits; first suspect quote has zero volume. No replacement prices inferred from later returns."
+    }
+  ],
+  "suspensions": [
+    {
+      "ticker": "BLU.L",
+      "start": "2018-07-26",
+      "first_suspended_open": "2018-07-26",
+      "resume": "2019-01-24",
+      "reason": "Proposed SatoshiPay reverse takeover; retain the actual reopening quote and any reopening loss.",
+      "sources": [
+        "https://shareaware.co.uk/blue-star-capital-plc-suspension-and-potential-acquisition/",
+        "https://www.investegate.co.uk/index.php/announcement/rns/blue-star-capital--blu/restoration-of-trading-and-general-update/5725621"
+      ]
+    },
+    {
+      "ticker": "SCGL.L",
+      "start": "2016-03-29",
+      "first_suspended_open": "2016-03-29",
+      "resume": "2017-02-28",
+      "reason": "Reverse takeover. Suspension request released after market close on 24 March 2016; 29 March is the next LSE session after Easter. Boundary uses the next session after the announcement, not an independently recovered intraday FCA timestamp. Re-admission confirmed for 28 February 2017.",
+      "sources": [
+        "https://www.investegate.co.uk/announcement/rns/sealand-capital-galaxy-limited-di---scgl/temporary-suspension/4380301",
+        "https://www.investegate.co.uk/company/SCGL?page=4",
+        "https://www.investegate.co.uk/announcement/rns/sealand-capital-galaxy-limited-di---scgl/acquisition/5015084"
+      ]
+    },
+    {
+      "ticker": "SCGL.L",
+      "start": "2018-04-30",
+      "first_suspended_open": "2018-04-30",
+      "resume": "2018-10-30",
+      "reason": "Delayed annual report; reopening date from the issuer's restoration announcement.",
+      "sources": [
+        "https://www.lse.co.uk/rns/SCGL/temporary-suspension-z2crpahlqom3j0w.html",
+        "https://shareprices.com/rns/restoration-of-trading-ibng0em59d2zgnj/"
+      ]
+    },
+    {
+      "ticker": "SPDI.L",
+      "start": "2025-11-06",
+      "first_suspended_open": "2025-11-06",
+      "resume": null,
+      "reason": "AdvEn potential reverse takeover; suspended from 07:30 on 6 November 2025 through the end of this dataset.",
+      "sources": [
+        "https://secure-property.eu/cms/wp-content/uploads/2025/11/2025-11-05-SECURE-PROPERTY-Loan-to-ADVEN-.pdf",
+        "https://www.londonstockexchange.com/news-article/market-news/suspension-secure-property-dev-inv-plc/17314592"
+      ]
+    },
+    {
+      "ticker": "PREM.L",
+      "start": "2017-07-03",
+      "first_suspended_open": "2017-07-03",
+      "resume": "2017-07-12",
+      "reason": "Delayed 2016 annual accounts. Confirms the existing inherited interval with dated issuer and exchange notices.",
+      "sources": [
+        "https://www.lse.co.uk/rns/PREM/filing-of-accounts-and-suspension-of-trading-rzrgv6g78tce1cr.html",
+        "https://www.lse.co.uk/rns/PREM/restoration-premier-african-minerals-limited-za0iao55rexmlft.html"
+      ]
+    },
+    {
+      "ticker": "PREM.L",
+      "start": "2018-07-02",
+      "first_suspended_open": "2018-07-02",
+      "resume": "2018-07-30",
+      "reason": "Delayed 2017 annual accounts. Exchange suspension and restoration notices establish both boundaries at 07:30. Vendor flat quotes during the halt are not executable prices.",
+      "sources": [
+        "https://www.lse.co.uk/rns/PREM/suspension-premier-african-minerals-limited-ucko2c39ysq3t2t.html",
+        "https://www.lse.co.uk/rns/PREM/restoration-premier-african-minerals-ltd-5oqgxxnipptylr3.html"
+      ]
+    }
+  ],
+  "unsupported_distributions": [
+    {
+      "ticker": "SPDI.L",
+      "start": "2025-09-12",
+      "end_exclusive": null,
+      "reason": "Arcona share distribution ex-date. Yahoo records no distribution; entitlement value and delivery are not reconstructed. Price-only returns across this event are not valid total returns. Period already falls within the unit quarantine; existing holdings must not be silently liquidated or written off.",
+      "sources": [
+        "https://secure-property.eu/cms/wp-content/uploads/2025/09/2025-09-11_SECURE-PROPERTY_-Arcona-Share-Distribution-Timetable-1.pdf"
+      ]
+    }
+  ],
+  "policy": {
+    "no_forward_or_backward_filling": true,
+    "no_extreme_return_clipping": true,
+    "no_whole_history_exclusion_using_future_gaps": true,
+    "unit_quarantine_release": "Requires documented review; no automatic release merely because the quote returns to a previous scale.",
+    "zero_volume": "Retain as reported activity; it is neither a confirmed suspension nor proof of erroneous prices. Trading eligibility will use trailing activity, not full-history percentages.",
+    "ohlc_inconsistency": "Retain as a diagnostic. Open or close outside daily high-low is common in this vendor feed; high-low fields must not be used for fill/stop simulation without further verification.",
+    "held_missing_prices": "Future portfolio code must retain the holding and stop/resolve an unpriceable valuation or order. Never assume cash, a zero return, or a successful exit.",
+    "stage": "Data preparation only; no signals, liquidity thresholds, performance selection, or train/holdout split."
+  }
+}
+

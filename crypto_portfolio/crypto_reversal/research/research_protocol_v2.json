@@ -1,0 +1,56 @@
+{
+  "bootstrap_phase": "Holdout only, after strategy and inference rules are frozen",
+  "combined_portfolio_evaluation": "Owned by the future bot notebook; preserve versions for every strategy change",
+  "development_end_exclusive": "2025-01-01",
+  "development_start": "2022-01-01",
+  "eligibility": {
+    "history_days": 180,
+    "liquidity_days": 30,
+    "min_median_dollar_volume": 1000000.0
+  },
+  "excluded_products": [
+    "BONK-USD",
+    "DOGE-USD",
+    "FLOKI-USD",
+    "PENGU-USD",
+    "PEPE-USD",
+    "SHIB-USD",
+    "SPX-USD",
+    "TRUMP-USD",
+    "WIF-USD"
+  ],
+  "history_end_exclusive": "2026-09-01",
+  "history_snapshot": "../crypto_cross_sectional/data/raw/coinbase_coverage_20260918T183827_526442Z",
+  "history_start": "2019-01-01",
+  "holdout_end_exclusive": "2026-09-01",
+  "holdout_release_rule": "Freeze the strategy, selection rule, benchmark, execution, costs and inference before evaluating holdout returns",
+  "holdout_start": "2025-01-01",
+  "holdout_status": "Previously examined in other crypto projects; reserved for this strategy, not a pristine research holdout",
+  "hypothesis": "Temporary selling pressure can be followed by relative price recovery",
+  "meme_policy_version": "meme_exclusions_v1",
+  "next_step": "Specify the development sweep and selection criterion before running backtests",
+  "quote_currency": "USD",
+  "signal": {
+    "availability": "Only candles completed by decision time; never bridge history gaps",
+    "decision_frequency": "Daily at 00:00 UTC",
+    "formation_days": 1,
+    "negative_return_required": false,
+    "score": "Negative trailing calendar-day close-to-close return",
+    "selection_count": "ceil(selection_fraction * eligible_universe_size)",
+    "selection_fraction": 0.2,
+    "ties": "Ascending product_id",
+    "weights": "Equal weight among selected assets"
+  },
+  "stage": "Development study design; rebalance sweep not yet specified",
+  "transaction_cost_basis": "Sum of per-asset costs on absolute net traded notional at execution; do not offset different assets or charge unchanged units",
+  "universe": {
+    "empty_universe": "Target 100% cash when no assets pass eligibility; required exits need valid execution prices and incur costs on net trades",
+    "liquidity_order": "Descending median dollar volume, then ascending product_id",
+    "max_assets": 30,
+    "min_assets": 1
+  },
+  "universe_basis": "Saved current Revolut UK GBP candidates with Coinbase USD history; survivorship remains",
+  "version": "crypto_reversal_research",
+  "warmup_rule": "Earlier prices may supply historical features but are not scored as evaluation returns",
+  "window_rule": "Start inclusive, end exclusive; development outcomes must be available no later than the development end"
+}

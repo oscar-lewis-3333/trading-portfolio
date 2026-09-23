@@ -1,0 +1,43 @@
+{
+  "reviewed_utc": "2026-09-22T00:07:33.886285+00:00",
+  "repairs": [
+    {
+      "ticker": "WISE.L",
+      "date": "2024-08-01",
+      "quote_currency": "GBX",
+      "quotes": {
+        "Open": 715.5,
+        "High": 716.0,
+        "Low": 692.0,
+        "Close": 700.0,
+        "Volume": 1156232
+      },
+      "adjustment_factor": 1.0,
+      "reason": "Yahoo reproduces a missing OHLC row with zero volume on a scheduled monthly rebalance. Share Compare publishes OHLCV for the day; ChartExchange agrees on close and volume. Neighbouring source opens/closes agree with the existing GBP series. Repair only this missing day; do not replace the history.",
+      "adjustment_basis": "Existing vendor adjustment factor is 1.0 on the immediately preceding and following sessions. Yahoo records zero dividends and splits across this local interval; the repair preserves that basis.",
+      "volume_caveat": "Secondary-source volume and high/low definitions differ slightly from Yahoo on adjacent days. Use the archived Share Compare record only for the missing session; do not assert independent exchange verification.",
+      "evidence": [
+        {
+          "url": "https://www.sharecompare.co.uk/shares/WISE.L/history/",
+          "retrieved_at_utc": "2026-09-22T00:06:16.416606+00:00",
+          "sha256": "c869e2d37ca5180556554a05fd4f6e5f55c64f4ce29d0deeffe7cb1be08d8c82",
+          "path": "data/price_repair_evidence/wise_20240801/sharecompare_wise_history.html"
+        },
+        {
+          "url": "https://chartexchange.com/symbol/lse-wise/",
+          "retrieved_at_utc": "2026-09-22T00:06:17.487583+00:00",
+          "sha256": "792b2f5f28c604a408566b10ba48965622c043ba2b983a5fd41e9d54f0d683cd",
+          "path": "data/price_repair_evidence/wise_20240801/chartexchange_wise.html"
+        },
+        {
+          "path": "data/price_repair_evidence/wise_20240801/wise_yahoo_refetch.pkl",
+          "sha256": "015134ddc607830427b7f66abf0d6d075031ee78ea1453f61fbb7eaf55a6c4f3"
+        },
+        {
+          "path": "data/price_repair_evidence/wise_20240801/sharecompare_wise_context.csv",
+          "sha256": "b9ec80e0c6dccf685dcaa612ed083c8930b5aa6da0ab84db17f0dd51b61d6449"
+        }
+      ]
+    }
+  ]
+}
