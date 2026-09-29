@@ -16,7 +16,7 @@ import numpy as np
 import pandas as pd
 
 PROJECT = Path(__file__).resolve().parents[1]
-NOTEBOOK = PROJECT / "notebooks/reversal_signals_uk.ipynb"
+NOTEBOOK = PROJECT / "notebooks/archive/reversal_signals_uk_research_2026_09_15.ipynb"
 sys.path.insert(0, str(PROJECT / "src"))
 import reversal_namespace  # widens the trading_portfolio package path
 import reversal_features

@@ -33,7 +33,6 @@ class ForwardOutcomeTests(unittest.TestCase):
         }, index=self.schedule.index)
 
     def test_session_timing_and_dividend_entitlement(self):
-        # The entry-day dividend of 9 is excluded; exit-day dividends count.
         for horizon, dividends, total_return in [(1, 2., .12), (3, 3., .11), (5, 6., .21)]:
             with self.subTest(horizon=horizon):
                 row = reversal_features.build_forward_outcomes(

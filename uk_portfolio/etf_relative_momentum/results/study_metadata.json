@@ -1,0 +1,72 @@
+{
+  "protocol": {
+    "data_start": "2000-01-01",
+    "data_end": "2026-09-01",
+    "analysis_start": "2015-01-01",
+    "baseline_lookback_months": 12,
+    "baseline_top_n": 3,
+    "lookbacks": [
+      3,
+      6,
+      9,
+      12
+    ],
+    "top_ns": [
+      1,
+      3,
+      5,
+      8
+    ],
+    "backtest": {
+      "initial_capital_gbp": 10000.0,
+      "cost_per_side_bps": 10.0,
+      "cash_rate_annual": 0.0
+    },
+    "periods": {
+      "development": [
+        "2016-02-01",
+        "2022-01-01"
+      ],
+      "validation": [
+        "2022-01-01",
+        "2024-01-01"
+      ],
+      "final_evaluation": [
+        "2024-01-01",
+        "2026-09-01"
+      ]
+    },
+    "walk_forward": {
+      "training_years": 3,
+      "selection_metric": "sharpe_zero_rf",
+      "refit_frequency": "annual",
+      "tie_break": "lowest_configuration_id"
+    },
+    "first_complete_training_year": "2017-01-01",
+    "inference": {
+      "block_length": 63,
+      "n_bootstrap": 10000,
+      "alpha": 0.05,
+      "seed": 42
+    },
+    "quote_exclusions": {
+      "IJPN": [
+        "2025-10-24"
+      ],
+      "WLDS": [
+        "2025-10-24"
+      ],
+      "CMOP": [
+        "2025-10-24"
+      ]
+    }
+  },
+  "separate_initial_capital_per_period": true,
+  "initial_entry_cost_included": true,
+  "forced_final_liquidation": false,
+  "daily_return_definition": "Closing NAV / previous closing NAV - 1; first denominator is initial capital.",
+  "periods_are_not_one_continuous_investment": true,
+  "final_2026_period_ends": "2026-08-28",
+  "past_work_overlap": "Related ETF research had already examined later market history.",
+  "status": "Research complete; standalone edge and combined-portfolio benefit not established."
+}

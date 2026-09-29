@@ -84,3 +84,9 @@ The primary 1-sided test does narrowly produce a signficant p-value, while all t
 ## Conclusion
 
 The six month strategy reduced risk relative to a standard buy and hold approach, but at the cost of return. It outperformed a cash-composite benchmark, but also took on more risk and exposure. This evidence does not justify using this strategy in practice.
+
+# Extension (Risk-Weighting)
+
+**Not chosen for implementation**
+
+A retrospective test of two changes to the rule above: each fund's slot is sized by inverse 126-day volatility instead of a flat 10%, and cash earns Bank Rate. Inverse vol lowered volatility but gave up more return, with a lower Sharpe in both development (0.60 against 0.69) and the holdout (0.60 against 0.81, a difference of −0.21 with a 95% interval of [−0.35, −0.07]). The shortfall came from holding more gilts and less equity in years when equities led. With interest on cash, the original rule still trails buy-and-hold, so neither version is used. Details are in the [notebook](notebooks/etf_trend.ipynb) and the [decision log](research/risk_weighting_log.md).

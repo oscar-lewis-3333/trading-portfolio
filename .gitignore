@@ -3,6 +3,7 @@
 __pycache__/
 *.py[cod]
 *.log
+setup_env.sh
 
 #live bot state
 original_portfolio/trading_bot/data/basket_state.json
@@ -12,9 +13,21 @@ original_portfolio/trading_bot/data/bot_run.lock
 
 #research data kept locally, not shipped. studies run from these caches on the machine that built them (my laptop).
 *.pkl
-uk_portfolio/reversal_signals/data/uk_2015_2021_v1/prices/
-crypto_portfolio/crypto_cross_sectional/data/raw/
-crypto_portfolio/crypto_reversal/data/raw/
+uk_portfolio/reversal_signals/data/
+uk_portfolio/etf_trend/data/
+uk_portfolio/etf_relative_momentum/data/
+uk_portfolio/reversal_signals/results/
+crypto_portfolio/crypto_cross_sectional/data/
+crypto_portfolio/crypto_reversal/data/
+crypto_portfolio/crypto_trend/data/
 
-#quality_value is unfinished, and will be for a while, hence is held back from the repository.
+#concept idea, not ready
+market_tools/
+
+#unfinished
+original_portfolio/llm_agent/
 uk_portfolio/quality_value/
+crypto_portfolio/crypto_execution/
+crypto_portfolio/crypto_funding/
+uk_portfolio/low_beta/
+uk_portfolio/earnings_drift/

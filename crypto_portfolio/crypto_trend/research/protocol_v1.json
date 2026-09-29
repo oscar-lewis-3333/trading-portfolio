@@ -1,0 +1,124 @@
+{
+  "frozen_at_utc": "2026-09-24T21:17:48.145966+00:00",
+  "protocol_sha256": "61b417de77061121d57ffb19e8ad60550f48bd56a49ea1e9e315e04d86090d73",
+  "protocol": {
+    "version": 1,
+    "project": "crypto_trend (C1)",
+    "question": "Does multi-horizon, volatility-scaled trend beat the frozen 30d absolute-momentum rule on BTC/ETH, traded the way the bot will trade?",
+    "universe": [
+      "BTC-GBP",
+      "ETH-GBP"
+    ],
+    "data": {
+      "source": "coinbase_exchange GBP candles",
+      "daily_start": "2019-01-01",
+      "daily_end_exclusive": "2026-09-23",
+      "daily_files": 24,
+      "daily_sha256": "cedfcd9ee8432c2ae234373a96f644a586ab273bc852a3c885cef7061b752460",
+      "minute_files": 806,
+      "minute_sha256": "791c372570fa086026aaec98eee1ad557c0922150e1a4b0e81892c69027a4883",
+      "note": "Evaluation uses these saved files only; no re-download"
+    },
+    "decisions": "Monday 00:00 UTC, completed daily candles only",
+    "execution": "From 00:05 UTC, first minute at which both coins have a completed positive-volume 1-minute candle started at most 5 minutes earlier; fill at those closes; by 01:00 at the latest (house convention)",
+    "signal": {
+      "signal_factory_id": "trend_agreement_vol",
+      "slot": "1/N per coin (50%)",
+      "rule": "slot x fraction of lookbacks with positive trailing return x min(1, target_vol / 30-day realised vol); remainder GBP cash; weight changes smaller than the band are not traded",
+      "vol_window_days": 30
+    },
+    "sweep": {
+      "lookbacks": [
+        [
+          7,
+          14,
+          30,
+          60,
+          90,
+          180
+        ],
+        [
+          14,
+          30,
+          60,
+          90
+        ],
+        [
+          30,
+          60,
+          90,
+          180
+        ]
+      ],
+      "target_volatility": [
+        0.4,
+        0.6,
+        null
+      ],
+      "no_trade_band": [
+        0.0,
+        0.1
+      ],
+      "configurations": 18,
+      "no_cap_implementation": "target_volatility=None is run as 10.0, which never binds"
+    },
+    "periods": {
+      "first_decision": "2019-07-01",
+      "development_end_exclusive": "2024-01-01",
+      "evaluation_start": "2024-01-01",
+      "evaluation_end_exclusive": "2026-09-23",
+      "evaluation_status": "2024-2026 was already examined by crypto_momentum for the 30d rule; no C1 configuration has been evaluated on it",
+      "true_holdout": "Forward paper trading from the freeze date"
+    },
+    "selection": {
+      "method": "Annual, expanding window from first_decision to 1 January of the year being traded",
+      "years_selected": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "development_walk_forward": "2021-2023, diagnostic only",
+      "score": "Net Sharpe, 0% cash, 365-day annualisation, rounded to 3 dp",
+      "ties": "Lower annualised turnover, then earlier in sweep order"
+    },
+    "benchmarks": {
+      "primary": "Frozen 30d absolute momentum (trend_absolute_30d), same universe, same within-the-hour execution and costs",
+      "context": [
+        "25% BTC / 25% ETH / 50% cash, rebalanced weekly",
+        "50% BTC / 50% ETH buy-and-hold, no rebalancing"
+      ]
+    },
+    "costs": {
+      "primary": "9bp fee + 3.5bp slippage per side on net traded weight (signal_factory 'pessimistic')",
+      "stress": "30bp per side (signal_factory 'stress')",
+      "later": "Re-run with measured per-pair costs once crypto_execution publishes (earliest 2026-10-21)"
+    },
+    "cash": {
+      "primary": 0.0,
+      "sensitivity": "3.75% constant (current Bank Rate), representing an off-exchange sweep"
+    },
+    "inference": {
+      "statistic": "Net Sharpe of the walk-forward C1 portfolio minus net Sharpe of the primary benchmark, 2024-01-01 to evaluation end",
+      "method": "Paired circular block bootstrap of daily net returns, 10,000 resamples, seed 20260924",
+      "block_days": 28,
+      "sensitivity_block_days": [
+        14,
+        56
+      ],
+      "edge_rule": "Two-sided 95% interval lower bound above zero",
+      "power_note": "About 2.7 evaluation years; a modest real improvement is unlikely to pass. Also report yearly wins against the benchmark, maximum drawdown and turnover"
+    },
+    "reporting": [
+      "Yearly returns vs benchmark",
+      "Max drawdown",
+      "Annualised turnover",
+      "Average cash weight",
+      "Number of weeks with any trade (proxy for disposals)"
+    ],
+    "tax": "Not modelled. Tax is paid only on realised gains; weekly trading realises them earlier than buy-and-hold, which is noted as a limitation",
+    "changes": "Any change after freezing goes in protocol_v2 with its reason; this file is never edited"
+  }
+}

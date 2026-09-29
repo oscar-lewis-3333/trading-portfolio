@@ -1,0 +1,2 @@
+strategy,mean_daily_net_excess_bps,lower_ci_bps,upper_ci_bps,p_one_sided,p_holm,reject_holm
+walk_forward,5.087749517998081,-2.4204628195539066,13.092930200478408,0.09429057094290572,0.09429057094290572,False

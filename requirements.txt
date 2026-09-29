@@ -6,6 +6,7 @@ matplotlib==3.10.9
 statsmodels==0.15.0
 arch==8.0.0
 scikit-learn==1.7.2
+xgboost==2.1.4
 sympy==1.14.0
 yfinance==1.7.0
 pandas_market_calendars==5.4.0

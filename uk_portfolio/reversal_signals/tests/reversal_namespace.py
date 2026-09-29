@@ -1,8 +1,4 @@
 
-
-#the projects now sit inside group folders, so trading_portfolio.reversal_signals.* no longer
-#resolves from the repository parent alone. reversal_preparation.py is hash-pinned by
-#prepared_manifest_v1.json and must not be edited, so the package path is widened here instead.
 import sys
 from pathlib import Path
 

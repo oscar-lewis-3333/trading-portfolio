@@ -72,9 +72,8 @@ def rebalance_portfolio(current_values, target_weights, cost_per_side_bps):
         "nav_after": nav_after
     }
 
-def simulate_portfolio_day(units, cash, open_prices, close_prices, *, cost_per_side_bps, target_weights=None):
-    #advance adjusted-price holdings through a single trading session
-
+def simulate_portfolio_day(units, cash, open_prices, close_prices, *, cost_per_side_bps, target_weights=None, cash_growth=1.0):
+    #advance adjusted-price holdings through a single trading session. cash_growth gives interest rates
     if (units.empty or not units.index.is_unique or "CASH" in units.index or not units.index.equals(open_prices.index) or not units.index.equals(close_prices.index)):
         raise ValueError("Holdings and prices must have matching unique asset labels.")
 
@@ -85,6 +84,13 @@ def simulate_portfolio_day(units, cash, open_prices, close_prices, *, cost_per_s
         raise ValueError("Units must be finite and nonnegative.")
     if not np.isfinite(cash) or cash < 0:
         raise ValueError("Cash must be finite and nonnegative.")
+    cash_growth = float(cash_growth)
+    if not np.isfinite(cash_growth) or cash_growth <= 0:
+        raise ValueError("Cash growth factor must be positive and finite.")
+
+    #interest owed overnight is credited before open, so any rebalance can trade the gained cash
+    interest = cash * (cash_growth - 1.0)
+    cash = cash + interest
 
     prices = pd.DataFrame({"open": open_prices, "close": close_prices}).astype(float)
     if not np.isfinite(prices).all().all() or (prices <= 0).any().any():
@@ -108,7 +114,7 @@ def simulate_portfolio_day(units, cash, open_prices, close_prices, *, cost_per_s
         traded_notional = rebalance["traded_notional"]
         trades = rebalance["trades"]
 
-    #under zero interest assumption, cash unchanged
+    #during day, cash unchanged. interest credited before the following day open
     closing_values = units * prices["close"]
     closing_values["CASH"] = cash
 
@@ -120,9 +126,48 @@ def simulate_portfolio_day(units, cash, open_prices, close_prices, *, cost_per_s
         "nav_open_after_cost": float(opening_values.sum()),
         "nav_close": float(closing_values.sum()),
         "cost": cost,
+        "interest": interest,
         "traded_notional": traded_notional,
         "trades": trades
     }
+
+def cash_accrual_factors(cash_rate_annual, sessions, *, day=365, max_stale_days=7):
+    #interest for each trading day  (1 + sum of (annual rate / day))
+    sessions = pd.DatetimeIndex(sessions)
+    if (sessions.empty or sessions.hasnans or not sessions.is_unique or not sessions.is_monotonic_increasing):
+        raise ValueError("Sessions must be nonempty, ordered and unique.")
+
+    if np.isscalar(cash_rate_annual):
+        rate = float(cash_rate_annual)
+        if not np.isfinite(rate) or rate <= -1:
+            raise ValueError("A scalar cash rate must be finite and above -100%.")
+        if rate == 0:
+            return pd.Series(1.0, index=sessions)
+        gaps = sessions.to_series().diff().dt.days.fillna(0).to_numpy()
+        return pd.Series(1.0 + rate * gaps / day, index=sessions)
+
+    rates = cash_rate_annual
+    if (not isinstance(rates, pd.Series) or not isinstance(rates.index, pd.DatetimeIndex) or rates.index.hasnans or not rates.index.is_unique or not rates.index.is_monotonic_increasing):
+        raise ValueError("Dated cash rates must be a Series with an ordered, unique DatetimeIndex.")
+    values = rates.astype(float)
+    if not np.isfinite(values).all() or (values <= -1).any():
+        raise ValueError("Cash rates must be finite and above -100%.")
+    if values.index[-1] < sessions[-1] - pd.Timedelta(days=max_stale_days):
+        raise ValueError("Cash rates end too long before the final session.")
+
+    calendar = pd.date_range(sessions[0], sessions[-1] - pd.Timedelta(days=1), freq="D")
+    factors = pd.Series(1.0, index=sessions)
+    if calendar.empty:
+        return factors
+
+    daily = values.reindex(values.index.union(calendar)).ffill().reindex(calendar)
+    if daily.isna().any():
+        raise ValueError("Cash rates must start on or before the first session.")
+
+    #each calendar day is credited at the next session's open
+    credited_at = sessions[np.searchsorted(sessions.to_numpy(), calendar.to_numpy(), side="right")]
+    accrued = daily.groupby(credited_at).sum() / day
+    return factors + accrued.reindex(sessions, fill_value=0.0)
 
 def run_backtest(open_prices, close_prices, execution_weights, *, initial_capital_gbp, cost_per_side_bps, cash_rate_annual=0.0):
 
@@ -137,8 +182,8 @@ def run_backtest(open_prices, close_prices, execution_weights, *, initial_capita
     initial_capital_gbp = float(initial_capital_gbp)
     if not np.isfinite(initial_capital_gbp) or initial_capital_gbp <= 0:
         raise ValueError("Initial capital must be positive and finite.")
-    if cash_rate_annual != 0:
-        raise NotImplementedError("This version supports zero cash interest only.")
+    #scalar or dated annual rates -> one interest factor per session (1.0 on the first session)
+    cash_growth = cash_accrual_factors(cash_rate_annual, dates)
 
     units = pd.Series(0.0, index=open_prices.columns)
     cash = initial_capital_gbp
@@ -151,7 +196,7 @@ def run_backtest(open_prices, close_prices, execution_weights, *, initial_capita
     for date in dates:
         target = execution_weights.loc[date] if date in execution_weights.index else None
 
-        day = simulate_portfolio_day(units=units, cash=cash, open_prices=open_prices.loc[date], close_prices=close_prices.loc[date], cost_per_side_bps=cost_per_side_bps, target_weights=target)
+        day = simulate_portfolio_day(units=units, cash=cash, open_prices=open_prices.loc[date], close_prices=close_prices.loc[date], cost_per_side_bps=cost_per_side_bps, target_weights=target, cash_growth=cash_growth.loc[date])
         units = day["units"]
         cash = day["cash"]
 
@@ -162,6 +207,7 @@ def run_backtest(open_prices, close_prices, execution_weights, *, initial_capita
             "nav_close": day["nav_close"],
             "net_return": day["nav_close"] / previous_nav - 1,
             "cost": day["cost"],
+            "interest": day["interest"],
             "traded_notional": day["traded_notional"],
             "cash": cash,
             "rebalanced": target is not None

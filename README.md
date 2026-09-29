@@ -24,7 +24,7 @@ Research concerning assets listed in GBP, with transaction costs based upon Trad
 
 **Selected for implementation**
 
-Daily cross-sectional reversal on UK single stocks, with a holdout of 2024-2025. Modelled with 10bp costs each side and 3.8% AER on idle cash. Risk management chosen to cap weights at 5%, with remainder cash. Consistently outperformed its benchmark, but failed to pass any significance test. Final verdict is promising results, but no statistically proven edge.
+Daily cross-sectional reversal on UK single stocks, with a holdout of 2024-2025. Modelled with 10bp costs each side and 3.8% AER on idle cash. Risk management chosen to cap weights at 5%, with remainder cash. Consistently outperformed its benchmark, but failed to pass any significance test. Final verdict is promising results, but no statistically proven edge. An extension trying machine learning methods has been tried, with both an adaptive walk-forward and a fixed configuration are kept for further testing.
 
 [View project](./uk_portfolio/reversal_signals/)
 
@@ -32,7 +32,7 @@ Daily cross-sectional reversal on UK single stocks, with a holdout of 2024-2025.
 
 **Not selected for implementation**
 
-Monthly long/cash trend following approach across 10 GBP funds covering equities, gilts, corporate bonds, gold and commodities. 6 month lookback beat a cash-composite benchmark over a 2023-2026 holdout period, with a borderline one-sided significance result. The strategy took on more exposure and risk than its benchmark, and was outperformed by a fully invested, equal weight buy and hold approach.
+Monthly long/cash trend following approach across 10 GBP funds covering equities, gilts, corporate bonds, gold and commodities. 6 month lookback beat a cash-composite benchmark over a 2023-2026 holdout period, with a borderline one-sided significance result. The strategy took on more exposure and risk than its benchmark, and was outperformed by a fully invested, equal weight buy and hold approach. An extension using inverse volatility weightings was attempted, but was outperfomed on Sharpe, with a strictly negative 95% confidence interval when comparing equal weight and inverse volatility portfolios.
 
 [View project](./uk_portfolio/etf_trend/)
 
@@ -43,6 +43,14 @@ Monthly long/cash trend following approach across 10 GBP funds covering equities
 Monthly cross-sectional momentum on shares listed in GBP. Parameters chosen annually using the previous 3 years' net Sharpe ratio. Over the 2024-2025 holdout, approach returned -6.65% with 10bp transaction costs each side, as opposed to its equal-weight benchmark returning -0.43%. The momentum strategy was more volatile, and had higher drawdowns. All Bootstrap intervals contain 0, hence no statistical edge shown. Limited by survivourship bias, alongside poor results comparitively to its benchmark.
 
 [View project](./uk_portfolio/equity_momentum/)
+
+### ETF relative momentum
+
+**Not selected for implementation**
+
+Annually selected, monthly rebalanced momentum approach on GBP listen ETFs. Over 01/2024-08/2026, strategy returns £17,254.97 from £10,000 compared to £12,766.26 for its equal weight, rebalanced monthly, benchmark. However, volatility was increased, and 99.58% of the net profit came from one asset, gold. 95% confidence interval for net returns against the benchmark contains 0, and p-value was 0.0943, leading to no edge being shown. For the gold-concentration reason, and poor performance over the development period, this strategy is unlikely to be implemented in the future. Similarly to other projects, survivorship bias limits the findings.
+
+[View project](./uk_portfolio/etf_relative_momentum/)
 
 A UK trading bot operating through Trading212 is coming soon, alongside further projects researching GBP-listed assets.
 
@@ -57,6 +65,14 @@ Research concerning cryptocurrencies, with transaction costs based upon Revolut 
 Weekly absolute momentum on BTC, ETH against GBP. Each asset is held while its trailing 30d returns are positive, with cash being held otherwise. Over the 2024-2025 holdout, returned 96.50% after modelled transaction costs. Bootstrap confidence intervals include 0, so no statistically significant edge shown comparitively to its benchmark. Limited by only having a 2 asset universe, 2 year holdout and untested trading frequency.
 
 [View project](./crypto_portfolio/crypto_momentum/)
+
+### Crypto multi-horizon trend
+
+**Not selected for implementation**
+
+Averages trend signals over several lookbacks and scales each BTC/ETH position by recent volatility, with configurations chosen annually on net Sharpe. Over 01/2024-09/2026, returned 85.20% after modelled transaction costs, against 132.22% for 30d absolute momentum executed within the hour, with a smaller maximum drawdown (−26.2% vs −31.9%) but a lower Sharpe (0.937 vs 1.110). The Sharpe-difference interval includes zero, so no edge was shown, but the evidence does not support replacing 30d momentum.
+
+[View project](./crypto_portfolio/crypto_trend/)
 
 ### Crypto cross-sectional momentum
 

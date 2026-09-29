@@ -31,7 +31,7 @@
     "data/uk_extension_2023_2025_v1/reconciliation_sources_v1/AURA.L.pkl": "4d9d2cd20228a1aaa3542b127edb7301d8567622f60e2cfe72050517a979412e",
     "data/uk_extension_2023_2025_v1/reconciliation_sources_v1/RFG.L.pkl": "254471f8dc2f4f69230ee94d6da39ab6b7e3db379002fbd0f62aec6f35993bbd",
     "data/uk_extension_2023_2025_v1/reconciliation_sources_v1/AST.L.pkl": "64b87d2a879775055d6f496a6cabeb9d5fc1518167e30fdde4f498d4b9b2b9c7",
-    "preparation_source": "008f6b3d50645e34c97430ab667989ddc09213957a70085186cfd431ff7a6d44"
+    "preparation_source": "aa2d706261d3a8ce014811c1ff86dc24c682aed7616168f29540d741d0f5c20d"
   },
   "summary": {
     "declared_tickers": 646,
@@ -1050,5 +1050,14 @@
     "Yahoo daily price/volume and dividend proxies; no historical bid/ask or auction fills.",
     "Suspension register includes documented events; zero volume alone is not a suspension.",
     "Original reported results are preserved and are not corrected-data performance results."
-  ]
+  ],
+  "cache_acceptance": {
+    "accepted_at_utc": "2026-09-29T19:06:21.379981+00:00",
+    "reason": "Accept comment, docstring and formatting changes after verifying identical executable AST and unchanged input files. Prepared data was not recomputed.",
+    "source_sha256_at_build": "008f6b3d50645e34c97430ab667989ddc09213957a70085186cfd431ff7a6d44",
+    "accepted_source_sha256": "aa2d706261d3a8ce014811c1ff86dc24c682aed7616168f29540d741d0f5c20d",
+    "verified_logic_sha256": "2805e25327c565bd8511987d624da59059c46c979945399943b919de91ce8b40",
+    "cache_sha256_before_acceptance": "49ff78be0f9434e98bd23198b48163b9cee0716f11d18b46dfdbc22d85bd1752",
+    "original_snapshot_directory": "data/uk_extension_2023_2025_v1/preparation_cache_acceptance/20260929T190543Z"
+  }
 }

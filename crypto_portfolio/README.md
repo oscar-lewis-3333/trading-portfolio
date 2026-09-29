@@ -2,6 +2,8 @@
 
 Research concerning cryptocurrencies, with transaction costs based upon Revolut X offerings.
 
+Current conventions for new projects: decisions at Monday 00:00 UTC on completed daily candles, executed within the hour from 00:05 at the latest minute-candle closes, and any non-empty eligible universe is traded. Earlier projects keep the conventions they were tested with.
+
 ## Crypto absolute momentum 
 
 **Selected for implementation**
@@ -9,6 +11,14 @@ Research concerning cryptocurrencies, with transaction costs based upon Revolut 
 Weekly absolute momentum on BTC, ETH against GBP. Each asset is held while its trailing 30d returns are positive, with cash being held otherwise. Over the 2024-2025 holdout, returned 96.50% after modelled transaction costs. Bootstrap confidence intervals include 0, so no statistically significant edge shown comparitively to its benchmark. Limited by only having a 2 asset universe, 2 year holdout and untested trading frequency.
 
 [View project](crypto_momentum/)
+
+## Crypto multi-horizon trend
+
+**Not selected for implementation**
+
+Averages trend signals over several lookbacks and scales each BTC/ETH position by recent volatility, with configurations chosen annually on net Sharpe. Over 01/2024-09/2026, returned 85.20% after modelled transaction costs, against 132.22% for 30d absolute momentum executed within the hour, with a smaller maximum drawdown (−26.2% vs −31.9%) but a lower Sharpe (0.937 vs 1.110). The Sharpe-difference interval includes zero, so no edge was shown, but the evidence does not support replacing 30d momentum.
+
+[View project](crypto_trend/)
 
 ## Crypto cross-sectional momentum
 
@@ -31,5 +41,3 @@ Implement the same strategy as above, but only invest when Bitcoin's 120d traili
 Cross-sectional reversal signals approach tested by buying recent relative losers from the eligible crypto universe. Parameter sweep across 60 configuration on a development period. On a validation period of 2023-2024, strategy returned 155.57% after modelled transaction fees of 25bp round trip, as opposed to its benchmark's 293.46% returns. The approach also had a higher volatility and worse drawdown. Stopped after this due to the weak performance relative to the benchmark. No significance test was ran, and the reserved holdout was not used.
 
 [View project](crypto_reversal/)
-
-A crypto trading bot through Revolut X is coming soon, alongside further projects researching cryptocurrencies.
