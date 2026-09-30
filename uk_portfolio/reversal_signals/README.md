@@ -72,13 +72,35 @@ Both approaches use configurations selected every 63 trading days using expandin
 
 The filter approach improves in later years, but loses massively in 2020-2021 economic rebound. Changes are both filtering and configuration selection, so does not isolate the filter's contribution alone.
 
+## Transaction-cost sensitivity
+
+The ML strategy's sensitivity to transaction fees is tested at 0, 10, 20 and 30bp per side, first for the walk-forward approach, then for configuration 28. Approaches are fixed as before, aside from the transaction costs.
+
+| Cost per side | Unfiltered selector | XGBoost selector | Unfiltered mean daily net excess | XGBoost mean daily net excess |
+|---:|---:|---:|---:|---:|
+| 0bp | £125,586.00 | £87,573.95 | 13.59bp | 11.38bp |
+| 10bp | £58,403.75 | £43,118.21 | 9.39bp | 7.98bp |
+| 20bp | £27,213.70 | £21,244.30 | 5.20bp | 4.59bp |
+| 30bp | £12,715.83 | £10,477.08 | 1.03bp | 1.21bp |
+
+In the adaptive walk-forward, adding 10bp of costs to each side reduces the unfiltered mean daily net excess over its benchmark by approximately 4.2bp, and the XGBoost excess by ~3.4bp, implying that XGBoost performs slightly better, but both fall to roughly zero net excess at ~33bp per side.
+
+| Cost per side | Unfiltered 28 linked return | XGBoost 28 linked return | Unfiltered 28 Sharpe | XGBoost 28 Sharpe | Unfiltered 28, 2022–2025 | XGBoost 28, 2022–2025 |
+|---:|---:|---:|---:|---:|---:|---:|
+| 0bp | 1469.09% | 1118.11% | 1.60 | 1.64 | 101.23% | 99.53% |
+| 10bp | 874.39% | 672.05% | 1.34 | 1.36 | 59.48% | 58.78% |
+| 20bp | 505.17% | 389.41% | 1.08 | 1.07 | 26.41% | 26.36% |
+| 30bp | 275.91% | 210.29% | 0.82 | 0.79 | 0.20% | 0.56% |
+
+The Sharpe advantage in configuration 28 has vanished by 20bp, and has reversed by 30bp, although at similarly small margins. Net returns are ~0 at 30bp per side for this approach over the 2022-2025 period.
+
 ## Model and limitations
 
 - The following features are trained on: raw reversal score, 1, 20 trading day returns, 20 trading day volatility, relative volume and the eligible universe's daily return. Only outcomes observable before fitting are used as training data
 - Ridge uses standardisation and alpha 1. XGBoost uses 100 depth two trees, learning rate 0.05, minimum child weight 50 and L2 regularisation 10. Settings and the zero forecast threshold remain fixed.
 - Forecasts target gross open-to-open returns including dividends. Positive predictions need not cover costs, just be strictly positive.
-- Costs remain 10 bp per side. This may be too low, but is set to undergo further testing when more information is known. The benchmark matches target exposure without selecting stocks. Continuous portfolios carry positions across refits, despite the potential changing of configurations
+- Primary results use transaction costs of 10bp per side, with sensitivity checks over 0-30bp. The benchmark matches target exposure without selecting stocks. The continuous portfolios are continuous across year boundaries and refits, despite potential configuration changes.
 
 ## Conclusion
 
-Neither the signal, nor its ML counterpart, showed a statistical edge over their corresponding benchmarks, despite encouraging return and Sharpe results. This approach is retained for further testing.
+Neither the signal, nor its ML counterpart, showed a statistical edge over their corresponding benchmarks, despite encouraging return and Sharpe results. This approach is retained for further testing, primarily dependent on actual transaction fees.
