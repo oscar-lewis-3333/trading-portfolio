@@ -45,7 +45,7 @@ The live system engineering is currently kept private, as are specific basket ho
 
 [View showcase](./isa_portfolio/isa_showcase/)
 
-Earlier 'UK_portfolio' research projects, including reversal signals, ETF trend and equity momentum, are in ['archive/strategies/'](./archive/strategies/).
+Earlier 'UK_portfolio' research projects, including reversal signals, ETF trend and equity momentum, are in [`archive/strategies/`](./archive/strategies/).
 
 ## Crypto portfolio
 
@@ -57,7 +57,7 @@ Weekly absolute momentum on BTC, ETH against GBP. Each asset is held while its t
 
 [View project](./crypto_portfolio/crypto_momentum/)
 
-Older, rejected crypto projects still remain available in ['archive/strategies/'](./archive/strategies/).
+Older, rejected crypto projects still remain available in [`archive/strategies/`](./archive/strategies/).
 
 There is a crpyto trading system analogous to the ISA system in the works, with M0 working as the 'core', with planned Revolut X use. Research has begun on looking for patterns in the same way, and seeking for market patterns whose edges beat transaction costs, aiming to diversify the current holdings.
 
