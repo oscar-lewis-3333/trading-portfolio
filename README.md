@@ -6,8 +6,8 @@ Quantitative finance projects written in Python, grouped by the market they trad
 
 | Folder | Contents |
 | --- | --- |
-| ['original_portfolio/'](./original_portfolio/) | Nine projects on US equities, running from market statistics through to the paper trading bot |
-| ['isa_portfolio/'](./isa_portfolio/) | The ISA system. A long-only book of primarily ETFs being held in a UK Stocks and Shares ISA. Paper trading commenced November 2026. Showcasing pieces available [here](./isa_portfolio/isa_showcase/) |
+| [`original_portfolio/`](./original_portfolio/) | Nine projects on US equities, running from market statistics through to the paper trading bot |
+| [`isa_portfolio/`](./isa_portfolio/) | The ISA system. A long-only book of primarily ETFs being held in a UK Stocks and Shares ISA. Paper trading commenced November 2026. Showcasing pieces available [here](./isa_portfolio/isa_showcase/) |
 | [`crypto_portfolio/`](./crypto_portfolio/) | Crypto research. A crypto trading system much like the ISA system is in progress|
 | [`archive/strategies/`](./archive/strategies/) | Retired UK and crypto experiments, kept read-only with their READMEs, notebooks and code. Retired sleeves from the ISA system to be shown when written up |
 | [`foundation/`](./foundation/) | Shared, imported library used by project across the portfolio |
