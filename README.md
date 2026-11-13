@@ -43,6 +43,12 @@ Backtested, begin in February 2001 with £10,000, end in September 2026. The boo
 
 The live system engineering is currently kept private, as are specific basket holdings.
 
+### Limitations
+
+- Core ETFs history begins in 2010, so before that index data was used.
+- The backtest is in-sample, so true performance depends on its forward live performance
+- Some assets used had a bull period since 2000, so their corresponding sleeves may not hold up if they were to have a bear period
+
 [View showcase](./isa_portfolio/isa_showcase/)
 
 Earlier 'UK_portfolio' research projects, including reversal signals, ETF trend and equity momentum, are in [`archive/strategies/`](./archive/strategies/).
