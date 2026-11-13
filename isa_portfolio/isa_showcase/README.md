@@ -29,3 +29,10 @@ Backtested, begin in February 2001 with £10,000, end in September 2026. The boo
 | core alone | 8.6% | 0.55 | −35.7% | £83,500 |
 | whole book | 18.5% | 1.53 | −10.6% | £778,600 |
 | MSCI World (net, GBP) | 7.8% | 0.45 | −39.9% | £68,900 |
+
+## Limitations
+
+- Core ETFs history begins in 11/2012 and 10/2014 (MINV, then IWFQ, IWFM), so for preceding history, index data was used.
+- The backtest is in-sample, so true performance depends on its forward live performance
+- Some assets used had a bull period since 2000, so their corresponding sleeves may not hold up if they were to have a bear period
+- The defensive trigger has too few events in this window to be tested extensively
