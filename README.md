@@ -6,9 +6,11 @@ Quantitative finance projects written in Python, grouped by the market they trad
 
 | Folder | Contents |
 | --- | --- |
-| [`original_portfolio/`](./original_portfolio/) | Nine projects on US equities, running from market statistics through to the paper-trading bot |
-| [`uk_portfolio/`](./uk_portfolio/) | GBP-listed asset research, with a trading system coming soon |
-| [`crypto_portfolio/`](./crypto_portfolio/) | Crypto research, with a crypto trading system in the works|
+| ['original_portfolio/'](./original_portfolio/) | Nine projects on US equities, running from market statistics through to the paper trading bot |
+| ['isa_portfolio/'](./isa_portfolio/) | The ISA system. A long-only book of primarily ETFs being held in a UK Stocks and Shares ISA. Paper trading commenced November 2026. Showcasing pieces available [here](./isa_portfolio/isa_showcase/) |
+| [`crypto_portfolio/`](./crypto_portfolio/) | Crypto research. A crypto trading system much like the ISA system is in progress|
+| [`archive/strategies/`](./archive/strategies/) | Retired UK and crypto experiments, kept read-only with their READMEs, notebooks and code. Retired sleeves from the ISA system to be shown when written up |
+| [`foundation/`](./foundation/) | Shared, imported library used by project across the portfolio |
 
 ## Method
 
@@ -16,43 +18,34 @@ Later projects follow a similar pattern. A rule/strategy is chosen based off of 
 
 Strategies that are not useful are kept for research purposes, but not implemented in practice.
 
-## UK portfolio
+## ISA portfolio
 
-Research concerning assets listed in GBP, with transaction costs based upon Trading212 offerings.
+The long-only, ISA-designed system for holding assets in a UK Stocks and Shares ISA. The long-only constraint is due to leverage trading, derivative trading or shorting not being allowed inside a Stocks and Shares ISA. The current chosen broker is Trading 212, with paper trading beginning at the start of November 2026.  The system contains five primary parts:
 
-### Reversal signals
+- [Core](./isa_portfolio/isa_showcase/core/): An ETF only core, held 100% of time outside of a defensive/rebound period
+- [Defensive Basket](./isa_portfolio/isa_showcase/defensive): The defensive basket designed for recessions, alongside an exit/re-entry market recession trigger
+- [Rebound Basket](./isa_portfolio/isa_showcase/rebound): A basket designed for best performance in the recovery period after a recession
+- [Sleeves](./isa_portfolio/isa_showcase/sleeves): Assets that are held under certain market conditions. Funding for such holdings is from the core
+- [Overlays](./isa_portfolio/isa_showcase/overlay): Assets that are held under certain market conditions, at month-endings.
 
-**Selected for implementation**
+All five of the above layers are combined in the [Allocator](./isa_portfolio/isa_showcase/allocator), which assigns different weights to each layer using portfolio optimisation techniques. 
 
-Daily cross-sectional reversal on UK single stocks, with a holdout of 2024-2025. Modelled with 10bp costs each side and 3.8% AER on idle cash. Risk management chosen to cap weights at 5%, with remainder cash. Consistently outperformed its benchmark, but failed to pass any significance test. Final verdict is promising results, but no statistically proven edge. An extension trying machine learning methods has been tried, with both an adaptive walk-forward and a fixed configuration are kept for further testing.
+![Book vs MSCI World, USA and UK: growth of £10,000 (log scale) and drawdown](./isa_portfolio/isa_showcase/figures/book_vs_indices.png)
 
-[View project](./uk_portfolio/reversal_signals/)
+Backtested, begin in February 2001 with £10,000, end in September 2026. The book is after modelled costs, with the indices not including fund fees.
 
-### ETF trend 
+| | CAGR | Sharpe | max drawdown | £10,000 becomes |
+|---|---|---|---|---|
+| ISA book | 18.5% | 1.53 | −10.6% | £778,600 |
+| MSCI World | 7.8% | 0.45 | −39.9% | £68,900 |
+| MSCI USA (≈ S&P 500) | 8.8% | 0.49 | −41.4% | £86,300 |
+| MSCI UK | 5.8% | 0.32 | −40.3% | £42,900 |
 
-**Not selected for implementation**
+The live system engineering is currently kept private, as are specific basket holdings.
 
-Monthly long/cash trend following approach across 10 GBP funds covering equities, gilts, corporate bonds, gold and commodities. 6 month lookback beat a cash-composite benchmark over a 2023-2026 holdout period, with a borderline one-sided significance result. The strategy took on more exposure and risk than its benchmark, and was outperformed by a fully invested, equal weight buy and hold approach. An extension using inverse volatility weightings was attempted, but was outperfomed on Sharpe, with a strictly negative 95% confidence interval when comparing equal weight and inverse volatility portfolios.
+[View showcase](./isa_portfolio/isa_showcase/)
 
-[View project](./uk_portfolio/etf_trend/)
-
-### Equity momentum
-
-**Not selected for implementation**
-
-Monthly cross-sectional momentum on shares listed in GBP. Parameters chosen annually using the previous 3 years' net Sharpe ratio. Over the 2024-2025 holdout, approach returned -6.65% with 10bp transaction costs each side, as opposed to its equal-weight benchmark returning -0.43%. The momentum strategy was more volatile, and had higher drawdowns. All Bootstrap intervals contain 0, hence no statistical edge shown. Limited by survivourship bias, alongside poor results comparitively to its benchmark.
-
-[View project](./uk_portfolio/equity_momentum/)
-
-### ETF relative momentum
-
-**Not selected for implementation**
-
-Annually selected, monthly rebalanced momentum approach on GBP listen ETFs. Over 01/2024-08/2026, strategy returns £17,254.97 from £10,000 compared to £12,766.26 for its equal weight, rebalanced monthly, benchmark. However, volatility was increased, and 99.58% of the net profit came from one asset, gold. 95% confidence interval for net returns against the benchmark contains 0, and p-value was 0.0943, leading to no edge being shown. For the gold-concentration reason, and poor performance over the development period, this strategy is unlikely to be implemented in the future. Similarly to other projects, survivorship bias limits the findings.
-
-[View project](./uk_portfolio/etf_relative_momentum/)
-
-A UK trading bot operating through Trading212 is coming soon, alongside further projects researching GBP-listed assets.
+Earlier 'UK_portfolio' research projects, including reversal signals, ETF trend and equity momentum, are in ['archive/strategies/'](./archive/strategies/).
 
 ## Crypto portfolio
 
@@ -60,43 +53,13 @@ Research concerning cryptocurrencies, with transaction costs based upon Revolut 
 
 ### Crypto momentum 
 
-**Selected for implementation**
-
 Weekly absolute momentum on BTC, ETH against GBP. Each asset is held while its trailing 30d returns are positive, with cash being held otherwise. Over the 2024-2025 holdout, returned 96.50% after modelled transaction costs. Bootstrap confidence intervals include 0, so no statistically significant edge shown comparitively to its benchmark. Limited by only having a 2 asset universe, 2 year holdout and untested trading frequency.
 
 [View project](./crypto_portfolio/crypto_momentum/)
 
-### Crypto multi-horizon trend
+Older, rejected crypto projects still remain available in ['archive/strategies/'](./archive/strategies/).
 
-**Not selected for implementation**
-
-Averages trend signals over several lookbacks and scales each BTC/ETH position by recent volatility, with configurations chosen annually on net Sharpe. Over 01/2024-09/2026, returned 85.20% after modelled transaction costs, against 132.22% for 30d absolute momentum executed within the hour, with a smaller maximum drawdown (−26.2% vs −31.9%) but a lower Sharpe (0.937 vs 1.110). The Sharpe-difference interval includes zero, so no edge was shown, but the evidence does not support replacing 30d momentum.
-
-[View project](./crypto_portfolio/crypto_trend/)
-
-### Crypto cross-sectional momentum
-
-**Not selected for implementation**
-
-Cross-sectional momentum tested on a current universe of cryptocurrencies which excludes memecoins, stablecoins and gold-backed coins. Sweep chose 90d momentum, top 10% as optimal on a training period. Rebelances occur weekly, with the strategy having a positive sharpe-difference of 0.347 compared to its benchmark over a testing period of 01/2024-08/2026. All Bootstrap confidence intervals contained 0, so no statistically significant edge shown. Both approaches lost money over the two years, with the strategy not planned to be implemented. Limited by untested trading frequecies and a relatively short training period.
-
-#### Bitcoin Filter
-
-**Selected for implementation**
-
-Implement the same strategy as above, but only invest when Bitcoin's 120d trailing return is positive, with full cash held otherwise. Returned 36.29% after modelled transaction costs over the same test period as above, with a max drawdown of 64.17%. Bootstrap significance testing support a Sharpe advantage over its filtered, equal-weight counterpart, but inconclusive over the filters advantage against the non-filter results, despite promising results. Same limitations apply as above.
-
-[View project](./crypto_portfolio/crypto_cross_sectional/)
-
-### Crypto Reversal Signals
-
-**Not selected for implementation**
-
-Cross-sectional reversal signals approach tested by buying recent relative losers from the eligible crypto universe. Parameter sweep across 60 configuration on a development period. On a validation period of 2023-2024, strategy returned 155.57% after modelled transaction fees of 25bp round trip, as opposed to its benchmark's 293.46% returns. The approach also had a higher volatility and worse drawdown. Stopped after this due to the weak performance relative to the benchmark. No significance test was ran, and the reserved holdout was not used.
-
-[View project](./crypto_portfolio/crypto_reversal/)
-
-A crypto trading bot through Revolut X is coming soon, alongside further projects researching cryptocurrencies.
+There is a crpyto trading system analogous to the ISA system in the works, with M0 working as the 'core', with planned Revolut X use. Research has begun on looking for patterns in the same way, and seeking for market patterns whose edges beat transaction costs, aiming to diversify the current holdings.
 
 ## Original portfolio
 
@@ -156,6 +119,6 @@ pandas_market_calendars, alpaca-py.
 
 ## About
 
-Trading Portfolio built by Oscar Lewis, 4th year MMath student at the University of Warwick, to showcase skills in python, quantative finance and machine learning. For key details on individual projects see README's.
+Trading Portfolio built by Oscar Lewis, 4th year MMath student at the University of Warwick, to showcase skills in python, quantative finance, stochastic calculus and machine learning. For key details on individual projects see README's.
 
 [LinkedIn](https://www.linkedin.com/in/oscar-lewis-aba333230) · [GitHub](https://github.com/oscar-lewis-3333)
