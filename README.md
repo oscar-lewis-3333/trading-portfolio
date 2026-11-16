@@ -10,17 +10,17 @@ Quantitative finance projects written in Python, grouped by the market they trad
 | [`isa_portfolio/`](./isa_portfolio/) | The ISA system. A long-only book of primarily ETFs being held in a UK Stocks and Shares ISA. Paper trading commenced November 2026. Showcasing pieces available [here](./isa_portfolio/isa_showcase/) |
 | [`crypto_portfolio/`](./crypto_portfolio/) | Crypto research. A crypto trading system much like the ISA system is in progress|
 | [`archive/strategies/`](./archive/strategies/) | Retired UK and crypto experiments, kept read-only with their READMEs, notebooks and code. Retired sleeves from the ISA system to be shown when written up |
-| [`foundation/`](./foundation/) | Shared, imported library used by project across the portfolio |
+| [`foundation/`](./foundation/) | Shared, imported library used by projects across the portfolio |
 
 ## Method
 
-Later projects follow a similar pattern. A rule/strategy is chosen based off of an economic hypothesis. Development and holdout periods are fixed, with the holdout period preserved entirely for testing the strategy developed. Transaction costs are modelled, with fees only being charged on net assets traded. All strategies are compared with a suitable benchmark, with HAC testing, block bootstrapping, or both to test whether there is a statistical edge to our strategy. Equity curves are calculated and plotted, with a variety of risk management approaches being tested to see if there is positive effects.
+Later projects follow a similar pattern. A rule/strategy is chosen based off of an economic hypothesis. Development and holdout periods are fixed, with the holdout period preserved entirely for testing the strategy developed. Transaction costs are modelled, with fees only being charged on net assets traded. All strategies are compared with a suitable benchmark, with HAC testing, block bootstrapping, or both to test whether there is a statistical edge to our strategy. Equity curves are calculated and plotted, with a variety of risk management approaches being tested to see if there are positive effects.
 
 Strategies that are not useful are kept for research purposes, but not implemented in practice.
 
 ## ISA portfolio
 
-The long-only, ISA-designed system for holding assets in a UK Stocks and Shares ISA. The long-only constraint is due to leverage trading, derivative trading or shorting not being allowed inside a Stocks and Shares ISA. The current chosen broker is Trading 212, with paper trading beginning at the start of November 2026.  The system contains five primary parts:
+The long-only, ISA-designed system for holding assets in a UK Stocks and Shares ISA. The long-only constraint is due to leverage trading, derivative trading or shorting not being allowed inside a Stocks and Shares ISA. The current chosen broker is Trading 212, with paper trading beginning at the start of November 2026. The system contains five primary parts:
 
 - [Core](./isa_portfolio/isa_showcase/core/): An ETF only core, held 100% of time outside of a defensive/rebound period
 - [Defensive Basket](./isa_portfolio/isa_showcase/defensive): The defensive basket designed for recessions, alongside an exit/re-entry market recession trigger
@@ -36,12 +36,12 @@ Backtested, begin in February 2001 with £10,000, end in September 2026. The boo
 
 | | CAGR | Sharpe | max drawdown | £10,000 becomes |
 |---|---|---|---|---|
-| ISA book | 18.5% | 1.53 | −10.6% | £778,600 |
+| ISA book | 17.9% | 1.48 | −9.9% | £684,100 |
 | MSCI World | 7.8% | 0.45 | −39.9% | £68,900 |
 | MSCI USA (≈ S&P 500) | 8.8% | 0.49 | −41.4% | £86,300 |
 | MSCI UK | 5.8% | 0.32 | −40.3% | £42,900 |
 
-The live system engineering is currently kept private, as are specific basket holdings.
+The live system engineering is currently kept private, as are specific basket holdings. A forward Sharpe of 0.9-1.3 is expected for the system. For more information about this estimate see the [allocator](./isa_portfolio/isa_showcase/allocator/README.md).
 
 ### Limitations
 
@@ -60,17 +60,17 @@ Research concerning cryptocurrencies, with transaction costs based upon Revolut 
 
 ### Crypto momentum 
 
-Weekly absolute momentum on BTC, ETH against GBP. Each asset is held while its trailing 30d returns are positive, with cash being held otherwise. Over the 2024-2025 holdout, returned 96.50% after modelled transaction costs. Bootstrap confidence intervals include 0, so no statistically significant edge shown comparitively to its benchmark. Limited by only having a 2 asset universe, 2 year holdout and untested trading frequency.
+Weekly absolute momentum on BTC, ETH against GBP. Each asset is held while its trailing 30d returns are positive, with cash being held otherwise. Over the 2024-2025 holdout, returned 96.50% after modelled transaction costs. Bootstrap confidence intervals include 0, so no statistically significant edge shown comparatively to its benchmark. Limited by only having a 2 asset universe, 2 year holdout and untested trading frequency.
 
 [View project](./crypto_portfolio/crypto_momentum/)
 
 Older, rejected crypto projects still remain available in [`archive/strategies/`](./archive/strategies/).
 
-There is a crpyto trading system analogous to the ISA system in the works, with M0 working as the 'core', with planned Revolut X use. Research has begun on looking for patterns in the same way, and seeking for market patterns whose edges beat transaction costs, aiming to diversify the current holdings.
+There is a crypto trading system analogous to the ISA system in the works, with M0 working as the 'core', with planned Revolut X use. Research has begun on looking for patterns in the same way, and seeking for market patterns whose edges beat transaction costs, aiming to diversify the current holdings.
 
 ## Original portfolio
 
-Begin with building up quantitative finance and machine learning knowledge across various topics to be used later. From project 7 onwards, signal testing and risk management approaches were tested. Technical indicators showed no significance, with machine learning not adding anything. A momentum effect held up, but only on a subset of the market, and dissappeared when expanded to the full S&P500, so universe limited to that subset. Risk management strategies were tried, but all underperformed the equity curve significantly, so none were implemented.
+Begin with building up quantitative finance and machine learning knowledge across various topics to be used later. From project 7 onwards, signal testing and risk management approaches were tested. Technical indicators showed no significance, with machine learning not adding anything. A momentum effect held up, but only on a subset of the market, and disappeared when expanded to the full S&P500, so universe limited to that subset. Risk management strategies were tried, but all underperformed the equity curve significantly, so none were implemented.
 
 As a result, the trading bot enacts the 63d momentum approach on the smaller universe through Alpaca paper trading. Execution is daily through cron, but rebalancing only occurs every 21 trading days.
 
@@ -126,6 +126,6 @@ pandas_market_calendars, alpaca-py.
 
 ## About
 
-Trading Portfolio built by Oscar Lewis, 4th year MMath student at the University of Warwick, to showcase skills in python, quantative finance, stochastic calculus and machine learning. For key details on individual projects see README's.
+Trading Portfolio built by Oscar Lewis, 4th year MMath student at the University of Warwick, to showcase skills in python, quantitative finance, stochastic calculus and machine learning. For key details on individual projects see READMEs.
 
 [LinkedIn](https://www.linkedin.com/in/oscar-lewis-aba333230) · [GitHub](https://github.com/oscar-lewis-3333)

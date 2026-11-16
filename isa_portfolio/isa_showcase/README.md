@@ -2,6 +2,30 @@
 
 The long-only, ISA-designed system for holding assets in a UK Stocks and Shares ISA. The current chosen broker is Trading 212, with paper trading beginning at the start of November 2026. The system contains five primary parts, with a sixth to combine and optimise the others:
 
+## Results
+
+Backtested, begin in February 2001 with £10,000, end in September 2026. The book is after modelled costs, with the indices not including fund fees. Final results yield the following table:
+
+| | CAGR | Sharpe | max drawdown | £10,000 becomes |
+|---|---|---|---|---|
+| core alone | 8.7% | 0.56 | −35.7% | £85,000 |
+| whole book | 17.9% | 1.48 | −9.9% | £684,100 |
+| MSCI World (net, GBP) | 7.8% | 0.45 | −39.9% | £68,900 |
+
+### Longer history, 1979–2026
+
+| period | book Sharpe | core-path Sharpe | book return/vol | core-path return/vol | book max drawdown | core-path max drawdown | cash rate |
+|---|---|---|---|---|---|---|---|
+| 1979–2026 | 0.83 | 0.63 | 1.27 | 1.01 | −31% | −38% | 5.9% |
+| 1979–1989 | 0.51 | 0.62 | 1.14 | 1.18 | −31% | −38% | 12.6% |
+| 1990–2000 | 0.29 | 0.24 | 0.88 | 0.72 | −14% | −33% | 8.0% |
+| 2001–2026 | 1.48 | 0.92 | 1.73 | 1.13 | −10% | −20% | 2.4% |
+
+### Forward estimate
+
+A forward Sharpe of 0.9-1.3 is estimated going forward, the lower end if the previous regime of higher interest rates returns (and the system does not change accordingly), and the higher end if the current regime stays relatively consistent. Work on classifying growth and inflation regimes, to lean into the assets that suit each one, is in progress and aims to keep the book towards the upper end, but this is not completed yet. For more detail, see: [Allocator](allocator/README.md) or [Sleeves](sleeves/README.md)
+
+
 ## The layers
 
 | folder | what it is | what is shown |
@@ -17,18 +41,9 @@ The long-only, ISA-designed system for holding assets in a UK Stocks and Shares 
 
 - Each idea began with an economic hypothesis for why it could hold, before testing began
 - Each rule is then fixed with a hashed protocol before any returns data is computed/seen. Any changes after seeing results are hashed amendments
-- Candidates are measured against what they add to the existing system, primarily the change in the book's Sharpe ratio from a small weight. This is done using block-bootstrap significance testing, Holm-adjusted p-values, placebo tests, seperating best/worst trades, and results per time-period
-- Transactions costs are spreads measured on the ISA's lines.
+- Candidates are measured against what they add to the existing system, primarily the change in the book's Sharpe ratio from a small weight. This is done using block-bootstrap significance testing, Holm-adjusted p-values, placebo tests, separating best/worst trades, and results per time-period
+- Transaction costs are spreads measured on the ISA's lines.
 
-## Results
-
-Backtested, begin in February 2001 with £10,000, end in September 2026. The book is after modelled costs, with the indices not including fund fees. Final results yield the following table:
-
-| | CAGR | Sharpe | max drawdown | £10,000 becomes |
-|---|---|---|---|---|
-| core alone | 8.6% | 0.55 | −35.7% | £83,500 |
-| whole book | 18.5% | 1.53 | −10.6% | £778,600 |
-| MSCI World (net, GBP) | 7.8% | 0.45 | −39.9% | £68,900 |
 
 ## Limitations
 

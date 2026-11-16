@@ -5,9 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-# tables are private (not in the repo); set ISA_SHOWCASE_TABLES to point elsewhere
-TABLES = Path(os.environ.get("ISA_SHOWCASE_TABLES",
-                             Path(__file__).resolve().parents[4] / "trading_research_notes/ops/public_showcase/tables"))
+TABLES = Path(os.environ.get("ISA_SHOWCASE_TABLES", Path(__file__).resolve().parents[4] / "trading_research_notes/ops/public_showcase/tables"))
 PARTS = ["core", "defensive", "rebound", "overlay", "sleeves"]
 COLORS = {"core": "#2a78d6", "defensive": "#eb6834", "rebound": "#1baf7a", "overlay": "#eda100", "sleeves": "#e87ba4",
           "book": "#0b0b0b"}
@@ -124,3 +122,37 @@ def calendar_returns(d, cols):
     out = 100 * (g.apply(lambda x: (1 + x).prod() - 1))
     out.insert(0, "months", g.size())
     return out
+
+
+def long_parts():
+    d = pd.read_csv(TABLES / "parts_long_monthly.csv", index_col="month")
+    d.index = pd.PeriodIndex(d.index, freq="M").to_timestamp("M")
+    return d
+
+
+def period_table(d, cols):
+    rows = {}
+    for label, col in cols.items():
+        r, n = d[col], len(d)
+        w = (1 + r).cumprod()
+        vol = r.std() * np.sqrt(12)
+        ex = r - d["cash"]
+        rows[label] = {"CAGR %": 100 * (w.iloc[-1] ** (12 / n) - 1), "vol %": 100 * vol,
+                       "Sharpe over cash": ex.mean() / ex.std() * np.sqrt(12), "return / vol": r.mean() * 12 / vol,
+                       "max drawdown %": 100 * (w / w.cummax() - 1).min(), "£10k becomes": 10_000 * w.iloc[-1]}
+    out = pd.DataFrame(rows).T
+    out.attrs["cash"] = 100 * ((1 + d["cash"]).prod() ** (12 / len(d)) - 1)
+    return out
+
+
+def spells(flag):
+    on, out, start = flag.astype(bool), [], None
+    for m, v in on.items():
+        if v and start is None:
+            start = m
+        if not v and start is not None:
+            out.append((start, prev)); start = None
+        prev = m
+    if start is not None:
+        out.append((start, prev))
+    return pd.DataFrame([{"from": f"{a:%b %Y}", "to": f"{b:%b %Y}", "months": len(on[a:b])} for a, b in out])
