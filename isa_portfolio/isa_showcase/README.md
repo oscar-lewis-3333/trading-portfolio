@@ -9,17 +9,17 @@ Backtested, begin in February 2001 with £10,000, end in September 2026. The boo
 | | CAGR | Sharpe | max drawdown | £10,000 becomes |
 |---|---|---|---|---|
 | core alone | 8.7% | 0.56 | −35.7% | £85,000 |
-| whole book | 17.9% | 1.48 | −9.9% | £684,100 |
+| whole book | 18.9% | 1.43 | −12.0% | £845,300 |
 | MSCI World (net, GBP) | 7.8% | 0.45 | −39.9% | £68,900 |
 
 ### Longer history, 1979–2026
 
 | period | book Sharpe | core-path Sharpe | book return/vol | core-path return/vol | book max drawdown | core-path max drawdown | cash rate |
 |---|---|---|---|---|---|---|---|
-| 1979–2026 | 0.83 | 0.63 | 1.27 | 1.01 | −31% | −38% | 5.9% |
+| 1979–2026 | 0.89 | 0.63 | 1.30 | 1.01 | −31% | −38% | 5.9% |
 | 1979–1989 | 0.51 | 0.62 | 1.14 | 1.18 | −31% | −38% | 12.6% |
-| 1990–2000 | 0.29 | 0.24 | 0.88 | 0.72 | −14% | −33% | 8.0% |
-| 2001–2026 | 1.48 | 0.92 | 1.73 | 1.13 | −10% | −20% | 2.4% |
+| 1990–2000 | 0.52 | 0.24 | 1.06 | 0.72 | −14% | −33% | 8.0% |
+| 2001–2026 | 1.43 | 0.92 | 1.65 | 1.13 | −12% | −20% | 2.4% |
 
 ### Forward estimate
 

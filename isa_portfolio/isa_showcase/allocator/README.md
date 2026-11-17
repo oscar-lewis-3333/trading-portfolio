@@ -8,7 +8,7 @@ Begin on 1st February 2001 with £10,000 and trade according to the allocator. T
 
 | | CAGR | Sharpe | max drawdown | £10,000 becomes |
 |---|---|---|---|---|
-| ISA book | 17.9% | 1.48 | −9.9% | £684,100 |
+| ISA book | 18.9% | 1.43 | −12.0% | £845,300 |
 | MSCI World | 7.8% | 0.45 | −39.9% | £68,900 |
 | MSCI USA (≈ S&P 500) | 8.8% | 0.49 | −41.4% | £86,300 |
 | MSCI UK | 5.8% | 0.32 | −40.3% | £42,900 |
@@ -23,10 +23,10 @@ The book was built in-sample on 2001-2026. So, I re-ran the rule on 1979-2000 us
 
 | period | book Sharpe | core-path Sharpe | book return/vol | core-path return/vol | book max drawdown | core-path max drawdown | cash rate |
 |---|---|---|---|---|---|---|---|
-| 1979–2026 | 0.83 | 0.63 | 1.27 | 1.01 | −31% | −38% | 5.9% |
+| 1979–2026 | 0.89 | 0.63 | 1.30 | 1.01 | −31% | −38% | 5.9% |
 | 1979–1989 | 0.51 | 0.62 | 1.14 | 1.18 | −31% | −38% | 12.6% |
-| 1990–2000 | 0.29 | 0.24 | 0.88 | 0.72 | −14% | −33% | 8.0% |
-| 2001–2026 | 1.48 | 0.92 | 1.73 | 1.13 | −10% | −20% | 2.4% |
+| 1990–2000 | 0.52 | 0.24 | 1.06 | 0.72 | −14% | −33% | 8.0% |
+| 2001–2026 | 1.43 | 0.92 | 1.65 | 1.13 | −12% | −20% | 2.4% |
 
 Sharpe is defined to be the returns over cash per unit risk, so the high interest rates from 1979-2000 kill the Sharpes of those eras, hence a 'return/vol' column is added to show the difference.
 

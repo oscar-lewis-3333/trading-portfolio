@@ -9,10 +9,6 @@ February 2001 to September 2026, from £10,000, after modelled costs:
 | | CAGR | Sharpe | max drawdown | £10,000 becomes |
 |---|---|---|---|---|
 | core + defensive + rebound | 13.3% | 0.92 | −19.8% | £247,400 |
-| core + defensive + rebound + overlay | 14.4% | 1.00 | −19.8% | £312,700 |
+| core + defensive + rebound + overlay | 15.0% | 0.95 | −19.8% | £360,400 |
 
-Its one notable losing year is 2016 (-2.6%), when the fallout from Brexit disrupted general month-end patterns.
-
-## Before 2001
-
-The overlay history begins in 1988 due to the necessary index data. Before 2007, the combined overlays lost money (-28bp on average), compared to +47bp for 2007 onwards. From February 1979 to January 2001, it took the book from 16.9% to 16.5% CAGR (Sharpe 0.44 to 0.42 (over cash)). This is due to the economic principle it was built on not holding yet, and beginning in the mid-2000s. The overlay is a bet that the current economic principle its built upon continues to hold.
+Across the whole history, the overlay does best in long, steady rises, such as 1995–97, 2013–14, 2017 and 2023–24, where it adds between 7 and 18% (pp) per year. Its losses come mostly from short, sharp shocks after calm periods, such as 2007–08, 2018, 2020 and 2025, alongside the already volatile markets of the late 1980s and late 1990s.

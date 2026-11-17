@@ -36,7 +36,7 @@ Backtested, begin in February 2001 with £10,000, end in September 2026. The boo
 
 | | CAGR | Sharpe | max drawdown | £10,000 becomes |
 |---|---|---|---|---|
-| ISA book | 17.9% | 1.48 | −9.9% | £684,100 |
+| ISA book | 18.9% | 1.43 | −12.0% | £845,300 |
 | MSCI World | 7.8% | 0.45 | −39.9% | £68,900 |
 | MSCI USA (≈ S&P 500) | 8.8% | 0.49 | −41.4% | £86,300 |
 | MSCI UK | 5.8% | 0.32 | −40.3% | £42,900 |
